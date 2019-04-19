@@ -7,15 +7,53 @@
 //
 
 import UIKit
+import Wendy
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var networkProvider: NetworkRequestProvider! = nil
+    let accountManager = AccountManager(environmet: .develop)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        Wendy.setup(tasksFactory: GroceryListPendingTasksFactory())
+        #if DEBUG
+        WendyConfig.debug = true
+        #endif
+
+        let networkWrapper = NetworkRequestWrapper()
+        self.networkProvider = NetworkRequestProvider(networkWrapper: networkWrapper, tokenRefresher: nil, accountManager: self.accountManager)
+
+        let resolver = DIResolver(networkController: self.networkProvider)
+        let autorisationController = resolver.presentAuthorisationViewController()
+        let navi = UINavigationController(rootViewController: autorisationController)
+
+        self.window?.rootViewController = navi
+        self.window?.makeKeyAndVisible()
+//        
+//        do {
+//            let sourceData = "AES256".data(using: .utf8)!
+//            let password = "password"
+//            let salt = AES256Crypter.randomSalt()
+//            let iv = AES256Crypter.randomIv()
+//        
+//            let key = try AES256Crypter.createKey(password: password.data(using: .utf8)!, salt: salt)
+//            let aes = try AES256Crypter(key: key, iv: iv)
+//            let encryptedData = try aes.encrypt(sourceData)
+//            
+//            let key2 = try AES256Crypter.createKey(password: "pass".data(using: .utf8)!, salt: salt)
+//            let aes2 = try AES256Crypter(key: key2, iv: iv)
+//            let decryptedData = try aes.decrypt(encryptedData)
+//            
+//            print("Decrypted hex string: \(String(data: decryptedData, encoding: String.Encoding.utf8))")
+//            print("Encrypted hex string: \(encryptedData.base64EncodedData())")
+//        } catch {
+//            print("Failed")
+//            print(error)
+//        }
+
         return true
     }
 
@@ -41,6 +79,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
 
+extension Data {
+    struct HexEncodingOptions: OptionSet {
+        let rawValue: Int
+        static let upperCase = HexEncodingOptions(rawValue: 1 << 0)
+    }
+
+    func hexEncodedString(options: HexEncodingOptions = []) -> String {
+        let format = options.contains(.upperCase) ? "%02hhX" : "%02hhx"
+        return map { String(format: format, $0) }.joined()
+    }
+}
