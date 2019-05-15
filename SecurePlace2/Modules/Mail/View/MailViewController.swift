@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-@objc enum EmailConttrollerType: Int {
+@objc enum EmailModuleType: Int {
     case signIn
     case signUp
     case PINChange
@@ -18,32 +18,38 @@ import SnapKit
 class MailViewController: BaseViewController, UITextFieldDelegate {
 
     var presenter: MailPresenterProtocol!
+    
     private var emailImageView = UIImageView()
-    private var emailLabel = UILabel()
-    private var emailDescription = UILabel()
-    private var emailTextField = SSTextField(placeholder: "Email")
-    private var continueButton = UIButton()
+    private var emailLabel = SSTitleLabel(title: "Email")
+    private var emailDescription: SSDescriptionLabel!
+    private var emailTextField = SSTextField(placeholder: "Email", type: .emailAddress)
+    private var continueButton = SSContinueButton(title: "Continue")
+    private var stackView = UIStackView()
+    
     private var keyboardHeight = 0
-    private var controllerType = EmailConttrollerType.signIn
+    private var controllerType = EmailModuleType.signIn
 
     override func viewWillAppear(_ animated: Bool) {
         self.emailTextField.becomeFirstResponder()
+        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.controllerType = self.presenter.getModuleType()
         self.createUI()
     }
 
     private func createUI() {
 
         self.view.backgroundColor = UIColor.white
-        self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.layoutIfNeeded()
 
+        self.setDescriptionTextWithModuleType()
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
@@ -51,51 +57,30 @@ class MailViewController: BaseViewController, UITextFieldDelegate {
             object: nil
         )
 
-        self.view.addSubview(emailImageView)
-        self.view.addSubview(emailLabel)
-        self.view.addSubview(emailDescription)
-        self.view.addSubview(emailTextField)
-        self.view.addSubview(continueButton)
-
+        self.stackView = UIStackView.viewsAndIntsToStack(viewsAndSpacings: [
+            emailImageView,10,
+            emailLabel,18,
+            emailDescription,28,
+            emailTextField,19,
+            continueButton,19])
+        
+        self.view.addSubview(stackView)
+        
         self.emailImageView.image = UIImage(named: "emailImage")
         self.emailImageView.contentMode = .scaleAspectFit
-
-        self.emailLabel.font = UIFont.systemFont(ofSize: 37.withRatio(), weight: .bold)
-        self.emailLabel.text = "Email"
-
-        self.emailDescription.text = "Please, enter your email.\n We will send one-time code."
-        self.emailDescription.font = UIFont.systemFont(ofSize: 18.withRatio(), weight: .light)
-        self.emailDescription.textAlignment = .center
-        self.emailDescription.numberOfLines = 2
-
+        
         self.emailTextField.delegate = self
-        self.emailTextField.keyboardType = .emailAddress
-
-        self.continueButton.setTitle("Continue", for: .normal)
-        self.continueButton.setTitleColor(Colors.textBlue, for: .normal)
-        self.continueButton.setTitleColor(Colors.buttonBlue, for: .highlighted)
+        self.emailTextField.autocorrectionType = .no
+        
         self.continueButton.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
 
         self.emailTextField.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.continueButton.snp.top).offset(-19.withRatio())
             make.left.equalToSuperview().offset(16.withRatio())
             make.right.equalToSuperview().offset(-16.withRatio())
             make.height.equalTo(50.withRatio())
         }
 
-        self.emailDescription.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.emailTextField.snp.top).offset(-28.withRatio())
-            make.centerX.equalToSuperview()
-        }
-
-        self.emailLabel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.emailDescription.snp.top).offset(-18.withRatio())
-            make.centerX.equalToSuperview()
-        }
-
         self.emailImageView.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(self.emailLabel.snp.top).offset(-12.withRatio())
             make.width.height.equalTo(72.withRatio())
         }
 
@@ -103,7 +88,17 @@ class MailViewController: BaseViewController, UITextFieldDelegate {
 
     @objc func continueButtonPressed() {
         if (validateEmail(strEmail: emailTextField.text as! NSString)) {
-            print (true)
+            
+            switch controllerType {
+            case .signUp:
+                showUserAlreadyExists()
+                self.presenter.signUpUser(with: emailTextField.text ?? "")
+            case .signIn:
+                self.presenter.signInUser(with: emailTextField.text ?? "")
+            case .PINChange:
+                self.presenter.resetPIN(with: emailTextField.text ?? "")
+            }
+            
         } else {
             self.emailTextField.text = ""
             let alert = UIAlertController(title: "Wrong format!", message: "Please enter a valid email adress", preferredStyle: .alert)
@@ -122,35 +117,36 @@ class MailViewController: BaseViewController, UITextFieldDelegate {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             self.keyboardHeight = Int(keyboardRectangle.height)
-
-            self.continueButton.snp.makeConstraints { (make) in
-                make.bottom.equalToSuperview().offset(-self.keyboardHeight - 19)
+            
+            self.stackView.snp.makeConstraints { (make) in
+                make.bottom.equalToSuperview().offset(-self.keyboardHeight)
                 make.centerX.equalToSuperview()
+                make.right.equalToSuperview()
+                make.left.equalToSuperview()
             }
         }
     }
+    
+    func setDescriptionTextWithModuleType() {
+        switch controllerType {
+        case .signUp:
+            self.emailDescription = SSDescriptionLabel(text: "Please, enter your email to Sign Up\n No verification required.", containsBoldText: "Sign Up", numberOfLines: 2)
+        case .signIn:
+            self.emailDescription = SSDescriptionLabel(text: "Please, enter your email to Sign In\n We will send one-time code.", containsBoldText: "Sign In", numberOfLines: 2)
+        case .PINChange:
+            self.emailDescription = SSDescriptionLabel(text: "Please, enter your email to reset PIN\n We will send one-time code.", containsBoldText: "reset PIN", numberOfLines: 2)
+        }
+    }
+    
+    //Sign Up methods
+    func showUserAlreadyExists() {
+        let alert = UIAlertController(title: "Dejavue?", message: "User with this email already exists.\n Do you want to Sign In ?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 
+    
 }
+
 extension MailViewController: MailViewProtocol { }
-
-extension CGFloat {
-
-    func withRatio() -> CGFloat {
-        return self * (UIScreen.main.bounds.width / 375)
-    }
-}
-
-extension Double {
-
-    func withRatio() -> CGFloat {
-        return CGFloat(self) * (UIScreen.main.bounds.width / 375)
-    }
-
-}
-
-extension Int {
-
-    func withRatio() -> CGFloat {
-        return CGFloat(self) * (UIScreen.main.bounds.width / 375)
-    }
-}

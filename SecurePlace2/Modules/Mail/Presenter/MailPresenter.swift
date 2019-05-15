@@ -11,14 +11,32 @@ class MailPresenter: BasePresenter {
     weak var view: MailViewProtocol?
     private var wireFrame: MailWireFrameProtocol
     private var interactor: MailInteractorProtocol
-    private var type: EmailConttrollerType
+    private var type: EmailModuleType
 
-    init(view: MailViewProtocol, wireFrame: MailWireFrameProtocol, interactor: MailInteractorProtocol, type: EmailConttrollerType) {
+    init(view: MailViewProtocol, wireFrame: MailWireFrameProtocol, interactor: MailInteractorProtocol, type: EmailModuleType) {
         self.view = view
         self.interactor = interactor
         self.wireFrame = wireFrame
         self.type = type
     }
+    
+    func getModuleType() -> EmailModuleType {
+        return self.type
+    }
+    
 }
 
-extension MailPresenter: MailPresenterProtocol { }
+extension MailPresenter: MailPresenterProtocol {
+    func resetPIN(with email: String) {
+        print("Reset PIN code")
+    }
+    
+    
+    func signUpUser(with email: String) {
+        print("Sign Up")
+    }
+    
+    func signInUser(with email: String) {
+        print("Sign In")
+    }
+}

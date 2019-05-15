@@ -20,7 +20,7 @@ class AuthorisationPresenter: BasePresenter {
 }
 
 extension AuthorisationPresenter: AuthorisationPresenterProtocol {
-    func switchToEmail(type: EmailConttrollerType) {
+    func switchToEmail(type: EmailModuleType) {
         self.wireFrame.presentEmail(from: self.view, type: type)
     }
 }

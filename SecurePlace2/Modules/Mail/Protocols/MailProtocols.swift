@@ -12,6 +12,12 @@ protocol MailViewProtocol: class { }
 
 protocol MailWireFrameProtocol: class { }
 
-protocol MailPresenterProtocol: class { }
+protocol MailPresenterProtocol: class {
+    func getModuleType() -> EmailModuleType
+    
+    func signUpUser(with email: String)
+    func signInUser(with email: String)
+    func resetPIN(with email: String)
+}
 
 protocol MailInteractorProtocol: class { }

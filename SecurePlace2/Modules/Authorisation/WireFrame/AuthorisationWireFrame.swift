@@ -9,7 +9,7 @@
 import UIKit
 
 class AuthorisationWireFrame: BaseWireFrame, AuthorisationWireFrameProtocol {
-    func presentEmail(from view: AuthorisationViewProtocol?, type: EmailConttrollerType) {
+    func presentEmail(from view: AuthorisationViewProtocol?, type: EmailModuleType) {
         guard let fromView = view as? UIViewController else { return }
         let controller = self.resolver.presentMailViewController(type: type)
         fromView.navigationController?.pushViewController(controller, animated: true)

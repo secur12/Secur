@@ -11,11 +11,11 @@ import UIKit
 protocol AuthorisationViewProtocol: class { }
 
 protocol AuthorisationWireFrameProtocol: class {
-    func presentEmail(from view: AuthorisationViewProtocol?, type: EmailConttrollerType)
+    func presentEmail(from view: AuthorisationViewProtocol?, type: EmailModuleType)
 }
 
 protocol AuthorisationPresenterProtocol: class {
-    func switchToEmail(type: EmailConttrollerType)
+    func switchToEmail(type: EmailModuleType)
 }
 
 protocol AuthorisationInteractorProtocol: class { }

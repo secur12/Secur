@@ -32,27 +32,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.window?.rootViewController = navi
         self.window?.makeKeyAndVisible()
-//        
-//        do {
-//            let sourceData = "AES256".data(using: .utf8)!
-//            let password = "password"
-//            let salt = AES256Crypter.randomSalt()
-//            let iv = AES256Crypter.randomIv()
-//        
-//            let key = try AES256Crypter.createKey(password: password.data(using: .utf8)!, salt: salt)
-//            let aes = try AES256Crypter(key: key, iv: iv)
-//            let encryptedData = try aes.encrypt(sourceData)
-//            
-//            let key2 = try AES256Crypter.createKey(password: "pass".data(using: .utf8)!, salt: salt)
-//            let aes2 = try AES256Crypter(key: key2, iv: iv)
-//            let decryptedData = try aes.decrypt(encryptedData)
-//            
-//            print("Decrypted hex string: \(String(data: decryptedData, encoding: String.Encoding.utf8))")
-//            print("Encrypted hex string: \(encryptedData.base64EncodedData())")
-//        } catch {
-//            print("Failed")
-//            print(error)
-//        }
+        
+        do {
+            let sourceData = "AES256".data(using: .utf8)!
+            let password = "password"
+            let salt = AES256Crypter.randomSalt()
+            let iv = AES256Crypter.randomIv()
+        
+            let key = try AES256Crypter.createKey(password: password.data(using: .utf8)!, salt: salt)
+            let aes = try AES256Crypter(key: key, iv: iv)
+            let encryptedData = try aes.encrypt(sourceData)
+            
+            let key2 = try AES256Crypter.createKey(password: "pass".data(using: .utf8)!, salt: salt)
+            let aes2 = try AES256Crypter(key: key2, iv: iv)
+            let decryptedData = try aes.decrypt(encryptedData)
+            
+            print("Decrypted hex string: \(String(data: decryptedData, encoding: String.Encoding.utf8))")
+            print("Encrypted hex string: \(encryptedData.base64EncodedData())")
+        } catch {
+            print("Failed")
+            print(error)
+        }
 
         return true
     }

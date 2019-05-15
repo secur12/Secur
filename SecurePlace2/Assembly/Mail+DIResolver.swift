@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: - test
 protocol MailProtocol {
-    func presentMailViewController(type: EmailConttrollerType) -> UIViewController
+    func presentMailViewController(type: EmailModuleType) -> UIViewController
 }
 
 extension DIResolver: MailProtocol {
-    func presentMailViewController(type: EmailConttrollerType) -> UIViewController {
+    func presentMailViewController(type: EmailModuleType) -> UIViewController {
         let viewController = MailViewController()
         let interactor = MailInteractor(networkController: self.networkController)
         let wireFrame = MailWireFrame(resolver: self)

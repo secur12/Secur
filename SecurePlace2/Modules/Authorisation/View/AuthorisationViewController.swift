@@ -14,9 +14,9 @@ class AuthorisationViewController: BaseViewController, UIGestureRecognizerDelega
     var presenter: AuthorisationPresenterProtocol!
     private var logoImageView = UIImageView()
     private var starsImageView = UIImageView()
-    private var dontHaveAccountLabel = UILabel()
-    private var signUpLabel = UILabel()
-    private var dontHaveSignUpStackView = UIStackView()
+    private var alreadyHaveAccountLabel = UILabel()
+    private var signIn = UILabel()
+    private var alreadyHaveSignIn = UIStackView()
     private var signInButton = UIButton()
     private var descriptionLabel = UILabel()
 
@@ -31,10 +31,10 @@ class AuthorisationViewController: BaseViewController, UIGestureRecognizerDelega
     }
 
     @objc func switchToEmail(sender: UITapGestureRecognizer? = nil) {
-        if (sender == self.dontHaveSignUpStackView.gestureRecognizers?[0]) {
-            self.presenter.switchToEmail(type: .signUp)
-        } else {
+        if (sender == self.alreadyHaveSignIn.gestureRecognizers?[0]) {
             self.presenter.switchToEmail(type: .signIn)
+        } else {
+            self.presenter.switchToEmail(type: .signUp)
         }
     }
 
@@ -48,7 +48,7 @@ class AuthorisationViewController: BaseViewController, UIGestureRecognizerDelega
         self.view.layer.insertSublayer(gradient, at: 4)
         self.view.addSubview(logoImageView)
         self.view.addSubview(starsImageView)
-        self.view.addSubview(dontHaveSignUpStackView)
+        self.view.addSubview(alreadyHaveSignIn)
         self.view.addSubview(signInButton)
         self.view.addSubview(descriptionLabel)
 
@@ -58,67 +58,67 @@ class AuthorisationViewController: BaseViewController, UIGestureRecognizerDelega
         self.starsImageView.image = UIImage(named: "passStars")
         self.starsImageView.contentMode = .scaleAspectFit
 
-        self.dontHaveAccountLabel.textColor = Colors.textWhite
-        self.dontHaveAccountLabel.font = UIFont(name: "Avenir", size: 18.withRatio())
-        self.dontHaveAccountLabel.text = "Don't have an account?"
+        self.alreadyHaveAccountLabel.textColor = Colors.textWhite
+        self.alreadyHaveAccountLabel.font = UIFont(name: "Avenir", size: 18.withRatio())
+        self.alreadyHaveAccountLabel.text = "Already have an account?"
 
-        self.signUpLabel.textColor = Colors.textWhite
-        self.signUpLabel.font = UIFont.boldSystemFont(ofSize: 18.withRatio())
-        self.signUpLabel.text = "Sign Up"
+        self.signIn.textColor = Colors.textWhite
+        self.signIn.font = UIFont.boldSystemFont(ofSize: 18.withRatio())
+        self.signIn.text = "Sign In"
 
         self.descriptionLabel.textColor = Colors.textWhite
         self.descriptionLabel.font = UIFont(name: "Avenir", size: 25.withRatio())
         self.descriptionLabel.text = "Secure place for your \nphotos, videos and \ndocuments"
         self.descriptionLabel.numberOfLines = 3
 
-        dontHaveSignUpStackView.axis = .horizontal
-        dontHaveSignUpStackView.distribution = .equalSpacing
-        dontHaveSignUpStackView.alignment = .center
-        dontHaveSignUpStackView.spacing = 2
-        dontHaveSignUpStackView.translatesAutoresizingMaskIntoConstraints = false
-        dontHaveSignUpStackView.addArrangedSubview(dontHaveAccountLabel)
-        dontHaveSignUpStackView.addArrangedSubview(signUpLabel)
+        alreadyHaveSignIn.axis = .horizontal
+        alreadyHaveSignIn.distribution = .equalSpacing
+        alreadyHaveSignIn.alignment = .center
+        alreadyHaveSignIn.spacing = 2
+        alreadyHaveSignIn.translatesAutoresizingMaskIntoConstraints = false
+        alreadyHaveSignIn.addArrangedSubview(alreadyHaveAccountLabel)
+        alreadyHaveSignIn.addArrangedSubview(signIn)
         let goToEmailTap = UITapGestureRecognizer(target: self, action: #selector(switchToEmail(sender:)))
-        dontHaveSignUpStackView.addGestureRecognizer(goToEmailTap)
-        dontHaveSignUpStackView.isUserInteractionEnabled = true
+        alreadyHaveSignIn.addGestureRecognizer(goToEmailTap)
+        alreadyHaveSignIn.isUserInteractionEnabled = true
 
         self.signInButton.backgroundColor = UIColor.white
         self.signInButton.layer.opacity = 0.8
         self.signInButton.titleLabel?.font = UIFont.systemFont(ofSize: 21.withRatio(), weight: .regular)
         self.signInButton.setTitleColor(Colors.darkBlue, for: .normal)
-        self.signInButton.setTitle("Sign In", for: .normal)
-        self.signInButton.layer.cornerRadius = 9
+        self.signInButton.setTitle("Start", for: .normal)
+        self.signInButton.layer.cornerRadius = 9.withRatio()
         self.signInButton.addTarget(self, action: #selector(switchToEmail(sender:)), for: .touchUpInside)
 
         self.logoImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(36.withRatio())
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(55.withRatio())
             make.left.equalToSuperview().offset(20.withRatio())
-            make.width.height.equalTo(self.view.snp.width).multipliedBy(0.45)
-            make.height.equalTo(self.logoImageView.snp.width).multipliedBy(0.21)
+            make.width.equalTo(174.withRatio())
+            make.height.equalTo(43.withRatio())
         }
 
         self.starsImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(32)
-            make.right.equalToSuperview().offset(-35)
-            make.height.equalTo(self.view.snp.width).multipliedBy(0.41)
-            make.width.equalTo(self.starsImageView.snp.height).multipliedBy(0.17)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(32.withRatio())
+            make.right.equalToSuperview().offset(-35.withRatio())
+            make.height.equalTo(167.withRatio())
+            make.width.equalTo(35.withRatio())
         }
 
-        self.dontHaveSignUpStackView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-25)
+        self.alreadyHaveSignIn.snp.makeConstraints { (make) in
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-25.withRatio())
             make.centerX.equalToSuperview()
         }
 
         self.signInButton.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.dontHaveSignUpStackView.snp.top).offset(-20)
-            make.left.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-16)
-            make.height.equalTo(58)
+            make.bottom.equalTo(self.alreadyHaveSignIn.snp.top).offset(-20.withRatio())
+            make.left.equalToSuperview().offset(16.withRatio())
+            make.right.equalToSuperview().offset(-16.withRatio())
+            make.height.equalTo(58.withRatio())
         }
 
         self.descriptionLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(20)
-            make.bottom.equalTo(self.signInButton.snp.top).offset(-25)
+            make.left.equalToSuperview().offset(20.withRatio())
+            make.bottom.equalTo(self.signInButton.snp.top).offset(-25.withRatio())
         }
 
     }
