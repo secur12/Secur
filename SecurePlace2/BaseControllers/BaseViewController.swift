@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class BaseViewController: UIViewController {
 
@@ -58,6 +59,21 @@ class BaseViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
+    public func showLoading(message: String?) {
+        if let message = message {
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = "Loading"
+        } else {
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+        }
+    }
+    
+    public func hideLoading() {
+       MBProgressHUD.hideAllHUDs(for: view, animated: true)
+    }
+    
     public func showOkAlertController(title: String?, message: String?, callback: (() -> Void)? = nil) {
         self.showAlertController(style: .alert) {
             $0.title = title
@@ -83,4 +99,6 @@ class BaseViewController: UIViewController {
     @objc func popBack(from: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
 }

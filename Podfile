@@ -6,6 +6,8 @@ target 'SecurePlace2' do
   use_frameworks!
   pod 'Moya', '~> 12.0'
   
+  pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'LBTATools'
   pod 'SnapKit', '~> 4.0.0'
   pod 'Wendy', '~> 0.1.0-alpha'
   # Pods for SecurePlace2

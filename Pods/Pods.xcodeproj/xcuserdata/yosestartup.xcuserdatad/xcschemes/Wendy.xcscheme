@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "98EEC25E3DAE93F7B0CCC856D5F708D0"
+               BlueprintIdentifier = "8B39693B932CC25C8B784F99EA1ED21B"
                BuildableName = "Wendy.framework"
                BlueprintName = "Wendy"
                ReferencedContainer = "container:Pods.xcodeproj">

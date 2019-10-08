@@ -15,6 +15,7 @@ class SSContinueButton: UIButton {
         self.setTitle(title, for: .normal)
         self.setTitleColor(Colors.textBlue, for: .normal)
         self.setTitleColor(Colors.buttonBlue, for: .highlighted)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
