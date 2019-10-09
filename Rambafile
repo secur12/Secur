@@ -1,0 +1,27 @@
+### Headers settings
+company: Security Inc.
+
+### Xcode project settings
+project_name: SecurePlace2
+xcodeproj_path: SecurePlace2.xcodeproj
+prefix: SS
+
+### Code generation settings section
+# The main project target name
+project_target: SecurePlace2
+
+# The file path for new modules
+project_file_path: SecurePlace2
+
+# The Xcode group path to new modules
+project_group_path: SecurePlace2
+
+### Dependencies settings section
+podfile_path: ~/Desktop/SecurePlace2/SecurePlace2
+
+### Templates
+templates:
+- {name: rviper_controller}
+- {name: mvvm_controller}
+- {name: swifty_viper}
+- {name: viper}

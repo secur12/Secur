@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:/Users/yosestartup/Desktop/SecurePlace2/SecurePlace2/BaseControllers"
+      name = "BaseControllers">
+      <FileRef
+         location = "group:BaseWireFrame.swift">
+      </FileRef>
+      <Group
+         location = "group:BaseNavigationController"
+         name = "BaseNavigationController">
+         <Group
+            location = "group:Presenter"
+            name = "Presenter">
+            <FileRef
+               location = "group:BaseNavigationControllerPresenter.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:WireFrame"
+            name = "WireFrame">
+            <FileRef
+               location = "group:BaseNavigationControllerWireFrame.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:View"
+            name = "View">
+            <FileRef
+               location = "group:BaseNavigationControllerViewController.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Protocols"
+            name = "Protocols">
+            <FileRef
+               location = "group:BaseNavigationControllerProtocols.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Interactor"
+            name = "Interactor">
+            <FileRef
+               location = "group:BaseNavigationControllerInteractor.swift">
+            </FileRef>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:BaseViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:BaseTableViewCell.swift">
+      </FileRef>
+      <FileRef
+         location = "group:BaseInteractor.swift">
+      </FileRef>
+      <FileRef
+         location = "group:BaseTableFooterContainer.swift">
+      </FileRef>
+      <FileRef
+         location = "group:BasePresenter.swift">
+      </FileRef>
+      <Group
+         location = "group:BaseTabBarController"
+         name = "BaseTabBarController">
+         <Group
+            location = "group:Presenter"
+            name = "Presenter">
+            <FileRef
+               location = "group:BaseTabBarControllerPresenter.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:WireFrame"
+            name = "WireFrame">
+            <FileRef
+               location = "group:BaseTabBarControllerWireFrame.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:View"
+            name = "View">
+            <FileRef
+               location = "group:BaseTabBarControllerViewController.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Protocols"
+            name = "Protocols">
+            <FileRef
+               location = "group:BaseTabBarControllerProtocols.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Interactor"
+            name = "Interactor">
+            <FileRef
+               location = "group:BaseTabBarControllerInteractor.swift">
+            </FileRef>
+         </Group>
+      </Group>
+   </Group>
    <FileRef
       location = "self:SecurePlace2.xcodeproj">
    </FileRef>
