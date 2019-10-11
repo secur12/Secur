@@ -25,7 +25,6 @@ class PINSetupViewController: BaseViewController {
     private var stackView = UIStackView()
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.emailTextField.becomeFirstResponder()
         self.navigationController?.navigationBar.isHidden = false
     }
     

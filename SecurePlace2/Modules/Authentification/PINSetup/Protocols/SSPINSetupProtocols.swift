@@ -15,7 +15,6 @@ protocol PINSetupWireFrameProtocol: class {
 }
 
 protocol PINSetupPresenterProtocol: class {
-    func getModuleType() -> PINSetupModuleType
 }
 
 protocol PINSetupInteractorProtocol: class { }

@@ -23,9 +23,7 @@ class PINSetupPresenter: BasePresenter {
         self.tokens = tokens
     }
     
-    func getModuleType() -> PINSetupModuleType {
-        return self.type
-    }
+    
     
 }
 
