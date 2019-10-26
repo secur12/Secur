@@ -7,9 +7,9 @@
 //
 
 class MailInteractor: BaseInteractor {
-    private let networkController: NetworkRequestProvider
+    private let networkController: NetworkAuthRequestProtocol
     
-    init(networkController: NetworkRequestProvider) {
+    init(networkController: NetworkAuthRequestProtocol) {
         self.networkController = networkController
     }
 }
