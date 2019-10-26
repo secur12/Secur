@@ -28,7 +28,7 @@ class MailViewController: BaseScrollViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
-        self.emailTextField.becomeFirstResponder()
+        //self.emailTextField.becomeFirstResponder()
     }
 
     override func viewDidLoad() {

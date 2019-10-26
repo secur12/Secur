@@ -29,9 +29,9 @@ class BaseScrollViewController: BaseViewController {
         return sv
     }()
     
-    fileprivate let alignment: FormAlignment
+    public var alignment: FormAlignment
     
-    public init(alignment: FormAlignment = .top) {
+    public init(alignment: FormAlignment = .center) {
         self.alignment = alignment
         super.init(nibName: nil, bundle: nil)
     }
@@ -88,18 +88,19 @@ class BaseScrollViewController: BaseViewController {
         guard let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = value.cgRectValue
         
-        scrollView.contentInset.bottom = keyboardFrame.height
-        
-        // when stackView is center aligned, we need some extra bottom padding, not sure why yet...
+        scrollView.contentInset.bottom = keyboardFrame.height-30.withRatio()
+        // when stackView is center aligned, we need some etra bottom padding, not sure why yet...
         if alignment == .center {
             scrollView.contentInset.bottom += UIApplication.shared.statusBarFrame.height
+            scrollView.contentOffset.y = keyboardFrame.height-30.withRatio()
         }
         
         if distanceToBottom > 0 {
             scrollView.contentInset.bottom -= distanceToBottom
         }
         
-        self.scrollView.scrollIndicatorInsets.bottom = keyboardFrame.height 
+        self.scrollView.scrollIndicatorInsets.bottom = keyboardFrame.height-30.withRatio()
+        
     }
     
     @objc fileprivate func handleKeyboardHide() {

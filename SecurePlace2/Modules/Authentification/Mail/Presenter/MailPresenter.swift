@@ -42,14 +42,8 @@ extension MailPresenter: MailPresenterProtocol {
         }
     }
     
-    private func validateEmail (strEmail: NSString) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-        let emailText = NSPredicate(format: "SELF MATCHES [c]%@", emailRegex)
-        return (emailText.evaluate(with: strEmail))
-    }
-    
     func didClickContinue(email: String) {
-        if (validateEmail(strEmail: email as NSString)) {
+        if (String.validateEmail(strEmail: email as String)) {
             switch moduleType {
             case .signUp:
                 self.signUpUser(with: email)
