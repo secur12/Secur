@@ -1,0 +1,6 @@
+framework module Pods_SecurePlace2Tests {
+  umbrella header "Pods-SecurePlace2Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

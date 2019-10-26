@@ -1,0 +1,33 @@
+# Template information section
+name: viper
+summary: MY VIPER MODEL
+author: ESKARIA Corporation
+version: 1.2.0
+license: MIT
+
+# The declarations for code files
+code_files:
+# View layer
+- {name: View/ViewController.swift, path: Code/View/viewcontroller.swift.liquid}
+
+# Presenter layer
+- {name: Presenter/Presenter.swift, path: Code/Presenter/presenter.swift.liquid}
+
+# Interactor layer
+- {name: Interactor/Interactor.swift, path: Code/Interactor/interactor.swift.liquid}
+
+# Protocols layer
+- {name: Protocols/Protocols.swift, path: Code/Protocols/protocols.swift.liquid}
+
+# Configurator
+- {name: WireFrame/WireFrame.swift, path: Code/WireFrame/wireframe.swift.liquid}
+
+# Resolver file
+- {name: +DIResolver.swift, path: Code/Resolver/Resolver.swift.liquid}
+
+# The declarations for test files
+test_files:
+- {name: +Tests.swift, path: Code/Tests/Tests.swift.liquid}
+
+# Template dependencies
+dependencies:
