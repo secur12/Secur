@@ -48,7 +48,7 @@ extension AccountManager {
 
     func getBaseUrl() -> String {
         switch environmet {
-        case .develop: return "http://api.cherdak.eskaria.com:9090/api/v1"
+        case .develop: return "http://127.0.0.1"
         case .production: return "http://api.cherdak.eskaria.com:9090/api/v1"
         case .local: return "http://192.168.100.2:9090/api/v1"
         }

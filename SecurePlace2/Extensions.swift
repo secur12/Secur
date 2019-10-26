@@ -60,6 +60,32 @@ extension UIStackView {
         
     }
     
+    static func viewsAndIntsToStack(stackView: UIStackView, viewsAndSpacings: [Any]) {
+    
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
+        stackView.spacing = 0;
+        
+        for element in viewsAndSpacings {
+            if let spacing = element as? Int {
+                let spacingView = UIView()
+                spacingView.alpha = 0
+                spacingView.snp.makeConstraints { (make) in
+                    make.height.equalTo(spacing)
+                }
+                stackView.addArrangedSubview(spacingView)
+            }
+            
+            if let view = element as? UIView {
+                stackView.addArrangedSubview(view)
+            }
+        }
+        
+    }
+    
+    
+    
 }
 
 

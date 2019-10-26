@@ -15,7 +15,7 @@ protocol MailProtocol {
 
 extension DIResolver: MailProtocol {
     func presentMailViewController(type: EmailModuleType) -> UIViewController {
-        let viewController = MailViewController()
+        let viewController = MailViewController(alignment: .center)
         let interactor = MailInteractor(networkController: self.networkController)
         let wireFrame = MailWireFrame(resolver: self)
         let presenter = MailPresenter(view: viewController, wireFrame: wireFrame, interactor: interactor, type: type)

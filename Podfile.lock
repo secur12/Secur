@@ -1,5 +1,7 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.0)
+  - LBTATools (1.0.8)
+  - MBProgressHUD (1.1.0)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya/Core (12.0.1):
@@ -12,6 +14,8 @@ PODS:
     - Require (~> 2.0.0)
 
 DEPENDENCIES:
+  - LBTATools
+  - MBProgressHUD (~> 1.1.0)
   - Moya (~> 12.0)
   - SnapKit (~> 4.0.0)
   - Wendy (~> 0.1.0-alpha)
@@ -19,6 +23,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - LBTATools
+    - MBProgressHUD
     - Moya
     - Require
     - Result
@@ -26,13 +32,15 @@ SPEC REPOS:
     - Wendy
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  LBTATools: 913ba0a3fbad250d042368ca2a0f314cdb015de1
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Require: f93abc18dda985f665465cf027cea7166455fb28
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Wendy: 416b195f26f158784235072d24baf8a6e32cfbf3
 
-PODFILE CHECKSUM: f9e3e870513fc8cef2d5986aa44293781feef629
+PODFILE CHECKSUM: 2a7e55a578ce6d051839d28a6bbfbd6fa1272cba
 
 COCOAPODS: 1.6.1

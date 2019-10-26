@@ -12,7 +12,7 @@ class SSTitleLabel: UILabel {
     
         init(title: String) {
             super.init(frame: CGRect.zero)
-            self.font = UIFont.systemFont(ofSize: 37.withRatio(), weight: .bold)
+            self.font = UIFont.systemFont(ofSize: 37.withRatio(), weight: .medium)
             self.text = title
         }
         
