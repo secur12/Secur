@@ -20,13 +20,14 @@ class MailViewController: BaseScrollViewController, UITextFieldDelegate {
 
     var presenter: MailPresenterProtocol!
     
+    
     private var emailImageView = UIImageView()
     private var emailLabel = SSTitleLabel(title: "Email")
     private var emailDescription: SSDescriptionLabel!
     private var emailTextField = SSTextField(placeholder: "Email", type: .emailAddress)
     private var continueButton = SSContinueButton(title: "Continue")
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Boosl) {
         self.navigationController?.navigationBar.isHidden = false
         //self.emailTextField.becomeFirstResponder()
     }
