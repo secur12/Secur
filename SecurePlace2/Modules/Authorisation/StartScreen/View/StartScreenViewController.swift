@@ -1,5 +1,5 @@
 //
-//  SSAuthorisationViewController.swift
+//  StartScreenViewController.swift
 //  SecurePlace2
 //
 //  Created by Oleksandr Bambuliak on 08/04/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class AuthorisationViewController: BaseViewController, UIGestureRecognizerDelegate {
+class StartScreenViewController: BaseViewController, UIGestureRecognizerDelegate {
 
     var presenter: AuthorisationPresenterProtocol!
     private var logoImageView = UIImageView()
@@ -124,4 +124,4 @@ class AuthorisationViewController: BaseViewController, UIGestureRecognizerDelega
     }
 }
 
-extension AuthorisationViewController: AuthorisationViewProtocol { }
+extension StartScreenViewController: StartScreenViewProtocol { }

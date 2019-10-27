@@ -15,10 +15,10 @@ protocol AuthorisationProtocol {
 
 extension DIResolver: AuthorisationProtocol {
     func presentAuthorisationViewController() -> UIViewController {
-        let viewController = AuthorisationViewController()
-        let interactor = AuthorisationInteractor(networkController: self.networkController)
-        let wireFrame = AuthorisationWireFrame(resolver: self)
-        let presenter = AuthorisationPresenter(view: viewController, wireFrame: wireFrame, interactor: interactor)
+        let viewController = StartScreenViewController()
+        let interactor = StartScreenInteractor(networkController: self.networkController)
+        let wireFrame = StartScreenWireFrame(resolver: self)
+        let presenter = StartScreenPresenter(view: viewController, wireFrame: wireFrame, interactor: interactor)
         viewController.presenter = presenter
         return viewController
     }
