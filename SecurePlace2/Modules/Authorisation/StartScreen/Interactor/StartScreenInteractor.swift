@@ -14,4 +14,4 @@ class StartScreenInteractor: BaseInteractor {
     }
 }
 
-extension StartScreenInteractor: AuthorisationInteractorProtocol { }
+extension StartScreenInteractor: StartScreenInteractorProtocol { }

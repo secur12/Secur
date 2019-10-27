@@ -9,12 +9,12 @@
 import UIKit
 
 // MARK: - Authorisation
-protocol AuthorisationProtocol {
-    func presentAuthorisationViewController() -> UIViewController
+protocol StartScreenProtocol {
+    func presentStartScreenViewController() -> UIViewController
 }
 
-extension DIResolver: AuthorisationProtocol {
-    func presentAuthorisationViewController() -> UIViewController {
+extension DIResolver: StartScreenProtocol {
+    func presentStartScreenViewController() -> UIViewController {
         let viewController = StartScreenViewController()
         let interactor = StartScreenInteractor(networkController: self.networkController)
         let wireFrame = StartScreenWireFrame(resolver: self)

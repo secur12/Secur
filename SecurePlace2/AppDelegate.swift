@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.networkProvider = NetworkRequestProvider(networkWrapper: networkWrapper, tokenRefresher: nil, accountManager: self.accountManager)
 
         let resolver = DIResolver(networkController: self.networkProvider)
-        let autorisationController = resolver.presentAuthorisationViewController()
-        let navi = UINavigationController(rootViewController: autorisationController)
+        let startScreenController = resolver.presentStartScreenViewController()
+        let navi = UINavigationController(rootViewController: startScreenController)
 
         self.window?.rootViewController = navi
         self.window?.makeKeyAndVisible()

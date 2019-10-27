@@ -11,7 +11,7 @@ import SnapKit
 
 class StartScreenViewController: BaseViewController, UIGestureRecognizerDelegate {
 
-    var presenter: AuthorisationPresenterProtocol!
+    var presenter: StartScreenPresenterProtocol!
     private var logoImageView = UIImageView()
     private var starsImageView = UIImageView()
     private var alreadyHaveAccountLabel = UILabel()
