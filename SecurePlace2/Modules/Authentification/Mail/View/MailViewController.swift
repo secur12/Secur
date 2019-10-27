@@ -27,7 +27,7 @@ class MailViewController: BaseScrollViewController, UITextFieldDelegate {
     private var emailTextField = SSTextField(placeholder: "Email", type: .emailAddress)
     private var continueButton = SSContinueButton(title: "Continue")
     
-    override func viewWillAppear(_ animated: Boosl) {
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         //self.emailTextField.becomeFirstResponder()
     }
