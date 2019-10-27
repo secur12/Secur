@@ -9,7 +9,6 @@
 import UIKit
 import Wendy
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -58,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //IQKeyboardManager.shared().isEnabled = true
         
+        print("App did LAunched")
         return true
     }
 

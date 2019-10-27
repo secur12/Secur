@@ -66,8 +66,18 @@ class MailViewController: BaseScrollViewController, UITextFieldDelegate {
         self.continueButton.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
 
         self.emailTextField.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(16.withRatio())
-            make.right.equalToSuperview().offset(-16.withRatio())
+            switch deviceType {
+            case .phone:
+                make.left.equalToSuperview().offset(16.withRatio())
+                make.right.equalToSuperview().offset(-16.withRatio())
+            case .pad:
+                make.left.equalTo(emailDescription.snp.left)
+                make.right.equalTo(emailDescription.snp.right)
+            default:
+                make.left.equalToSuperview().offset(16.withRatio())
+                make.right.equalToSuperview().offset(-16.withRatio())
+            }
+           
             make.height.equalTo(50.withRatio())
         }
         

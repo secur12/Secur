@@ -9,10 +9,23 @@
 import Foundation
 import UIKit
 
+let deviceType = UIDevice.current.userInterfaceIdiom
+
 extension CGFloat {
     
     func withRatio() -> CGFloat {
-        return self * (UIScreen.main.bounds.width / 375)
+        switch deviceType {
+         case .phone:
+             return self * (UIScreen.main.bounds.width / 375)
+         case .pad:
+             return self
+         case .unspecified:
+             return CGFloat(self)
+        case .tv:
+            return CGFloat(self)
+        case .carPlay:
+            return CGFloat(self)
+        }
     }
     
 }
@@ -20,7 +33,18 @@ extension CGFloat {
 extension Double {
     
     func withRatio() -> CGFloat {
-        return CGFloat(self) * (UIScreen.main.bounds.width / 375)
+        switch deviceType {
+         case .phone:
+            return CGFloat(self) * (UIScreen.main.bounds.width / 375)
+         case .pad:
+             return CGFloat(self)
+         case .unspecified:
+             return CGFloat(self)
+        case .tv:
+            return CGFloat(self)
+        case .carPlay:
+            return CGFloat(self)
+        }
     }
     
 }
@@ -28,7 +52,18 @@ extension Double {
 extension Int {
     
     func withRatio() -> CGFloat {
-        return CGFloat(self) * (UIScreen.main.bounds.width / 375)
+        switch deviceType {
+         case .phone:
+            return CGFloat(self) * (UIScreen.main.bounds.width / 375)
+         case .pad:
+             return CGFloat(self)
+         case .unspecified:
+             return CGFloat(self)
+        case .tv:
+            return CGFloat(self)
+        case .carPlay:
+            return CGFloat(self)
+        }
     }
     
 }
@@ -92,4 +127,24 @@ extension String {
         return (emailText.evaluate(with: strEmail))
     }
 }
+
+extension UIDevice {
+//    static func getDeviceRatio<T>(t: T) -> CGFloat {
+//        switch deviceType {
+//           case .phone:
+//               return CGFloat(t * (UIScreen.main.bounds.width / 375))
+//           case .pad:
+//               return CGFloat(self)
+//           case .unspecified:
+//                return CGFloat(self)
+//          case .tv:
+//              return CGFloat(self)
+//          case .carPlay:
+//              return CGFloat(self)
+//          }
+//
+//    }
+}
+
+
 
