@@ -53,6 +53,7 @@
 		B11ECD1C225B520C00B2CC4E /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD06225B520B00B2CC4E /* BaseInteractor.swift */; };
 		B11ECD1E225B520C00B2CC4E /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD08225B520B00B2CC4E /* BasePresenter.swift */; };
 		B11ECD26225B53CF00B2CC4E /* DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD25225B53CE00B2CC4E /* DIResolver.swift */; };
+		B136334F23AE91A300DDD935 /* SSPasscode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136334E23AE91A300DDD935 /* SSPasscode.swift */; };
 		B1432E0C02B77327EAEABB7C /* SSPINConfirmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05FCAD1479C2C0B8F24C1CD /* SSPINConfirmProtocols.swift */; };
 		B14AA1A3225E2B530073BA54 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14AA1A2225E2B530073BA54 /* SSTextField.swift */; };
 		B1621AA1234CE3D5008F6AC3 /* BaseScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */; };
@@ -156,6 +157,7 @@
 		B11ECD06225B520B00B2CC4E /* BaseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		B11ECD08225B520B00B2CC4E /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		B11ECD25225B53CE00B2CC4E /* DIResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIResolver.swift; sourceTree = "<group>"; };
+		B136334E23AE91A300DDD935 /* SSPasscode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPasscode.swift; sourceTree = "<group>"; };
 		B14AA1A2225E2B530073BA54 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
 		B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollViewController.swift; sourceTree = "<group>"; };
 		B181EBC92268EC5600DF8FE3 /* SecurePlace2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecurePlace2-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 				B1F2CEFB2280D45A008E68B5 /* SSTitleLabel.swift */,
 				B1F2CF052281684E008E68B5 /* SSDescriptionLabel.swift */,
 				B1F2CF0722816CD5008E68B5 /* SSContinueButton.swift */,
+				B136334E23AE91A300DDD935 /* SSPasscode.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -1051,6 +1054,7 @@
 				B1CFF722225DC4330076C44C /* MailViewController.swift in Sources */,
 				B1FBF20B233EB4B000B7F069 /* AuthApiResponseModel.swift in Sources */,
 				B1A253602341F39800593A2F /* SignUpPositiveModel.swift in Sources */,
+				B136334F23AE91A300DDD935 /* SSPasscode.swift in Sources */,
 				B1AF91922265C52600FB22B8 /* GroceryListPendingTasksFactory.swift in Sources */,
 				B1F2CF062281684E008E68B5 /* SSDescriptionLabel.swift in Sources */,
 				B1127EE0225C972A0023D0AE /* NetworkRequestProviderProtocols.swift in Sources */,

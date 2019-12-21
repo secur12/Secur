@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let startScreenController = resolver.presentStartScreenViewController()
         let navi = UINavigationController(rootViewController: startScreenController)
 
-        self.window?.rootViewController = navi
+        self.window?.rootViewController = PINSetupViewController()//navi
         self.window?.makeKeyAndVisible()
         
         do {
