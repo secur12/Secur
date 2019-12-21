@@ -36,7 +36,7 @@ class PINSetupViewController: BaseViewController {
 
     private func createUI() {
         self.view.backgroundColor = UIColor.white
-        
+
         self.stackView = UIStackView.viewsAndIntsToStack(viewsAndSpacings: [
             PINSetupImageView,12,
             PINSetupLabel,18,
@@ -47,6 +47,7 @@ class PINSetupViewController: BaseViewController {
         self.PINSetupImageView.contentMode = .scaleAspectFit
 
         self.PINPasscodeView.becomeFirstResponder()
+        self.PINPasscodeView.didFinishedEnterCode = finishCodeEntering(_:)
         
         self.view.addSubview(stackView)
         
@@ -67,5 +68,10 @@ class PINSetupViewController: BaseViewController {
             make.centerX.equalToSuperview()
         }
     }
+    
+    func finishCodeEntering(_ s: String) {
+        print("Message: \(s)")
+    }
+    
 }
 extension PINSetupViewController: PINSetupViewProtocol { }

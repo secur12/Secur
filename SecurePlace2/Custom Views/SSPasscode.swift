@@ -62,14 +62,12 @@ extension SSPasscode: UIKeyInput {
             return
         }
         code.append(contentsOf: text)
-        print(code)
     }
     
     func deleteBackward() {
         if hasText {
             code.removeLast()
         }
-        print(code)
     }
     
 }
