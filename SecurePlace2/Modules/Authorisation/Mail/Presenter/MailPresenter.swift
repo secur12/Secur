@@ -70,8 +70,12 @@ extension MailPresenter: MailPresenterProtocol {
                 print(error.localizedDescription)
                 if(error.errorCode == 400) {
                     let actionNo: UIAlertAction = UIAlertAction(title: "No", style: .default, handler: nil)
-                    let actionYes: UIAlertAction = UIAlertAction(title: "Yes", style: .cancel, handler: nil)
+                    
+                    let actionYes: UIAlertAction = UIAlertAction(title: "Yes", style: .cancel, handler: { action in
+                        self.signInUser(with: email) })
+                    
                     self.view?.showAlert(title: "Dejavue?", message: "User with this email already exists.\n Do you want to Sign In ?", buttons: [actionNo, actionYes])
+                    
                 } else {
                     self.view?.showOkAlertController(title: "Error", message: "Something went wrong, error \(error.errorCode)", callback: nil)
                 }
@@ -105,6 +109,7 @@ extension MailPresenter: MailPresenterProtocol {
             }
             
             if(mailWasSent) {
+                
                 //self.wireFrame.presentOneTimeCode(type: .signIn)
             }
         }
