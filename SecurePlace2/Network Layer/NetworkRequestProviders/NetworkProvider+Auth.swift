@@ -16,15 +16,22 @@ extension NetworkRequestProvider: NetworkAuthRequestProtocol {
         
         self.runRequest(request, progressResult: nil) { (_, data, error) in
             let jsonDecoder = JSONDecoder()
+            
+            //MOCKUP STARTS HERE
+                                
+            //MOCKUP ENDS HERE
+            
             if let error = error {
                 completion(nil, error)
                 return
             }
+            
             guard let data = data else {
                 let error = NetworkErrorStruct(statusCode: nil, data: nil)
                 completion(nil, error)
                 return
             }
+            
             do {
                 let models = try jsonDecoder.decode(SignUpPositiveApiResponseModel.self, from: data)
                 completion(models, nil)
@@ -40,14 +47,21 @@ extension NetworkRequestProvider: NetworkAuthRequestProtocol {
         let request = SignInApiRequest.init(email: email)
         
         self.runRequest(request, progressResult: nil) { (code, _, error) in
+            
+            //MOCKUP STARTS HERE
+                       
+            //MOCKUP ENDS HERE
+            
             if let error = error {
                 completion(false, error)
                 return
             }
+            
             if code==200 {
                 completion(true, nil)
                 return
             }
+            
             completion(false, nil)
         }
     }

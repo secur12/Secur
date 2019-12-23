@@ -66,6 +66,7 @@ extension MailPresenter: MailPresenterProtocol {
         self.view?.showLoading(message: "Loading...")
         self.interactor.signUpUser(with: email) { (model, error) in
             defer { self.view?.hideLoading() }
+           
             if let error = error {
                 print(error.localizedDescription)
                 if(error.errorCode == 400) {
@@ -100,7 +101,10 @@ extension MailPresenter: MailPresenterProtocol {
                 print(error.localizedDescription)
                 if(error.errorCode == 404) {
                     let actionNo: UIAlertAction = UIAlertAction(title: "No", style: .default, handler: nil)
-                    let actionYes: UIAlertAction = UIAlertAction(title: "Yes", style: .cancel, handler: nil)
+                    
+                    let actionYes: UIAlertAction = UIAlertAction(title: "Yes", style: .cancel, handler: { action in
+                    self.signUpUser(with: email) })
+                    
                     self.view?.showAlert(title: "Oh no!", message: "User with this email doesn't exists.\n Do you want to Sign Up ?", buttons: [actionNo, actionYes])
                 } else {
                     self.view?.showOkAlertController(title: "Error", message: "Something went wrong, error \(error.errorCode)", callback: nil)

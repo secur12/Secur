@@ -20,7 +20,6 @@ class MailViewController: BaseScrollViewController, UITextFieldDelegate {
 
     var presenter: MailPresenterProtocol!
     
-    
     private var emailImageView = UIImageView()
     private var emailLabel = SSTitleLabel(title: "Email")
     private var emailDescription: SSDescriptionLabel!
