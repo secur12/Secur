@@ -17,9 +17,15 @@ extension NetworkRequestProvider: NetworkAuthRequestProtocol {
         self.runRequest(request, progressResult: nil) { (_, data, error) in
             let jsonDecoder = JSONDecoder()
             
-            //MOCKUP STARTS HERE
-                                
-            //MOCKUP ENDS HERE
+            //MOCKUPS STARTS HERE
+            //OK (200)
+            completion(SignUpPositiveApiResponseModel(refresh_token: "xx", access_token: "xx"), nil)
+            //USER EXISTS (400)
+            //completion(nil, NetworkErrorStruct(statusCode: 400, data: nil))
+            //ERROR (404)
+            //completion(nil, NetworkErrorStruct(statusCode: 400, data: nil))
+            return
+            //MOCKUPS ENDS HERE
             
             if let error = error {
                 completion(nil, error)
@@ -48,9 +54,15 @@ extension NetworkRequestProvider: NetworkAuthRequestProtocol {
         
         self.runRequest(request, progressResult: nil) { (code, _, error) in
             
-            //MOCKUP STARTS HERE
-                       
-            //MOCKUP ENDS HERE
+            //MOCKUPS STARTS HERE
+            //OK (200)
+            completion(true, nil)
+            //USER NOT FOUND (404)
+            //completion(false, NetworkErrorStruct(statusCode: 404, data: nil))
+            //OTHER ERROR
+            //completion(false, NetworkErrorStruct(statusCode: 405, data: nil))
+            return
+            //MOCKUPS ENDS HERE
             
             if let error = error {
                 completion(false, error)
