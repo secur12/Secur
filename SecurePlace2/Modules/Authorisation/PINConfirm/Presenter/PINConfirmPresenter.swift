@@ -31,17 +31,30 @@ class PINConfirmPresenter: BasePresenter {
 
 extension PINConfirmPresenter: PINConfirmPresenterProtocol {
     
+    func signUp() {
+        
+    }
+    
+    func signIn() {
+        
+    }
+    
+    func PINChange() {
+        
+    }
+    
     func didFinishEnteringCode(code: String) {
         
         if(code == self.pinToConfirm) {
-            
             switch type {
-                
                 case .signUp:
-                print(1)
+                    self.signUp()
+                case .signIn:
+                    self.signIn()
+                case .PINChange:
+                    self.PINChange()
                 
                 default: break
-                
             }
             
         } else {
