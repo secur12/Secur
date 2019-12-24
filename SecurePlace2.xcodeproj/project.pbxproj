@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		02591E549A177441AB0AD18C /* PINSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B0209140E9BD3C1E594D0 /* PINSetupViewController.swift */; };
+		0A9B07FC81AAF04B844C7112 /* Albums+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97D81FD2EAEBAC33B7AF2B /* Albums+DIResolver.swift */; };
 		0CB63070DC40AA0296B2C71D /* PINConfirmWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BB0C26FAB2196109DE00FE /* PINConfirmWireFrame.swift */; };
 		15E1008187E6DE7A7A6045AA /* Authorisation+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B251FDC0E79BF0B10B070 /* Authorisation+DIResolver.swift */; };
 		1EB793936023570AE5E12C66 /* OneTimeCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20ADA71EB10D7F769790C6 /* OneTimeCodeViewController.swift */; };
 		1FCC1AA437232EEEF49BE7D8 /* OneTimeCode+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2770DB8D38B57AC2E2EE568 /* OneTimeCode+DIResolver.swift */; };
 		281E789C35C1B73B56091702 /* PINConfirmInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B50B9C9537AD964B32B77EE /* PINConfirmInteractor.swift */; };
+		31A2BD8DA724BE4AAAF0BB4C /* SSAlbumsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E2441FF0FC51C919A15ED /* SSAlbumsInteractor.swift */; };
 		32E9B2F781F2E13BA673662B /* SSPINSetupWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C56700715980E2F16CA97C /* SSPINSetupWireFrame.swift */; };
 		476D6274619001A99BE3C8CB /* SSOneTimeCodeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9EA79564F5F41566D6E92A /* SSOneTimeCodeWireFrame.swift */; };
 		50DFC3EA375EDCD75D7EE36E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACC5F99DA5B9550360309D4 /* StartScreenViewController.swift */; };
@@ -25,7 +27,9 @@
 		86925EA765863C74E3675B56 /* StartScreenWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C9358D26852BE14F7579E /* StartScreenWireFrame.swift */; };
 		8B83C28F7F7D035A56691620 /* OneTimeCodeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59D1D970570823632684BE /* OneTimeCodeProtocols.swift */; };
 		8E61625AF5FF83DF2CE2AA88 /* StartScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE3F883BFDA66FDF3179FD /* StartScreenInteractor.swift */; };
+		8E74C342A6629E43220E335A /* SSAlbumsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021EB019669A2BC6C9267BC /* SSAlbumsPresenter.swift */; };
 		9FB7ACA5357449F43662EF3F /* OneTimeCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1646A2E56A109CDD6CFDFA /* OneTimeCodePresenter.swift */; };
+		B021A370F95BD675B2120C2B /* SSAlbumsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45E515F4034EEC7E35495 /* SSAlbumsWireFrame.swift */; };
 		B1127ED6225C95F20023D0AE /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1127ECA225C95F20023D0AE /* AccountManager.swift */; };
 		B1127ED7225C95F20023D0AE /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1127ECD225C95F20023D0AE /* NetworkRequest.swift */; };
 		B1127ED8225C95F20023D0AE /* NetworkTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1127ECF225C95F20023D0AE /* NetworkTarget.swift */; };
@@ -54,6 +58,7 @@
 		B11ECD1E225B520C00B2CC4E /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD08225B520B00B2CC4E /* BasePresenter.swift */; };
 		B11ECD26225B53CF00B2CC4E /* DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD25225B53CE00B2CC4E /* DIResolver.swift */; };
 		B136334F23AE91A300DDD935 /* SSPasscode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136334E23AE91A300DDD935 /* SSPasscode.swift */; };
+		B136335223B295E300DDD935 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136335123B295E300DDD935 /* KeychainManager.swift */; };
 		B1432E0C02B77327EAEABB7C /* PINConfirmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05FCAD1479C2C0B8F24C1CD /* PINConfirmProtocols.swift */; };
 		B14AA1A3225E2B530073BA54 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14AA1A2225E2B530073BA54 /* SSTextField.swift */; };
 		B1621AA1234CE3D5008F6AC3 /* BaseScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */; };
@@ -75,11 +80,13 @@
 		B1FBF203233E82CC00B7F069 /* NetworkProvider+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBF202233E82CC00B7F069 /* NetworkProvider+Auth.swift */; };
 		B1FBF20B233EB4B000B7F069 /* AuthApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBF20A233EB4B000B7F069 /* AuthApiResponseModel.swift */; };
 		B1FBF210233EB86E00B7F069 /* SignUpApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBF20F233EB86E00B7F069 /* SignUpApiRequest.swift */; };
+		BD5CE711D51135A2ACE0685F /* SSAlbumsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C866F4C21ADFA9F23EF7DF /* SSAlbumsProtocols.swift */; };
 		C69BBCF37F2713280ECE612C /* PINSetupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D837AC1A11F6C5921454E648 /* PINSetupInteractor.swift */; };
 		CB586D0F456877104503CB54 /* PINConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C2930347EA014324ABF516 /* PINConfirmViewController.swift */; };
 		CD72CEB2FA788A157E177EB4 /* Pods_SecurePlace2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D524BBA47152C996CFE63D4F /* Pods_SecurePlace2Tests.framework */; };
 		CFD72FB33FEB3CF16A9C1DB8 /* StartScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97CC00F21A29894421BF8E1 /* StartScreenProtocols.swift */; };
 		D5C80321252160C687D01FB3 /* PINSetupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AB6C73095D775BE0FD121D /* PINSetupPresenter.swift */; };
+		D7B0D235949881E5D41CD1E4 /* SSAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE93E2E7EEAFFB8CC1687A0E /* SSAlbumsViewController.swift */; };
 		DF5E3CFE60C1E7F766350DCC /* StartScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC0E359A4022EE849A3C44 /* StartScreenPresenter.swift */; };
 		E0012141066D17F4C7E9757F /* PINSetup+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853074D4B5C09B2996F1278C /* PINSetup+DIResolver.swift */; };
 /* End PBXBuildFile section */
@@ -112,12 +119,15 @@
 		3547C9E5EC87B50889A3BA91 /* OneTimeCodeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInteractor.swift; sourceTree = "<group>"; };
 		3738E0B3DC8DBA6927AC2F8F /* Pods-SecurePlace2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecurePlace2Tests/Pods-SecurePlace2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		387D9ECA4C3BC75C254AB373 /* Pods-SecurePlace2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecurePlace2UITests/Pods-SecurePlace2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		43C866F4C21ADFA9F23EF7DF /* SSAlbumsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAlbumsProtocols.swift; sourceTree = "<group>"; };
 		4A0D77BB0CE786C1EBE7323F /* Pods-SecurePlace2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecurePlace2UITests/Pods-SecurePlace2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		4C1646A2E56A109CDD6CFDFA /* OneTimeCodePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodePresenter.swift; sourceTree = "<group>"; };
 		5989C7A8F4C19EFEF8572602 /* PINConfirmPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmPresenter.swift; sourceTree = "<group>"; };
+		64A45E515F4034EEC7E35495 /* SSAlbumsWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAlbumsWireFrame.swift; sourceTree = "<group>"; };
 		64BE3F883BFDA66FDF3179FD /* StartScreenInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenInteractor.swift; sourceTree = "<group>"; };
 		6ACC5F99DA5B9550360309D4 /* StartScreenViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		781C9358D26852BE14F7579E /* StartScreenWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenWireFrame.swift; sourceTree = "<group>"; };
+		8021EB019669A2BC6C9267BC /* SSAlbumsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAlbumsPresenter.swift; sourceTree = "<group>"; };
 		853074D4B5C09B2996F1278C /* PINSetup+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PINSetup+DIResolver.swift"; sourceTree = "<group>"; };
 		92C56700715980E2F16CA97C /* SSPINSetupWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPINSetupWireFrame.swift; sourceTree = "<group>"; };
 		93BB0C26FAB2196109DE00FE /* PINConfirmWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmWireFrame.swift; sourceTree = "<group>"; };
@@ -158,6 +168,7 @@
 		B11ECD08225B520B00B2CC4E /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		B11ECD25225B53CE00B2CC4E /* DIResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIResolver.swift; sourceTree = "<group>"; };
 		B136334E23AE91A300DDD935 /* SSPasscode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPasscode.swift; sourceTree = "<group>"; };
+		B136335123B295E300DDD935 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B14AA1A2225E2B530073BA54 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
 		B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollViewController.swift; sourceTree = "<group>"; };
 		B181EBC92268EC5600DF8FE3 /* SecurePlace2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecurePlace2-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -180,6 +191,7 @@
 		B1FBF20A233EB4B000B7F069 /* AuthApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiResponseModel.swift; sourceTree = "<group>"; };
 		B1FBF20F233EB86E00B7F069 /* SignUpApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpApiRequest.swift; sourceTree = "<group>"; };
 		B2770DB8D38B57AC2E2EE568 /* OneTimeCode+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "OneTimeCode+DIResolver.swift"; sourceTree = "<group>"; };
+		BE93E2E7EEAFFB8CC1687A0E /* SSAlbumsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAlbumsViewController.swift; sourceTree = "<group>"; };
 		BF4B251FDC0E79BF0B10B070 /* Authorisation+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Authorisation+DIResolver.swift"; sourceTree = "<group>"; };
 		C52B0209140E9BD3C1E594D0 /* PINSetupViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupViewController.swift; sourceTree = "<group>"; };
 		D524BBA47152C996CFE63D4F /* Pods_SecurePlace2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecurePlace2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,7 +200,9 @@
 		DF9EA79564F5F41566D6E92A /* SSOneTimeCodeWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSOneTimeCodeWireFrame.swift; sourceTree = "<group>"; };
 		E2BC0E359A4022EE849A3C44 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
 		E7AB6C73095D775BE0FD121D /* PINSetupPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupPresenter.swift; sourceTree = "<group>"; };
+		EA97D81FD2EAEBAC33B7AF2B /* Albums+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Albums+DIResolver.swift"; sourceTree = "<group>"; };
 		F4C2930347EA014324ABF516 /* PINConfirmViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmViewController.swift; sourceTree = "<group>"; };
+		F73E2441FF0FC51C919A15ED /* SSAlbumsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAlbumsInteractor.swift; sourceTree = "<group>"; };
 		FA4176573BE30F8A818A004A /* PINSetupProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +266,18 @@
 			path = WireFrame;
 			sourceTree = "<group>";
 		};
+		1B01AAB5A443AEFDE44E8F64 /* Albums */ = {
+			isa = PBXGroup;
+			children = (
+				31CB4D32AD41E815E015EBFC /* View */,
+				31E5E3C5A6519A0A852DF702 /* Presenter */,
+				E56C32F18C16B5991C5BA036 /* Interactor */,
+				6A3CDD329D984F034ADB0257 /* Protocols */,
+				40CE7B4CF7F9AD9D20EFAD7A /* WireFrame */,
+			);
+			path = Albums;
+			sourceTree = "<group>";
+		};
 		1C69913E987306E1FC4DEF7E /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +298,30 @@
 			isa = PBXGroup;
 			children = (
 				92C56700715980E2F16CA97C /* SSPINSetupWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		31CB4D32AD41E815E015EBFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE93E2E7EEAFFB8CC1687A0E /* SSAlbumsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		31E5E3C5A6519A0A852DF702 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8021EB019669A2BC6C9267BC /* SSAlbumsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		40CE7B4CF7F9AD9D20EFAD7A /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				64A45E515F4034EEC7E35495 /* SSAlbumsWireFrame.swift */,
 			);
 			path = WireFrame;
 			sourceTree = "<group>";
@@ -327,6 +377,14 @@
 				4A0D77BB0CE786C1EBE7323F /* Pods-SecurePlace2UITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		6A3CDD329D984F034ADB0257 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				43C866F4C21ADFA9F23EF7DF /* SSAlbumsProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		70A9314DF13DD61D483E1804 /* Protocols */ = {
@@ -411,6 +469,7 @@
 		B1127EC7225C95F20023D0AE /* Service Layer */ = {
 			isa = PBXGroup;
 			children = (
+				B136335023B295C400DDD935 /* KeychainManager */,
 				B181EBCE2268ED2700DF8FE3 /* Crypto */,
 				B1127EC9225C95F20023D0AE /* AccountManager */,
 				B1127ECB225C95F20023D0AE /* NetworkRequestWrapper */,
@@ -621,8 +680,17 @@
 				B1CFF718225DC4330076C44C /* Mail+DIResolver.swift */,
 				853074D4B5C09B2996F1278C /* PINSetup+DIResolver.swift */,
 				A0E2CBF447EA9442D3B2E02E /* PINConfirm+DIResolver.swift */,
+				EA97D81FD2EAEBAC33B7AF2B /* Albums+DIResolver.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		B136335023B295C400DDD935 /* KeychainManager */ = {
+			isa = PBXGroup;
+			children = (
+				B136335123B295E300DDD935 /* KeychainManager.swift */,
+			);
+			path = KeychainManager;
 			sourceTree = "<group>";
 		};
 		B14AA1A1225E2B3D0073BA54 /* Custom Views */ = {
@@ -644,6 +712,7 @@
 				B1CFF713225DC4330076C44C /* Mail */,
 				F68127DDB619B76B17ED0BFA /* PINSetup */,
 				A20403477664E115512702B6 /* PINConfirm */,
+				1B01AAB5A443AEFDE44E8F64 /* Albums */,
 				7E2BBE0F0AF74FDF4831AFF7 /* OneTimeCode */,
 			);
 			path = Authorisation;
@@ -780,6 +849,14 @@
 				FA4176573BE30F8A818A004A /* PINSetupProtocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E56C32F18C16B5991C5BA036 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F73E2441FF0FC51C919A15ED /* SSAlbumsInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		F68127DDB619B76B17ED0BFA /* PINSetup */ = {
@@ -1050,6 +1127,7 @@
 				DF5E3CFE60C1E7F766350DCC /* StartScreenPresenter.swift in Sources */,
 				B11ECD15225B520C00B2CC4E /* BaseNavigationControllerPresenter.swift in Sources */,
 				B1127ED9225C95F20023D0AE /* NetworkRequestWrapper.swift in Sources */,
+				B136335223B295E300DDD935 /* KeychainManager.swift in Sources */,
 				B1AF91942265C57700FB22B8 /* CreateGroceryListItemPendingTask.swift in Sources */,
 				B11ECD16225B520C00B2CC4E /* BaseNavigationControllerWireFrame.swift in Sources */,
 				B1CFF723225DC4330076C44C /* MailProtocols.swift in Sources */,
@@ -1094,6 +1172,12 @@
 				B1432E0C02B77327EAEABB7C /* PINConfirmProtocols.swift in Sources */,
 				0CB63070DC40AA0296B2C71D /* PINConfirmWireFrame.swift in Sources */,
 				53AB7586C5C8FB4220810D1A /* PINConfirm+DIResolver.swift in Sources */,
+				D7B0D235949881E5D41CD1E4 /* SSAlbumsViewController.swift in Sources */,
+				8E74C342A6629E43220E335A /* SSAlbumsPresenter.swift in Sources */,
+				31A2BD8DA724BE4AAAF0BB4C /* SSAlbumsInteractor.swift in Sources */,
+				BD5CE711D51135A2ACE0685F /* SSAlbumsProtocols.swift in Sources */,
+				B021A370F95BD675B2120C2B /* SSAlbumsWireFrame.swift in Sources */,
+				0A9B07FC81AAF04B844C7112 /* Albums+DIResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1199,7 +1283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1254,7 +1338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1272,7 +1356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42HSZXZUT7;
 				INFOPLIST_FILE = SecurePlace2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hilton.SecurePlace2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1292,7 +1376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 42HSZXZUT7;
 				INFOPLIST_FILE = SecurePlace2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hilton.SecurePlace2;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -16,7 +16,9 @@ protocol PINConfirmViewProtocol: class {
     func clearPin()
 }
 
-protocol PINConfirmWireFrameProtocol: class { }
+protocol PINConfirmWireFrameProtocol: class {
+    func presentAlbumsViewController(from view: PINConfirmViewProtocol?)
+}
 
 protocol PINConfirmPresenterProtocol: class {
     func didFinishEnteringCode(code: String)
