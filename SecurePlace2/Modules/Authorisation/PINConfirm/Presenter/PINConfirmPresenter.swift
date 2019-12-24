@@ -6,6 +6,8 @@
 //  Copyright © 2019 Security Inc.. All rights reserved.
 //
 
+import UIKit
+
 class PINConfirmPresenter: BasePresenter {
 
     weak var view: PINConfirmViewProtocol?
@@ -14,7 +16,7 @@ class PINConfirmPresenter: BasePresenter {
 
     private var type: PINModuleType
     private var tokens: SignUpPositiveModel
-    private var pin: String
+    private var pinToConfirm: String
     
     init(view: PINConfirmViewProtocol, wireFrame: PINConfirmWireFrameProtocol, interactor: PINConfirmInteractorProtocol, type: PINModuleType, tokens: SignUpPositiveModel, pin: String) {
         self.view = view
@@ -22,11 +24,7 @@ class PINConfirmPresenter: BasePresenter {
         self.wireFrame = wireFrame
         self.type = type
         self.tokens = tokens
-        self.pin = pin
-    }
-    
-    func getModuleType() -> PINModuleType {
-        return self.type
+        self.pinToConfirm = pin
     }
     
 }
@@ -34,6 +32,23 @@ class PINConfirmPresenter: BasePresenter {
 extension PINConfirmPresenter: PINConfirmPresenterProtocol {
     
     func didFinishEnteringCode(code: String) {
+        
+        if(code == self.pinToConfirm) {
+            
+            switch type {
+                
+                case .signUp:
+                print(1)
+                
+                default: break
+                
+            }
+            
+        } else {
+            let actionOk: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.view?.clearPin() })
+            self.view?.showAlert(title: "PIN codes are different", message: "Try enter your PIN again", buttons: [actionOk])
+        }
         
     }
 }

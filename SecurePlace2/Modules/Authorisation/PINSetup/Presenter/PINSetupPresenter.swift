@@ -27,8 +27,6 @@ class PINSetupPresenter: BasePresenter {
 extension PINSetupPresenter: PINSetupPresenterProtocol {
     
     func didFinishEnteringCode(code: String) {
-        
         self.wireFrame.presentPINConfirmViewController(from: self.view, type: self.type, tokens: self.tokens, pin: code)
-        self.view?.clearPin()
     }
 }

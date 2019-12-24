@@ -11,15 +11,14 @@ import SnapKit
 
 class PINConfirmViewController: BaseViewController {
 
+    var presenter: PINConfirmPresenterProtocol!
+    
     private var PINSetupImageView = UIImageView()
     private var PINSetupLabel = SSTitleLabel(title: "Confirm PIN code")
-    private var PINSetupDescription = SSDescriptionLabel(text: "Good, now enter your new PIN code again to confirm and save it.", containsBoldText: "", numberOfLines: 2)
+    private var PINSetupDescription = SSDescriptionLabel(text: "Good, now enter your new PIN code \n again to confirm and save it.", containsBoldText: "", numberOfLines: 2)
     private var PINPasscodeView = SSPasscode()
     private var stackView = UIStackView()
     
-    private var controllerType = PINModuleType.signIn
-    var presenter: PINConfirmPresenterProtocol!
-
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         self.PINPasscodeView.becomeFirstResponder()
@@ -69,4 +68,10 @@ class PINConfirmViewController: BaseViewController {
     }
     
 }
-extension PINConfirmViewController: PINConfirmViewProtocol { }
+extension PINConfirmViewController: PINConfirmViewProtocol {
+    
+    func clearPin() {
+       self.PINPasscodeView.clearPin()
+       self.PINPasscodeView.becomeFirstResponder()
+    }
+}

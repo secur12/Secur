@@ -27,6 +27,7 @@ class PINSetupViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        self.clearPin()
         self.PINPasscodeView.becomeFirstResponder()
     }
     
@@ -78,5 +79,6 @@ extension PINSetupViewController: PINSetupViewProtocol {
     
     func clearPin() {
         self.PINPasscodeView.clearPin()
+        self.PINPasscodeView.becomeFirstResponder()
     }
 }
