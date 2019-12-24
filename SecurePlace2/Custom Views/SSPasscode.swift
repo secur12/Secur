@@ -47,8 +47,13 @@ extension SSPasscode {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showKeyboard))
         self.addGestureRecognizer(tapGesture)
     }
+    
     @objc private func showKeyboard() {
         self.becomeFirstResponder()
+    }
+    
+    func clearPin() {
+        self.code = ""
     }
 }
 

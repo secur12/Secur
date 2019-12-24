@@ -8,13 +8,16 @@
 
 import UIKit
 
-protocol PINSetupViewProtocol: class { }
+protocol PINSetupViewProtocol: class {
+    func clearPin()
+}
 
 protocol PINSetupWireFrameProtocol: class {
-     func presentPINConfirmViewController(from view: MailViewProtocol?, type: PINConfirmModuleType, tokens: SignUpPositiveModel, pin: String)
+    func presentPINConfirmViewController(from view: PINSetupViewProtocol?, type: PINModuleType, tokens: SignUpPositiveModel, pin: String)
 }
 
 protocol PINSetupPresenterProtocol: class {
+    func didFinishEnteringCode(code: String)
 }
 
 protocol PINSetupInteractorProtocol: class { }

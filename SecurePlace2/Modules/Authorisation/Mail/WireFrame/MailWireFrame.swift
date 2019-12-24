@@ -9,7 +9,7 @@
 import UIKit
 
 class MailWireFrame: BaseWireFrame, MailWireFrameProtocol {
-    func presentPINSetupViewController(from view: MailViewProtocol?, type: PINSetupModuleType, tokens: SignUpPositiveModel) {
+    func presentPINSetupViewController(from view: MailViewProtocol?, type: PINModuleType, tokens: SignUpPositiveModel) {
         guard let fromView = view as? UIViewController else { return }
         let controller = self.resolver.presentPINSetupViewController(type: type, tokens: tokens)
         fromView.navigationController?.pushViewController(controller, animated: true)

@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: - PINConfirm
 protocol PINConfirmProtocol {
-    func presentPINConfirmViewController(type: PINConfirmModuleType, tokens: SignUpPositiveModel, pin: String) -> UIViewController
+    func presentPINConfirmViewController(type: PINModuleType, tokens: SignUpPositiveModel, pin: String) -> UIViewController
 }
 
 extension DIResolver: PINConfirmProtocol {
-    func presentPINConfirmViewController(type: PINConfirmModuleType, tokens: SignUpPositiveModel, pin: String) -> UIViewController {
+    func presentPINConfirmViewController(type: PINModuleType, tokens: SignUpPositiveModel, pin: String) -> UIViewController {
         let viewController = PINConfirmViewController()
         let interactor = PINConfirmInteractor()
         let wireFrame = PINConfirmWireFrame(resolver: self)

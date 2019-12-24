@@ -12,19 +12,23 @@ class PINSetupPresenter: BasePresenter {
     private var wireFrame: PINSetupWireFrameProtocol
     private var interactor: PINSetupInteractorProtocol
 
-    private var type: PINSetupModuleType
+    private var type: PINModuleType
     private var tokens: SignUpPositiveModel
     
-    init(view: PINSetupViewProtocol, wireFrame: PINSetupWireFrameProtocol, interactor: PINSetupInteractorProtocol, type: PINSetupModuleType, tokens: SignUpPositiveModel) {
+    init(view: PINSetupViewProtocol, wireFrame: PINSetupWireFrameProtocol, interactor: PINSetupInteractorProtocol, type: PINModuleType, tokens: SignUpPositiveModel) {
         self.view = view
         self.interactor = interactor
         self.wireFrame = wireFrame
         self.type = type
         self.tokens = tokens
     }
-    
-    
-    
 }
 
-extension PINSetupPresenter: PINSetupPresenterProtocol { }
+extension PINSetupPresenter: PINSetupPresenterProtocol {
+    
+    func didFinishEnteringCode(code: String) {
+        
+        self.wireFrame.presentPINConfirmViewController(from: self.view, type: self.type, tokens: self.tokens, pin: code)
+        self.view?.clearPin()
+    }
+}

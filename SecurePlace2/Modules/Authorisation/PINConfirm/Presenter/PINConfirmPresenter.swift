@@ -12,11 +12,11 @@ class PINConfirmPresenter: BasePresenter {
     private var wireFrame: PINConfirmWireFrameProtocol
     private var interactor: PINConfirmInteractorProtocol
 
-    private var type: PINConfirmModuleType
+    private var type: PINModuleType
     private var tokens: SignUpPositiveModel
     private var pin: String
     
-    init(view: PINConfirmViewProtocol, wireFrame: PINConfirmWireFrameProtocol, interactor: PINConfirmInteractorProtocol, type: PINConfirmModuleType, tokens: SignUpPositiveModel, pin: String) {
+    init(view: PINConfirmViewProtocol, wireFrame: PINConfirmWireFrameProtocol, interactor: PINConfirmInteractorProtocol, type: PINModuleType, tokens: SignUpPositiveModel, pin: String) {
         self.view = view
         self.interactor = interactor
         self.wireFrame = wireFrame
@@ -25,10 +25,15 @@ class PINConfirmPresenter: BasePresenter {
         self.pin = pin
     }
     
-    func getModuleType() -> PINConfirmModuleType {
+    func getModuleType() -> PINModuleType {
         return self.type
     }
     
 }
 
-extension PINConfirmPresenter: PINConfirmPresenterProtocol { }
+extension PINConfirmPresenter: PINConfirmPresenterProtocol {
+    
+    func didFinishEnteringCode(code: String) {
+        
+    }
+}

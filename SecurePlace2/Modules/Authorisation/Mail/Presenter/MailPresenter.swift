@@ -70,6 +70,7 @@ extension MailPresenter: MailPresenterProtocol {
             if let error = error {
                 print(error.localizedDescription)
                 if(error.errorCode == 400) {
+                    
                     let actionNo: UIAlertAction = UIAlertAction(title: "No", style: .default, handler: nil)
                     
                     let actionYes: UIAlertAction = UIAlertAction(title: "Yes", style: .cancel, handler: { action in
@@ -100,6 +101,7 @@ extension MailPresenter: MailPresenterProtocol {
             if let error = error {
                 print(error.localizedDescription)
                 if(error.errorCode == 404) {
+                    
                     let actionNo: UIAlertAction = UIAlertAction(title: "No", style: .default, handler: nil)
                     
                     let actionYes: UIAlertAction = UIAlertAction(title: "Yes", style: .cancel, handler: { action in

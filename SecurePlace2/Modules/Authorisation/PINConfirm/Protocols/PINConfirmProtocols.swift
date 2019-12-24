@@ -13,7 +13,9 @@ protocol PINConfirmViewProtocol: class { }
 protocol PINConfirmWireFrameProtocol: class { }
 
 protocol PINConfirmPresenterProtocol: class {
-    func getModuleType() -> PINConfirmModuleType
+    func getModuleType() -> PINModuleType
+    func didFinishEnteringCode(code: String)
 }
 
-protocol PINConfirmInteractorProtocol: class { }
+protocol PINConfirmInteractorProtocol: class {
+}

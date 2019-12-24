@@ -1,32 +1,28 @@
 //
-//  SSPINSetupViewController.swift
+//  SSPINConfirmViewController.swift
 //  SecurePlace2
 //
-//  Created by Oleksandr Bambuliak on 29/09/2019.
+//  Created by Oleksandr Bambuliak on 30/09/2019.
 //  Copyright © 2019 Security Inc.. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-@objc enum PINSetupModuleType: Int {
-    case signIn
-    case signUp
-    case PINChange
-}
-
-class PINSetupViewController: BaseViewController {
-
-    var presenter: PINSetupPresenterProtocol!
+class PINConfirmViewController: BaseViewController {
 
     private var PINSetupImageView = UIImageView()
-    private var PINSetupLabel = SSTitleLabel(title: "Setup PIN code")
-    private var PINSetupDescription = SSDescriptionLabel(text: "Ok, now setup your PIN code.\n You will enter it every app launch.", containsBoldText: "", numberOfLines: 2)
+    private var PINSetupLabel = SSTitleLabel(title: "Confirm PIN code")
+    private var PINSetupDescription = SSDescriptionLabel(text: "Good, now enter your new PIN code again to confirm and save it.", containsBoldText: "", numberOfLines: 2)
     private var PINPasscodeView = SSPasscode()
     private var stackView = UIStackView()
     
+    private var controllerType = PINModuleType.signIn
+    var presenter: PINConfirmPresenterProtocol!
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        self.PINPasscodeView.becomeFirstResponder()
     }
     
     override func viewDidLoad() {
@@ -36,7 +32,7 @@ class PINSetupViewController: BaseViewController {
 
     private func createUI() {
         self.view.backgroundColor = UIColor.white
-
+        
         self.stackView = UIStackView.viewsAndIntsToStack(viewsAndSpacings: [
             PINSetupImageView,12,
             PINSetupLabel,18,
@@ -45,9 +41,8 @@ class PINSetupViewController: BaseViewController {
         
         self.PINSetupImageView.image = UIImage(named: "pinImage")
         self.PINSetupImageView.contentMode = .scaleAspectFit
-
-        self.PINPasscodeView.becomeFirstResponder()
-        self.PINPasscodeView.didFinishedEnterCode = finishCodeEntering(_:)
+        
+        self.PINPasscodeView.didFinishedEnterCode = finishEnteringCode(_:)
         
         self.view.addSubview(stackView)
         
@@ -57,11 +52,11 @@ class PINSetupViewController: BaseViewController {
         }
         
         self.PINPasscodeView.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(35)
-            make.right.equalToSuperview().offset(-35)
-            make.height.equalTo(44)
-        }
+                make.centerX.equalToSuperview()
+                make.left.equalToSuperview().offset(35)
+                make.right.equalToSuperview().offset(-35)
+                make.height.equalTo(44)
+            }
         
         self.stackView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(299)
@@ -69,9 +64,9 @@ class PINSetupViewController: BaseViewController {
         }
     }
     
-    func finishCodeEntering(_ s: String) {
-        print("Message: \(s)")
+    func finishEnteringCode(_ code: String) {
+        self.presenter.didFinishEnteringCode(code: code)
     }
     
 }
-extension PINSetupViewController: PINSetupViewProtocol { }
+extension PINConfirmViewController: PINConfirmViewProtocol { }

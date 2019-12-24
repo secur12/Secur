@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: - PINSetup
 protocol PINSetupProtocol {
-    func presentPINSetupViewController(type: PINSetupModuleType, tokens: SignUpPositiveModel) -> UIViewController
+    func presentPINSetupViewController(type: PINModuleType, tokens: SignUpPositiveModel) -> UIViewController
 }
 
 extension DIResolver: PINSetupProtocol {
-    func presentPINSetupViewController(type: PINSetupModuleType, tokens: SignUpPositiveModel) -> UIViewController {
+    func presentPINSetupViewController(type: PINModuleType, tokens: SignUpPositiveModel) -> UIViewController {
         let viewController = PINSetupViewController()
         let interactor = PINSetupInteractor()
         let wireFrame = PINSetupWireFrame(resolver: self)
