@@ -17,5 +17,5 @@ class AlbumsWireFrame: BaseWireFrame {
 }
 
 extension AlbumsWireFrame: AlbumsWireFrameProtocol {
-
+    
 }

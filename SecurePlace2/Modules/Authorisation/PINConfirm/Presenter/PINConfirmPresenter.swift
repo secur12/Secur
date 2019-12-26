@@ -33,8 +33,6 @@ class PINConfirmPresenter: BasePresenter {
 extension PINConfirmPresenter: PINConfirmPresenterProtocol {
     
     func confirmSignUp(code: String) {
-        self.view?.showLoading(message: "Insalling PIN")
-        
         let keychain = Keychain(service: "com.hilton.SecurePlace2")
         
          do {
@@ -46,8 +44,7 @@ extension PINConfirmPresenter: PINConfirmPresenterProtocol {
             self.view?.hideLoading()
             return
          }
-        
-         self.view?.hideLoading()
+
          self.wireFrame.presentAlbumsViewController(from: self.view)
     }
     

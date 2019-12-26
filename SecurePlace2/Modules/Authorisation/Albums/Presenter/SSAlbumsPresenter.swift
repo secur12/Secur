@@ -17,6 +17,10 @@ class AlbumsPresenter: BasePresenter {
         self.interactor = interactor
         self.wireFrame = wireFrame
     }
+    
+    
 }
 
-extension AlbumsPresenter: AlbumsPresenterProtocol { }
+extension AlbumsPresenter: AlbumsPresenterProtocol {
+
+}

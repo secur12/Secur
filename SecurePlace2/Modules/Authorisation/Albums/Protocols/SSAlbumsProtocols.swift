@@ -10,8 +10,10 @@ import UIKit
 
 protocol AlbumsViewProtocol: class { }
 
-protocol AlbumsWireFrameProtocol: class { }
+protocol AlbumsWireFrameProtocol: class {
+}
 
-protocol AlbumsPresenterProtocol: class { }
+protocol AlbumsPresenterProtocol: class {
+}
 
 protocol AlbumsInteractorProtocol: class { }

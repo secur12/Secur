@@ -16,6 +16,6 @@ extension PINConfirmWireFrame: PINConfirmWireFrameProtocol {
     func presentAlbumsViewController(from view: PINConfirmViewProtocol?) {
         guard let fromView = view as? UIViewController else { return }
         let controller = self.resolver.presentAlbumsViewController()
-        fromView.navigationController?.pushViewController(controller, animated: true)
+        fromView.navigationController?.setViewControllers([controller], animated: true)
     }
 }

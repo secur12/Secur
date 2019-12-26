@@ -20,7 +20,8 @@ class AlbumsViewController: BaseViewController {
     }
 
     private func createUI() {
-
+        
+        self.view.backgroundColor = .white
     }
 }
 extension AlbumsViewController: AlbumsViewProtocol { }
