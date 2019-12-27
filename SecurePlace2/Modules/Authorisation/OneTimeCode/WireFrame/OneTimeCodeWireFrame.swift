@@ -18,4 +18,5 @@ class OneTimeCodeWireFrame: BaseWireFrame {
 
 extension OneTimeCodeWireFrame: OneTimeCodeWireFrameProtocol {
 
+    
 }

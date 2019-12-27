@@ -16,7 +16,7 @@
 		281E789C35C1B73B56091702 /* PINConfirmInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B50B9C9537AD964B32B77EE /* PINConfirmInteractor.swift */; };
 		31A2BD8DA724BE4AAAF0BB4C /* SSAlbumsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E2441FF0FC51C919A15ED /* SSAlbumsInteractor.swift */; };
 		32E9B2F781F2E13BA673662B /* SSPINSetupWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C56700715980E2F16CA97C /* SSPINSetupWireFrame.swift */; };
-		476D6274619001A99BE3C8CB /* SSOneTimeCodeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9EA79564F5F41566D6E92A /* SSOneTimeCodeWireFrame.swift */; };
+		476D6274619001A99BE3C8CB /* OneTimeCodeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9EA79564F5F41566D6E92A /* OneTimeCodeWireFrame.swift */; };
 		50DFC3EA375EDCD75D7EE36E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACC5F99DA5B9550360309D4 /* StartScreenViewController.swift */; };
 		53AB7586C5C8FB4220810D1A /* PINConfirm+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E2CBF447EA9442D3B2E02E /* PINConfirm+DIResolver.swift */; };
 		5BF81DCE16149036719F01BD /* Pods_SecurePlace2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AF62B46DFD0E556B493460 /* Pods_SecurePlace2UITests.framework */; };
@@ -197,7 +197,7 @@
 		D524BBA47152C996CFE63D4F /* Pods_SecurePlace2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecurePlace2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D837AC1A11F6C5921454E648 /* PINSetupInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupInteractor.swift; sourceTree = "<group>"; };
 		D97CC00F21A29894421BF8E1 /* StartScreenProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenProtocols.swift; sourceTree = "<group>"; };
-		DF9EA79564F5F41566D6E92A /* SSOneTimeCodeWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSOneTimeCodeWireFrame.swift; sourceTree = "<group>"; };
+		DF9EA79564F5F41566D6E92A /* OneTimeCodeWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeWireFrame.swift; sourceTree = "<group>"; };
 		E2BC0E359A4022EE849A3C44 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
 		E7AB6C73095D775BE0FD121D /* PINSetupPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupPresenter.swift; sourceTree = "<group>"; };
 		EA97D81FD2EAEBAC33B7AF2B /* Albums+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Albums+DIResolver.swift"; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 		536B4AE7AE731BD67AA8B4D3 /* WireFrame */ = {
 			isa = PBXGroup;
 			children = (
-				DF9EA79564F5F41566D6E92A /* SSOneTimeCodeWireFrame.swift */,
+				DF9EA79564F5F41566D6E92A /* OneTimeCodeWireFrame.swift */,
 			);
 			path = WireFrame;
 			sourceTree = "<group>";
@@ -411,7 +411,6 @@
 				89349A8B33326140114E50C1 /* Interactor */,
 				BFC0ADA57C5870FCEC981753 /* Protocols */,
 				536B4AE7AE731BD67AA8B4D3 /* WireFrame */,
-				B2770DB8D38B57AC2E2EE568 /* OneTimeCode+DIResolver.swift */,
 			);
 			path = OneTimeCode;
 			sourceTree = "<group>";
@@ -678,6 +677,7 @@
 				B11ECD25225B53CE00B2CC4E /* DIResolver.swift */,
 				BF4B251FDC0E79BF0B10B070 /* Authorisation+DIResolver.swift */,
 				B1CFF718225DC4330076C44C /* Mail+DIResolver.swift */,
+				B2770DB8D38B57AC2E2EE568 /* OneTimeCode+DIResolver.swift */,
 				853074D4B5C09B2996F1278C /* PINSetup+DIResolver.swift */,
 				A0E2CBF447EA9442D3B2E02E /* PINConfirm+DIResolver.swift */,
 				EA97D81FD2EAEBAC33B7AF2B /* Albums+DIResolver.swift */,
@@ -712,8 +712,8 @@
 				B1CFF713225DC4330076C44C /* Mail */,
 				F68127DDB619B76B17ED0BFA /* PINSetup */,
 				A20403477664E115512702B6 /* PINConfirm */,
-				1B01AAB5A443AEFDE44E8F64 /* Albums */,
 				7E2BBE0F0AF74FDF4831AFF7 /* OneTimeCode */,
+				1B01AAB5A443AEFDE44E8F64 /* Albums */,
 			);
 			path = Authorisation;
 			sourceTree = "<group>";
@@ -1158,7 +1158,7 @@
 				77B58BD6637B726D817689E0 /* OneTimeCodeInteractor.swift in Sources */,
 				8B83C28F7F7D035A56691620 /* OneTimeCodeProtocols.swift in Sources */,
 				B190682E233F8F6A0085BA59 /* SignInApiRequest.swift in Sources */,
-				476D6274619001A99BE3C8CB /* SSOneTimeCodeWireFrame.swift in Sources */,
+				476D6274619001A99BE3C8CB /* OneTimeCodeWireFrame.swift in Sources */,
 				1FCC1AA437232EEEF49BE7D8 /* OneTimeCode+DIResolver.swift in Sources */,
 				02591E549A177441AB0AD18C /* PINSetupViewController.swift in Sources */,
 				D5C80321252160C687D01FB3 /* PINSetupPresenter.swift in Sources */,

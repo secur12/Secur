@@ -15,7 +15,7 @@ import SnapKit
     case PINChange
 }
 
-class PINSetupViewController: BaseViewController {
+class PINSetupViewController: BaseScrollViewController {
 
     var presenter: PINSetupPresenterProtocol!
 
@@ -23,7 +23,6 @@ class PINSetupViewController: BaseViewController {
     private var PINSetupLabel = SSTitleLabel(title: "Setup PIN code")
     private var PINSetupDescription = SSDescriptionLabel(text: "Ok, now setup your PIN code.\n You will enter it every app launch.", containsBoldText: "", numberOfLines: 2)
     private var PINPasscodeView = SSPasscode()
-    private var stackView = UIStackView()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
@@ -39,18 +38,19 @@ class PINSetupViewController: BaseViewController {
     private func createUI() {
         self.view.backgroundColor = UIColor.white
 
-        self.stackView = UIStackView.viewsAndIntsToStack(viewsAndSpacings: [
+        self.viewsAndIntsToStack(viewsAndSpacings: [
             PINSetupImageView,12,
             PINSetupLabel,18,
             PINSetupDescription,19,
-            PINPasscodeView])
+            PINPasscodeView,25])
         
         self.PINSetupImageView.image = UIImage(named: "pinImage")
         self.PINSetupImageView.contentMode = .scaleAspectFit
 
         self.PINPasscodeView.didFinishedEnterCode = finishEnteringCode(_:)
-        
-        self.view.addSubview(stackView)
+        self.PINPasscodeView.stack.distribution = .fillEqually
+        self.PINPasscodeView.stack.alignment = .center
+        self.PINPasscodeView.stack.spacing = 26.withRatio()
         
         self.PINSetupImageView.snp.makeConstraints { (make) in
             make.width.equalTo(168.withRatio())
@@ -59,15 +59,11 @@ class PINSetupViewController: BaseViewController {
         
         self.PINPasscodeView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(35)
-            make.right.equalToSuperview().offset(-35)
+            make.left.equalToSuperview().offset(85.withRatio())
+            make.right.equalToSuperview().offset(-85.withRatio())
             make.height.equalTo(44)
         }
         
-        self.stackView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(299)
-            make.centerX.equalToSuperview()
-        }
     }
     
     func finishEnteringCode(_ code: String) {

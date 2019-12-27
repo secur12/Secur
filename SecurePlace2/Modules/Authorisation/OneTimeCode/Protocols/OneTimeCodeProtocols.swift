@@ -8,10 +8,24 @@
 
 import UIKit
 
-protocol OneTimeCodeViewProtocol: class { }
+protocol OneTimeCodeViewProtocol: class {
+    func showLoading(message: String?)
+    func hideLoading()
+    func showOkAlertController(title: String?, message: String?, callback: (() -> Void)?)
+    func showAlert(title: String?, message: String?, buttons: [UIAlertAction])
+    func clearCodeTextField()
+    func setDescriptionTextWithEmail(descriptionText: String, email: String, numberOfLines: Int)
+}
 
 protocol OneTimeCodeWireFrameProtocol: class { }
 
-protocol OneTimeCodePresenterProtocol: class { }
+protocol OneTimeCodePresenterProtocol: class {
+    func setDescriptionText()
+    
+    func didClickContinue(code: String)
+    func checkSignInCode(code: String)
+    func checkPINResetCode(code: String)
+    func checkColdpassInstallCode(code: String)
+}
 
 protocol OneTimeCodeInteractorProtocol: class { }

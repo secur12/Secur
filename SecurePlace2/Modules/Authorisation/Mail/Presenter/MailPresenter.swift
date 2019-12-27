@@ -115,8 +115,8 @@ extension MailPresenter: MailPresenterProtocol {
             }
             
             if(mailWasSent) {
+                self.wireFrame.presentOneTimeCode(from: self.view, type: .signIn, email: email)
                 
-                //self.wireFrame.presentOneTimeCode(type: .signIn)
             }
         }
     }

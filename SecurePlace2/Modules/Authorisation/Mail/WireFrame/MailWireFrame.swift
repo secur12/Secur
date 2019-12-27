@@ -15,9 +15,10 @@ class MailWireFrame: BaseWireFrame, MailWireFrameProtocol {
         fromView.navigationController?.pushViewController(controller, animated: true)
     }
   
-    //func presentSomeViewController(from view: testViewProtocol) {
-    //    guard let fromView = view as? UIViewController else { return }
-    //    let viewController = self.resolver.someViewController()
-    //    fromView.navigationController?.pushViewController(viewController, animated: true)
-    //}
+    func presentOneTimeCode(from view: MailViewProtocol?, type: OneTimeCodeModuleType, email: String) {
+        guard let fromView = view as? UIViewController else { return }
+        let controller = self.resolver.presentOneTimeCodeViewController(type: type, email: email)
+        fromView.navigationController?.pushViewController(controller, animated: true)
+    }
+        
 }

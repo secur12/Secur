@@ -10,15 +10,15 @@ import UIKit
 
 // MARK: - OneTimeCode
 protocol OneTimeCodeProtocol {
-    func presentOneTimeCodeViewController() -> UIViewController
+    func presentOneTimeCodeViewController(type: OneTimeCodeModuleType, email: String) -> UIViewController
 }
 
 extension DIResolver: OneTimeCodeProtocol {
-    func presentOneTimeCodeViewController() -> UIViewController {
+    func presentOneTimeCodeViewController(type: OneTimeCodeModuleType, email: String) -> UIViewController {
         let viewController = OneTimeCodeViewController()
         let interactor = OneTimeCodeInteractor(networkController: self.networkController)
         let wireFrame = OneTimeCodeWireFrame(resolver: self)
-        let presenter = OneTimeCodePresenter(view: viewController, wireFrame: wireFrame, interactor: interactor)
+        let presenter = OneTimeCodePresenter(view: viewController, wireFrame: wireFrame, interactor: interactor, type: type, email: email)
         viewController.presenter = presenter
         return viewController
     }
