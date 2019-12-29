@@ -128,6 +128,12 @@ extension String {
     }
 }
 
+extension String {
+    var isInt: Bool {
+        return Int(self) != nil
+    }
+}
+
 extension UIDevice {
 //    static func getDeviceRatio<T>(t: T) -> CGFloat {
 //        switch deviceType {

@@ -15,4 +15,9 @@ class OneTimeCodeInteractor: BaseInteractor {
     }
 }
 
-extension OneTimeCodeInteractor: OneTimeCodeInteractorProtocol { }
+extension OneTimeCodeInteractor: OneTimeCodeInteractorProtocol {
+    func checkOneTimeSignIn(with code: String, completion: @escaping (CheckOneTimeCodeApiResponseModel?, NetworkError?) -> Void) {
+        self.networkController.checkOneTimeSignIn(with: code, completion: completion)
+    }
+}
+

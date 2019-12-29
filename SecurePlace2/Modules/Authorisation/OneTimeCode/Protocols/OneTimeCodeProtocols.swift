@@ -17,15 +17,20 @@ protocol OneTimeCodeViewProtocol: class {
     func setDescriptionTextWithEmail(descriptionText: String, email: String, numberOfLines: Int)
 }
 
-protocol OneTimeCodeWireFrameProtocol: class { }
+protocol OneTimeCodeWireFrameProtocol: class {
+    func presentMasterPassword(from view: OneTimeCodeViewProtocol?, type: MasterPasswordModuleType, oneTimeCodeModel: CheckOneTimeCodeModel)
+    func presentPINSetup(from view: OneTimeCodeViewProtocol?, type: PINModuleType, oneTimeCodeModel: CheckOneTimeCodeModel)
+}
 
 protocol OneTimeCodePresenterProtocol: class {
     func setDescriptionText()
     
     func didClickContinue(code: String)
-    func checkSignInCode(code: String)
-    func checkPINResetCode(code: String)
-    func checkColdpassInstallCode(code: String)
+    func checkOneTimeSignIn(code: String)
+    func checkOneTimePINReset(code: String)
+    func checkOneTimeColdpassInstall(code: String)
 }
 
-protocol OneTimeCodeInteractorProtocol: class { }
+protocol OneTimeCodeInteractorProtocol: class {
+    func checkOneTimeSignIn(with code: String, completion: @escaping (CheckOneTimeCodeApiResponseModel?, NetworkError?) -> Void)
+}

@@ -16,15 +16,17 @@ class PINConfirmPresenter: BasePresenter {
     private var interactor: PINConfirmInteractorProtocol
 
     private var type: PINModuleType
-    private var tokens: SignUpPositiveModel
+    private var accessToken: String
+    private var refreshToken: String
     private var pinToConfirm: String
     
-    init(view: PINConfirmViewProtocol, wireFrame: PINConfirmWireFrameProtocol, interactor: PINConfirmInteractorProtocol, type: PINModuleType, tokens: SignUpPositiveModel, pin: String) {
+    init(view: PINConfirmViewProtocol, wireFrame: PINConfirmWireFrameProtocol, interactor: PINConfirmInteractorProtocol, type: PINModuleType, accessToken: String, refreshToken: String, pin: String) {
         self.view = view
         self.interactor = interactor
         self.wireFrame = wireFrame
         self.type = type
-        self.tokens = tokens
+        self.accessToken = accessToken
+        self.refreshToken = refreshToken
         self.pinToConfirm = pin
     }
     
@@ -37,8 +39,8 @@ extension PINConfirmPresenter: PINConfirmPresenterProtocol {
         
          do {
             try keychain.set(KeychainManager.getHashedPIN(pin: code), key: "pinHash")
-            try keychain.set(self.tokens.refresh_token, key: "refreshToken")
-            try keychain.set(self.tokens.access_token, key: "accessToken")
+            try keychain.set(self.refreshToken, key: "refreshToken")
+            try keychain.set(self.accessToken, key: "accessToken")
          } catch let error {
             self.view?.showOkAlertController(title: "Security error!", message: "Unexpected security error occured! \n \(error.localizedDescription) \n Screenshot this and open support ticket, please!", callback: nil)
             self.view?.hideLoading()

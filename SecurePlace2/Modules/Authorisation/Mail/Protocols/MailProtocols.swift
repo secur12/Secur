@@ -18,7 +18,7 @@ protocol MailViewProtocol: class {
 }
 
 protocol MailWireFrameProtocol: class {
-    func presentPINSetupViewController(from view: MailViewProtocol?, type: PINModuleType, tokens: SignUpPositiveModel)
+    func presentPINSetup(from view: MailViewProtocol?, type: PINModuleType, tokens: SignUpPositiveModel)
     func presentOneTimeCode(from view: MailViewProtocol?, type: OneTimeCodeModuleType, email: String)
 }
 

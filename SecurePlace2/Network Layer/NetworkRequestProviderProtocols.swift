@@ -10,9 +10,13 @@ import Foundation
 
 protocol NetworkAuthRequestProtocol {
     func signUpUser(with email: String, completion: @escaping(SignUpPositiveApiResponseModel?, NetworkError?) -> Void)
-    
     func signInUser(with email: String, completion: @escaping (_ mailWasSent: Bool, NetworkError?) -> Void)
 }
+
+protocol NetworkAccountRequestProtocol {
+    func checkOneTimeSignIn(with code: String, completion: @escaping(CheckOneTimeCodeApiResponseModel?, NetworkError?) -> Void)
+}
+
 //protocol NetworkAccountRequestProtocol {
 //    func updateFCMToken(completion: @escaping (NetworkError?) -> Void)
 //    func registerUser(with email: String, password: String, name: String, username: String, completion: @escaping(RegistrationNegativeApiResponseModel?, RegistrationPositiveApiResponseModel?, NetworkError?) -> Void)

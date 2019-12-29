@@ -14,9 +14,9 @@ class PINSetupWireFrame: BaseWireFrame {
 
 extension PINSetupWireFrame: PINSetupWireFrameProtocol {
 
-    func presentPINConfirmViewController(from view: PINSetupViewProtocol?, type: PINModuleType, tokens: SignUpPositiveModel, pin: String) {
+    func presentPINConfirmViewController(from view: PINSetupViewProtocol?, type: PINModuleType, accessToken: String, refreshToken: String, pin: String) {
         guard let fromView = view as? UIViewController else { return }
-        let controller = self.resolver.presentPINConfirmViewController(type: type, tokens: tokens, pin: pin)
+        let controller = self.resolver.presentPINConfirmViewController(type: type, accessToken: accessToken, refreshToken: refreshToken, pin: pin)
         fromView.navigationController?.pushViewController(controller, animated: true)
     }
 }

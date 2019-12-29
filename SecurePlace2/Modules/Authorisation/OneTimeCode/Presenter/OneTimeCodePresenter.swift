@@ -38,27 +38,56 @@ extension OneTimeCodePresenter: OneTimeCodePresenterProtocol {
     }
     
     func didClickContinue(code: String) {
-        switch type {
-            case .signIn:
-                return
-            
-            case.PINReset:
-                return
-            
-            case.coldpassInstall:
-                return
+        if(code.isInt && code.count==6) {
+            switch type {
+               case .signIn:
+                   checkOneTimeSignIn(code: code)
+               
+               case.PINReset:
+                   checkOneTimePINReset(code: code)
+               
+               case.coldpassInstall:
+                   checkOneTimeColdpassInstall(code: code)
+           }
+    
+        } else {
+            self.view?.clearCodeTextField()
+            self.view?.showOkAlertController(title: "Wrong format!", message: "Please enter a valid one-time code", callback: nil)
         }
     }
     
-    func checkSignInCode(code: String) {
+    func checkOneTimeSignIn(code: String) {
+        self.view?.showLoading(message: "Loading...")
+        self.interactor.checkOneTimeSignIn(with: code) { (model, error) in
+           defer { self.view?.hideLoading() }
+            
+           if let error = error {
+                print(error.localizedDescription)
+                if(error.errorCode == 401) {
+                self.view?.showOkAlertController(title: "Wrong one-time code", message: "One-time code that you entered doesn't match with the code we've sent to your email", callback: nil)
+            } else {
+                self.view?.showOkAlertController(title: "Error", message: "Something went wrong, error \(String(describing: error.errorCode))", callback: nil)
+            }
+            return
+        }
+            
+            if let model = model {
+                let oneTimeCodeModel = CheckOneTimeCodeModel(userInstalledColdPass: model.userInstalledColdPass, refresh_token: model.refresh_token, access_token: model.access_token, decryptKeySalt: model.decryptKeySalt, decryptKeyIV: model.decryptKeyIV)
+                
+                if (oneTimeCodeModel.userInstalledColdPass) {
+                    //wireframe.open Master password
+                } else {
+                    self.wireFrame.presentPINSetup(from: self.view, type: .signIn, oneTimeCodeModel: oneTimeCodeModel)
+                }
+        }
+    }
+}
+    
+    func checkOneTimePINReset(code: String) {
         
     }
     
-    func checkPINResetCode(code: String) {
-        
-    }
-    
-    func checkColdpassInstallCode(code: String) {
+    func checkOneTimeColdpassInstall(code: String) {
         
     }
 }

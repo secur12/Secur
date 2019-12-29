@@ -9,14 +9,19 @@
 import UIKit
 
 class OneTimeCodeWireFrame: BaseWireFrame {
-    //func presentSomeViewController(from view: OneTimeCodeViewProtocol) {
-    //    guard let fromView = view as? UIViewController else { return }
-    //    let viewController = self.resolver.someViewController()
-    //    fromView.navigationController?.pushViewController(viewController, animated: true)
-    //}
 }
 
 extension OneTimeCodeWireFrame: OneTimeCodeWireFrameProtocol {
-
+    func presentMasterPassword(from view: OneTimeCodeViewProtocol?, type: MasterPasswordModuleType, oneTimeCodeModel: CheckOneTimeCodeModel) {
+        guard let fromView = view as? UIViewController else { return }
+        let controller = self.resolver.presentMasterPasswordViewController()
+        fromView.navigationController?.pushViewController(controller, animated: true)
+    }
+ 
+    func presentPINSetup(from view: OneTimeCodeViewProtocol?, type: PINModuleType, oneTimeCodeModel: CheckOneTimeCodeModel) {
+        guard let fromView = view as? UIViewController else { return }
+        let controller = self.resolver.presentPINSetupViewController(type: type, oneTimeCodeModel: oneTimeCodeModel)
+        fromView.navigationController?.pushViewController(controller, animated: true)
+    }
     
 }

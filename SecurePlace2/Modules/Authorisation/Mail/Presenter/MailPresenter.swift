@@ -88,7 +88,7 @@ extension MailPresenter: MailPresenterProtocol {
                 print(model.access_token)
                 print(model.refresh_token)
                 let tokensModel = SignUpPositiveModel.convert(from: model)
-                self.wireFrame.presentPINSetupViewController(from: self.view, type: .signUp, tokens: tokensModel)
+                self.wireFrame.presentPINSetup(from: self.view, type: .signUp, tokens: tokensModel)
             }
         }
         

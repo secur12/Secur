@@ -9,7 +9,7 @@
 import UIKit
 
 extension NetworkRequestProvider: NetworkAuthRequestProtocol {
-    
+
     func signUpUser(with email: String, completion: @escaping (SignUpPositiveApiResponseModel?, NetworkError?) -> Void) {
         
         let request = SignUpApiRequest.init(email: email)
@@ -49,7 +49,7 @@ extension NetworkRequestProvider: NetworkAuthRequestProtocol {
     }
     
     func signInUser(with email: String, completion: @escaping (_ mailWasSent: Bool, NetworkError?) -> Void) {
-        
+
         let request = SignInApiRequest.init(email: email)
         
         self.runRequest(request, progressResult: nil) { (code, _, error) in
@@ -77,7 +77,5 @@ extension NetworkRequestProvider: NetworkAuthRequestProtocol {
             completion(false, nil)
         }
     }
-    
-    
 
 }

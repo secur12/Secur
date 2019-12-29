@@ -13,7 +13,7 @@ protocol PINSetupViewProtocol: class {
 }
 
 protocol PINSetupWireFrameProtocol: class {
-    func presentPINConfirmViewController(from view: PINSetupViewProtocol?, type: PINModuleType, tokens: SignUpPositiveModel, pin: String)
+    func presentPINConfirmViewController(from view: PINSetupViewProtocol?, type: PINModuleType, accessToken: String, refreshToken: String, pin: String)
 }
 
 protocol PINSetupPresenterProtocol: class {
