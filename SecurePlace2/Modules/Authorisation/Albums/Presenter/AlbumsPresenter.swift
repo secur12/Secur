@@ -1,5 +1,5 @@
 //
-//  SSAlbumsPresenter.swift
+//  AlbumsPresenter.swift
 //  SecurePlace2
 //
 //  Created by YY on 25/12/2019.

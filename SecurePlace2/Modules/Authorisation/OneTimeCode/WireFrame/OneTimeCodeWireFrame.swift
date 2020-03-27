@@ -12,15 +12,15 @@ class OneTimeCodeWireFrame: BaseWireFrame {
 }
 
 extension OneTimeCodeWireFrame: OneTimeCodeWireFrameProtocol {
-    func presentMasterPassword(from view: OneTimeCodeViewProtocol?, type: MasterPasswordModuleType, oneTimeCodeModel: CheckOneTimeCodeModel) {
+    func presentMasterPassword(from view: OneTimeCodeViewProtocol?, type: MasterPasswordModuleType, accessToken: String?, refreshToken: String?, decryptKeySalt: String?, decryptKeyIV: String?) {
         guard let fromView = view as? UIViewController else { return }
-        let controller = self.resolver.presentMasterPasswordViewController()
+        let controller = self.resolver.presentMasterPasswordViewController(type: type, accessToken: accessToken, refreshToken: refreshToken, decryptKeySalt: decryptKeySalt, decryptKeyIV: decryptKeySalt)
         fromView.navigationController?.pushViewController(controller, animated: true)
     }
  
-    func presentPINSetup(from view: OneTimeCodeViewProtocol?, type: PINModuleType, oneTimeCodeModel: CheckOneTimeCodeModel) {
+    func presentPINSetupNoKey(from view: OneTimeCodeViewProtocol?, accessToken: String, refreshToken: String) {
         guard let fromView = view as? UIViewController else { return }
-        let controller = self.resolver.presentPINSetupViewController(type: type, oneTimeCodeModel: oneTimeCodeModel)
+        let controller = self.resolver.presentPINSetupSignInNoKeyViewController(accessToken: accessToken, refreshToken: refreshToken)
         fromView.navigationController?.pushViewController(controller, animated: true)
     }
     

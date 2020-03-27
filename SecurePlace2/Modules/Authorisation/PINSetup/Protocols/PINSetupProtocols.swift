@@ -13,7 +13,9 @@ protocol PINSetupViewProtocol: class {
 }
 
 protocol PINSetupWireFrameProtocol: class {
-    func presentPINConfirmViewController(from view: PINSetupViewProtocol?, type: PINModuleType, accessToken: String, refreshToken: String, pin: String)
+    func presentPINConfirmSignUpViewController(from view: PINSetupViewProtocol?, accessToken: String, refreshToken: String, pin: String)
+    func presentPINConfirmSignInNoKeyViewController(from view: PINSetupViewProtocol?, accessToken: String, refreshToken: String, pin: String)
+    func presentPINConfirmSignInWithKeyViewController(from view: PINSetupViewProtocol?, accessToken: String, refreshToken: String, decryptKeySalt: String, decryptKeyIV: String, pin: String)
 }
 
 protocol PINSetupPresenterProtocol: class {

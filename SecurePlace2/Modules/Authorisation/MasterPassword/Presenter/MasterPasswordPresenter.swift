@@ -20,10 +20,20 @@ class MasterPasswordPresenter: BasePresenter {
     private var wireFrame: MasterPasswordWireFrameProtocol
     private var interactor: MasterPasswordInteractorProtocol
 
-    init(view: MasterPasswordViewProtocol, wireFrame: MasterPasswordWireFrameProtocol, interactor: MasterPasswordInteractorProtocol) {
+    private var accessToken: String?
+    private var refreshToken: String?
+    
+    private var decryptKeySalt: String?
+    private var decryptKeyIV: String?
+    
+    init(view: MasterPasswordViewProtocol, wireFrame: MasterPasswordWireFrameProtocol, interactor: MasterPasswordInteractorProtocol, type: MasterPasswordModuleType, accessToken: String?, refreshToken: String?, decryptKeySalt: String?, decryptKeyIV: String?) {
         self.view = view
         self.interactor = interactor
         self.wireFrame = wireFrame
+        self.accessToken = accessToken
+        self.refreshToken = refreshToken
+        self.decryptKeySalt = decryptKeySalt
+        self.decryptKeyIV = decryptKeyIV
     }
 }
 

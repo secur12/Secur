@@ -72,12 +72,10 @@ extension OneTimeCodePresenter: OneTimeCodePresenterProtocol {
         }
             
             if let model = model {
-                let oneTimeCodeModel = CheckOneTimeCodeModel(userInstalledColdPass: model.userInstalledColdPass, refresh_token: model.refresh_token, access_token: model.access_token, decryptKeySalt: model.decryptKeySalt, decryptKeyIV: model.decryptKeyIV)
-                
-                if (oneTimeCodeModel.userInstalledColdPass) {
-                    //wireframe.open Master password
+                if (model.userInstalledColdPass) {
+                    self.wireFrame.presentMasterPassword(from: self.view, type: .signIn, accessToken: model.access_token, refreshToken: model.refresh_token, decryptKeySalt: model.decryptKeySalt, decryptKeyIV: model.decryptKeyIV)
                 } else {
-                    self.wireFrame.presentPINSetup(from: self.view, type: .signIn, oneTimeCodeModel: oneTimeCodeModel)
+                    self.wireFrame.presentPINSetupNoKey(from: self.view, accessToken: model.access_token, refreshToken: model.refresh_token)
                 }
         }
     }

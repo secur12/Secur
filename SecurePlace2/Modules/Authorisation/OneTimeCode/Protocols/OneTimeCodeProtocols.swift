@@ -18,8 +18,8 @@ protocol OneTimeCodeViewProtocol: class {
 }
 
 protocol OneTimeCodeWireFrameProtocol: class {
-    func presentMasterPassword(from view: OneTimeCodeViewProtocol?, type: MasterPasswordModuleType, oneTimeCodeModel: CheckOneTimeCodeModel)
-    func presentPINSetup(from view: OneTimeCodeViewProtocol?, type: PINModuleType, oneTimeCodeModel: CheckOneTimeCodeModel)
+    func presentMasterPassword(from view: OneTimeCodeViewProtocol?, type: MasterPasswordModuleType, accessToken: String?, refreshToken: String?, decryptKeySalt: String?, decryptKeyIV: String?)
+    func presentPINSetupNoKey(from view: OneTimeCodeViewProtocol?, accessToken: String, refreshToken: String)
 }
 
 protocol OneTimeCodePresenterProtocol: class {

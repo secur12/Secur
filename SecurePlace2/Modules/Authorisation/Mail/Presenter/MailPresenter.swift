@@ -23,10 +23,6 @@ class MailPresenter: BasePresenter {
         self.moduleType = type
     }
     
-    func getModuleType() -> EmailModuleType {
-        return self.moduleType
-    }
-    
 }
 
 extension MailPresenter: MailPresenterProtocol {
@@ -88,7 +84,7 @@ extension MailPresenter: MailPresenterProtocol {
                 print(model.access_token)
                 print(model.refresh_token)
                 let tokensModel = SignUpPositiveModel.convert(from: model)
-                self.wireFrame.presentPINSetup(from: self.view, type: .signUp, tokens: tokensModel)
+                self.wireFrame.presentPINSetupSignUp(from: self.view, accessToken: model.access_token, refreshToken: model.refresh_token)
             }
         }
         
