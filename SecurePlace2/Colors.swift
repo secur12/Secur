@@ -43,8 +43,22 @@ class Colors {
     }
     
     static var lightBlue: UIColor {
-           return UIColor.RGB(r: 168, g: 216, b: 255)
-       }
+        return UIColor.RGB(r: 168, g: 216, b: 255)
+    }
+    
+    static var lightGrey: UIColor {
+        return UIColor.RGB(r: 137, g: 137, b: 137)
+    }
+    
+    static var generateAlbumBackgroundColor: UIColor {
+        return UIColor.RGB(r: 53, g: 89, b: 150)
+    }
+    
+    static var plusButtonBorderBlue: UIColor {
+        return UIColor.RGB(r: 56, g: 148, b: 247)
+    }
+    
+    
 }
 
 extension UIColor {

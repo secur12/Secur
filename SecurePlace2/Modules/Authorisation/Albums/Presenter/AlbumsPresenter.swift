@@ -22,5 +22,7 @@ class AlbumsPresenter: BasePresenter {
 }
 
 extension AlbumsPresenter: AlbumsPresenterProtocol {
-
+    func addButtonClicked() {
+        self.view?.showAddActionSheet()
+    }
 }

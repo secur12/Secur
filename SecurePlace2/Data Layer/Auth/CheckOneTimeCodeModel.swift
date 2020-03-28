@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CheckOneTimeCodeModel: Codable {
+struct CheckOneTimeCodeModel: Codable {
     let userInstalledColdPass: Bool
     
     let refresh_token: String

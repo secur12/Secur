@@ -8,12 +8,15 @@
 
 import UIKit
 
-protocol AlbumsViewProtocol: class { }
+protocol AlbumsViewProtocol: class {
+    func showAddActionSheet()
+}
 
 protocol AlbumsWireFrameProtocol: class {
 }
 
 protocol AlbumsPresenterProtocol: class {
+    func addButtonClicked()
 }
 
 protocol AlbumsInteractorProtocol: class { }

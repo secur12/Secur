@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.networkProvider = NetworkRequestProvider(networkWrapper: networkWrapper, tokenRefresher: nil, accountManager: self.accountManager)
 
         let resolver = DIResolver(networkController: self.networkProvider)
-        let startScreenController = resolver.presentStartScreenViewController()
+        let startScreenController = resolver.presentAlbumsViewController()
         let navi = UINavigationController(rootViewController: startScreenController)
 
         self.window?.rootViewController = navi //PINSetupViewController()

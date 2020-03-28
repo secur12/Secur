@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SignUpPositiveModel: Codable {
+struct SignUpPositiveModel: Codable {
     let refresh_token: String
     let access_token: String
     

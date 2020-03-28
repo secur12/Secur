@@ -62,6 +62,7 @@
 		B11ECD1C225B520C00B2CC4E /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD06225B520B00B2CC4E /* BaseInteractor.swift */; };
 		B11ECD1E225B520C00B2CC4E /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD08225B520B00B2CC4E /* BasePresenter.swift */; };
 		B11ECD26225B53CF00B2CC4E /* DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD25225B53CE00B2CC4E /* DIResolver.swift */; };
+		B12A591F242F8A4A000A1F7C /* SSPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */; };
 		B136334F23AE91A300DDD935 /* SSPasscode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136334E23AE91A300DDD935 /* SSPasscode.swift */; };
 		B136335223B295E300DDD935 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136335123B295E300DDD935 /* KeychainManager.swift */; };
 		B1432E0C02B77327EAEABB7C /* PINConfirmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05FCAD1479C2C0B8F24C1CD /* PINConfirmProtocols.swift */; };
@@ -91,6 +92,8 @@
 		B1F2CF0822816CD5008E68B5 /* SSContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F2CF0722816CD5008E68B5 /* SSContinueButton.swift */; };
 		B1F36E3023B99DEE006F5249 /* PINSetupPresenter+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F36E2F23B99DEE006F5249 /* PINSetupPresenter+SignUp.swift */; };
 		B1F36E3223B99F3D006F5249 /* PINSetupPresenter+SignInNoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F36E3123B99F3D006F5249 /* PINSetupPresenter+SignInNoKey.swift */; };
+		B1FB47A2242E9C19005D090C /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FB47A1242E9C19005D090C /* AlbumCell.swift */; };
+		B1FB47A4242EFF29005D090C /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FB47A3242EFF29005D090C /* AlbumModel.swift */; };
 		B1FBF203233E82CC00B7F069 /* NetworkProvider+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBF202233E82CC00B7F069 /* NetworkProvider+Auth.swift */; };
 		B1FBF20B233EB4B000B7F069 /* SignUpPositiveApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBF20A233EB4B000B7F069 /* SignUpPositiveApiResponseModel.swift */; };
 		B1FBF210233EB86E00B7F069 /* SignUpApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBF20F233EB86E00B7F069 /* SignUpApiRequest.swift */; };
@@ -185,6 +188,7 @@
 		B11ECD06225B520B00B2CC4E /* BaseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		B11ECD08225B520B00B2CC4E /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		B11ECD25225B53CE00B2CC4E /* DIResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIResolver.swift; sourceTree = "<group>"; };
+		B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPlusButton.swift; sourceTree = "<group>"; };
 		B136334E23AE91A300DDD935 /* SSPasscode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPasscode.swift; sourceTree = "<group>"; };
 		B136335123B295E300DDD935 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B14AA1A2225E2B530073BA54 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
@@ -214,6 +218,8 @@
 		B1F2CF0722816CD5008E68B5 /* SSContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSContinueButton.swift; sourceTree = "<group>"; };
 		B1F36E2F23B99DEE006F5249 /* PINSetupPresenter+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINSetupPresenter+SignUp.swift"; sourceTree = "<group>"; };
 		B1F36E3123B99F3D006F5249 /* PINSetupPresenter+SignInNoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINSetupPresenter+SignInNoKey.swift"; sourceTree = "<group>"; };
+		B1FB47A1242E9C19005D090C /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		B1FB47A3242EFF29005D090C /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		B1FBF202233E82CC00B7F069 /* NetworkProvider+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkProvider+Auth.swift"; sourceTree = "<group>"; };
 		B1FBF20A233EB4B000B7F069 /* SignUpPositiveApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPositiveApiResponseModel.swift; sourceTree = "<group>"; };
 		B1FBF20F233EB86E00B7F069 /* SignUpApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpApiRequest.swift; sourceTree = "<group>"; };
@@ -357,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				BE93E2E7EEAFFB8CC1687A0E /* AlbumsViewController.swift */,
+				B1FB47A1242E9C19005D090C /* AlbumCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -761,6 +768,7 @@
 				B1F2CF052281684E008E68B5 /* SSDescriptionLabel.swift */,
 				B1F2CF0722816CD5008E68B5 /* SSContinueButton.swift */,
 				B136334E23AE91A300DDD935 /* SSPasscode.swift */,
+				B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -807,8 +815,8 @@
 		B1A2535E2341F35D00593A2F /* Data Layer */ = {
 			isa = PBXGroup;
 			children = (
-				B1A2535F2341F39800593A2F /* SignUpPositiveModel.swift */,
-				B199858523B80FA30064739D /* CheckOneTimeCodeModel.swift */,
+				B1FB47A6242F7E8B005D090C /* Media */,
+				B1FB47A5242F7E7F005D090C /* Auth */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -871,6 +879,23 @@
 				B1621AA5234D02B8008F6AC3 /* Authorisation */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		B1FB47A5242F7E7F005D090C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B1A2535F2341F39800593A2F /* SignUpPositiveModel.swift */,
+				B199858523B80FA30064739D /* CheckOneTimeCodeModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B1FB47A6242F7E8B005D090C /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				B1FB47A3242EFF29005D090C /* AlbumModel.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		B1FBF206233EB33A00B7F069 /* NetworkRequestProviders */ = {
@@ -1241,8 +1266,10 @@
 				B11ECD16225B520C00B2CC4E /* BaseNavigationControllerWireFrame.swift in Sources */,
 				B1F36E3223B99F3D006F5249 /* PINSetupPresenter+SignInNoKey.swift in Sources */,
 				B1CFF723225DC4330076C44C /* MailProtocols.swift in Sources */,
+				B1FB47A4242EFF29005D090C /* AlbumModel.swift in Sources */,
 				B1CFF722225DC4330076C44C /* MailViewController.swift in Sources */,
 				B1FBF20B233EB4B000B7F069 /* SignUpPositiveApiResponseModel.swift in Sources */,
+				B1FB47A2242E9C19005D090C /* AlbumCell.swift in Sources */,
 				B1A253602341F39800593A2F /* SignUpPositiveModel.swift in Sources */,
 				B136334F23AE91A300DDD935 /* SSPasscode.swift in Sources */,
 				B1AF91922265C52600FB22B8 /* GroceryListPendingTasksFactory.swift in Sources */,
@@ -1289,6 +1316,7 @@
 				31A2BD8DA724BE4AAAF0BB4C /* AlbumsInteractor.swift in Sources */,
 				BD5CE711D51135A2ACE0685F /* AlbumsProtocols.swift in Sources */,
 				B021A370F95BD675B2120C2B /* AlbumsWireFrame.swift in Sources */,
+				B12A591F242F8A4A000A1F7C /* SSPlusButton.swift in Sources */,
 				0A9B07FC81AAF04B844C7112 /* Albums+DIResolver.swift in Sources */,
 				B16E015623B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift in Sources */,
 				ADC9D257B1368CBAB5EB389C /* MasterPasswordViewController.swift in Sources */,
