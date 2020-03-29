@@ -21,8 +21,9 @@ class AlbumsViewController: BaseViewController {
     private let categoriesLabel: UILabel = UILabel()
     private let categoriesCollectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init())
     private let categoriesCollectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
-    private let addButton: SSPlusButton = SSPlusButton()
-    
+    private let plusButton: SSPlusButton = SSPlusButton()
+
+    private var albumNameTextField: UITextField?
     private let albumCellReuseIdentifier: String = "AlbumCell"
     
     override func viewDidLoad() {
@@ -35,7 +36,7 @@ class AlbumsViewController: BaseViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Albums"
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Add +", style: .plain, target: self, action: #selector(self.addButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Add +", style: .plain, target: self, action: #selector(self.didClickPlusButton))
 
         view.addSubview(topSeparator)
         view.addSubview(myAlbumsLabel)
@@ -43,7 +44,7 @@ class AlbumsViewController: BaseViewController {
         view.addSubview(middleSeparator)
         view.addSubview(categoriesLabel)
         view.addSubview(categoriesCollectionView)
-        view.addSubview(addButton)
+        view.addSubview(plusButton)
         
         topSeparator.backgroundColor = Colors.lightGrey
         topSeparator.snp.makeConstraints { (make) in
@@ -113,16 +114,16 @@ class AlbumsViewController: BaseViewController {
             make.height.equalTo(categoryCellSize.height)
         }
         
-        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
-        addButton.snp.makeConstraints { (make) in
+        plusButton.addTarget(self, action: #selector(didClickPlusButton), for: .touchUpInside)
+        plusButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-17.withRatio())
             make.right.equalToSuperview().offset(-17.withRatio())
             make.height.width.equalTo(56.withRatio())
         }
     }
     
-    @objc func addButtonClicked() {
-        presenter.addButtonClicked()
+    @objc func didClickPlusButton() {
+        presenter.didClickPlusButton()
     }
 }
 
@@ -130,14 +131,40 @@ extension AlbumsViewController: AlbumsViewProtocol {
     func showAddActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let addAlbumButton = UIAlertAction(title: "Album", style: .default) { _ in
+            self.presenter.didClickAddAlbumOnSheet()
         }
         let addPhotoVideoButton = UIAlertAction(title: "Photo/video", style: .default) { _ in
+            self.presenter.didClickPhotoVideoOnSheet()
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
         actionSheet.addAction(addAlbumButton)
         actionSheet.addAction(addPhotoVideoButton)
         actionSheet.addAction(cancelButton)
-        self.present(actionSheet, animated: true, completion: nil)
+        self.present(actionSheet, animated: true)
+    }
+    
+    func showAddAlbumAlert() {
+        let alertController = UIAlertController(title: "Add album", message: nil, preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Add", style: .default, handler: { alert -> Void in
+            if let albumName = alertController.textFields?[0].text {
+                self.presenter.didClickCreateAlbum(named: albumName)
+            }
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action : UIAlertAction!) -> Void in })
+        alertController.addTextField { (textField) -> Void in
+             self.albumNameTextField = textField
+             self.albumNameTextField?.delegate = self
+             self.albumNameTextField?.placeholder = "Album name"
+         }
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        DispatchQueue.main.async {
+             self.present(alertController, animated: true)
+        }
+    }
+    
+    func showGalleryPicker() {
+        
     }
 }
 
@@ -163,5 +190,11 @@ extension AlbumsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         
         return cell ?? UICollectionViewCell()
+    }
+}
+
+extension AlbumsViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
     }
 }
