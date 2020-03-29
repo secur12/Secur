@@ -11,7 +11,6 @@ import UIKit
 protocol AlbumsViewProtocol: class {
     func showAddActionSheet()
     func showAddAlbumAlert()
-    func showGalleryPicker()
 }
 
 protocol AlbumsWireFrameProtocol: class {

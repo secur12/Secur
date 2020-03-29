@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import DKImagePickerController
+import DKPhotoGallery
 
 class AlbumsViewController: BaseViewController {
 
@@ -134,6 +136,24 @@ extension AlbumsViewController: AlbumsViewProtocol {
             self.presenter.didClickAddAlbumOnSheet()
         }
         let addPhotoVideoButton = UIAlertAction(title: "Photo/video", style: .default) { _ in
+                        
+            let pickerController = DKImagePickerController()
+            pickerController.singleSelect = false
+            pickerController.autoCloseOnSingleSelect = false
+            pickerController.containsGPSInMetadata = true
+            pickerController.allowSwipeToSelect = true
+            pickerController.allowSelectAll = true
+            pickerController.allowsLandscape = true
+            pickerController.showsEmptyAlbums = true
+            pickerController.showsCancelButton = true
+            pickerController.didSelectAssets = { (assets: [DKAsset]) in
+                print("didSelectAssets")
+                print(assets)
+            }
+           // self.present(pickerController, animated: true) {}
+            
+            
+            
             self.presenter.didClickPhotoVideoOnSheet()
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
@@ -161,10 +181,6 @@ extension AlbumsViewController: AlbumsViewProtocol {
         DispatchQueue.main.async {
              self.present(alertController, animated: true)
         }
-    }
-    
-    func showGalleryPicker() {
-        
     }
 }
 
