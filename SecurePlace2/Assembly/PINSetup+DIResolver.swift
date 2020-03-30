@@ -10,15 +10,26 @@ import UIKit
 
 // MARK: - PINSetup
 protocol PINSetupProtocol {
-    func presentPINSetupViewController(type: PINSetupModuleType, tokens: SignUpPositiveModel) -> UIViewController
+    func presentPINSetupSignUpViewController(accessToken: String, refreshToken: String) -> UIViewController
+    func presentPINSetupSignInNoKeyViewController(accessToken: String, refreshToken: String) -> UIViewController
 }
 
 extension DIResolver: PINSetupProtocol {
-    func presentPINSetupViewController(type: PINSetupModuleType, tokens: SignUpPositiveModel) -> UIViewController {
+    
+    func presentPINSetupSignUpViewController(accessToken: String, refreshToken: String) -> UIViewController {
         let viewController = PINSetupViewController()
         let interactor = PINSetupInteractor()
         let wireFrame = PINSetupWireFrame(resolver: self)
-        let presenter = PINSetupPresenter(view: viewController, wireFrame: wireFrame, interactor: interactor, type: type, tokens: tokens)
+        let presenter = PINSetupSignUpPresenter(view: viewController, wireFrame: wireFrame, interactor: interactor, accessToken: accessToken, refreshToken: refreshToken)
+        viewController.presenter = presenter
+        return viewController
+    }
+    
+    func presentPINSetupSignInNoKeyViewController(accessToken: String, refreshToken: String) -> UIViewController {
+        let viewController = PINSetupViewController()
+        let interactor = PINSetupInteractor()
+        let wireFrame = PINSetupWireFrame(resolver: self)
+        let presenter = PINSetupSignInNoKeyPresenter(view: viewController, wireFrame: wireFrame, interactor: interactor, accessToken: accessToken, refreshToken: refreshToken)
         viewController.presenter = presenter
         return viewController
     }

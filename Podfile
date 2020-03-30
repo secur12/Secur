@@ -6,10 +6,13 @@ target 'SecurePlace2' do
   use_frameworks!
   pod 'Moya', '~> 12.0'
   
+  pod 'KeychainAccess'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'LBTATools'
   pod 'SnapKit', '~> 4.0.0'
   pod 'Wendy', '~> 0.1.0-alpha'
+  pod 'DKImagePickerController'
+  pod 'SwipeSelectingCollectionView'
   # Pods for SecurePlace2
 
   target 'SecurePlace2Tests' do

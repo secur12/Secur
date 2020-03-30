@@ -9,7 +9,6 @@
 import UIKit
 import Wendy
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -29,10 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.networkProvider = NetworkRequestProvider(networkWrapper: networkWrapper, tokenRefresher: nil, accountManager: self.accountManager)
 
         let resolver = DIResolver(networkController: self.networkProvider)
-        let autorisationController = resolver.presentAuthorisationViewController()
-        let navi = UINavigationController(rootViewController: autorisationController)
+        let startScreenController = resolver.presentAlbumsViewController()
+        let navi = UINavigationController(rootViewController: startScreenController)
 
-        self.window?.rootViewController = navi
+        self.window?.rootViewController = navi //PINSetupViewController()
         self.window?.makeKeyAndVisible()
         
         do {
@@ -58,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //IQKeyboardManager.shared().isEnabled = true
         
+        print("App did LAunched")
         return true
     }
 
