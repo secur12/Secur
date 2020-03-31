@@ -13,6 +13,7 @@ target 'SecurePlace2' do
   pod 'Wendy', '~> 0.1.0-alpha'
   pod 'DKImagePickerController'
   pod 'SwipeSelectingCollectionView'
+  pod 'MediaBrowser'
   # Pods for SecurePlace2
 
   target 'SecurePlace2Tests' do

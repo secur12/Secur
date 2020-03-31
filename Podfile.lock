@@ -54,6 +54,9 @@ PODS:
   - KeychainAccess (4.1.0)
   - LBTATools (1.0.8)
   - MBProgressHUD (1.1.0)
+  - MediaBrowser (2.3.0):
+    - SDWebImage
+    - UICircularProgressRing
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya/Core (12.0.1):
@@ -69,6 +72,7 @@ PODS:
     - SDWebImage/Core (~> 5.6)
   - SnapKit (4.0.1)
   - SwipeSelectingCollectionView (0.1.4)
+  - UICircularProgressRing (6.5.0)
   - Wendy (0.1.0-alpha):
     - Require (~> 2.0.0)
 
@@ -77,6 +81,7 @@ DEPENDENCIES:
   - KeychainAccess
   - LBTATools
   - MBProgressHUD (~> 1.1.0)
+  - MediaBrowser
   - Moya (~> 12.0)
   - SnapKit (~> 4.0.0)
   - SwipeSelectingCollectionView
@@ -93,6 +98,7 @@ SPEC REPOS:
     - KeychainAccess
     - LBTATools
     - MBProgressHUD
+    - MediaBrowser
     - Moya
     - Require
     - Result
@@ -100,6 +106,7 @@ SPEC REPOS:
     - SDWebImageFLPlugin
     - SnapKit
     - SwipeSelectingCollectionView
+    - UICircularProgressRing
     - Wendy
 
 SPEC CHECKSUMS:
@@ -112,6 +119,7 @@ SPEC CHECKSUMS:
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
   LBTATools: 913ba0a3fbad250d042368ca2a0f314cdb015de1
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MediaBrowser: 6dc19b2d900db201083f2cdfb8bd650be7382bc3
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Require: f93abc18dda985f665465cf027cea7166455fb28
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -119,8 +127,9 @@ SPEC CHECKSUMS:
   SDWebImageFLPlugin: 6c2295fb1242d44467c6c87dc5db6b0a13228fd8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwipeSelectingCollectionView: 8d2c8b8a8c3c1c79550c5b3a8424f84b0a6481f7
+  UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   Wendy: 416b195f26f158784235072d24baf8a6e32cfbf3
 
-PODFILE CHECKSUM: 9fcb2d6a990df10a4b6a90216ade3f09860f7981
+PODFILE CHECKSUM: fe14d49b1ea1be377a676457246cd43523bc66a6
 
 COCOAPODS: 1.8.4

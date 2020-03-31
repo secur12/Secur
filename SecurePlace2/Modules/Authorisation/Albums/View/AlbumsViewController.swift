@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import DKImagePickerController
 import DKPhotoGallery
+import MediaBrowser
 
 class AlbumsViewController: BaseViewController {
 
@@ -136,20 +137,23 @@ extension AlbumsViewController: AlbumsViewProtocol {
             self.presenter.didClickAddAlbumOnSheet()
         }
         let addPhotoVideoButton = UIAlertAction(title: "Photo/video", style: .default) { _ in
-                        
-            let pickerController = DKImagePickerController()
-            pickerController.singleSelect = false
-            pickerController.autoCloseOnSingleSelect = false
-            pickerController.containsGPSInMetadata = true
-            pickerController.allowSwipeToSelect = true
-            pickerController.allowSelectAll = true
-            pickerController.allowsLandscape = true
-            pickerController.showsEmptyAlbums = true
-            pickerController.showsCancelButton = true
-            pickerController.didSelectAssets = { (assets: [DKAsset]) in
-                print("didSelectAssets")
-                print(assets)
-            }
+             
+            
+            
+            //
+//            let pickerController = DKImagePickerController()
+//            pickerController.singleSelect = false
+//            pickerController.autoCloseOnSingleSelect = false
+//            pickerController.containsGPSInMetadata = true
+//            pickerController.allowSwipeToSelect = true
+//            pickerController.allowSelectAll = true
+//            pickerController.allowsLandscape = true
+//            pickerController.showsEmptyAlbums = true
+//            pickerController.showsCancelButton = true
+//            pickerController.didSelectAssets = { (assets: [DKAsset]) in
+//                print("didSelectAssets")
+//                print(assets)
+//            }
            // self.present(pickerController, animated: true) {}
             
             

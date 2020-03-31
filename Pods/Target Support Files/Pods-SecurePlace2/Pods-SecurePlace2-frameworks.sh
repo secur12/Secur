@@ -170,6 +170,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LBTATools/LBTATools.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MediaBrowser/MediaBrowser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Moya/Moya.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Require/Require.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Result/Result.framework"
@@ -177,6 +178,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeSelectingCollectionView/SwipeSelectingCollectionView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Wendy/Wendy.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -189,6 +191,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LBTATools/LBTATools.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MediaBrowser/MediaBrowser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Moya/Moya.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Require/Require.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Result/Result.framework"
@@ -196,6 +199,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeSelectingCollectionView/SwipeSelectingCollectionView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Wendy/Wendy.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
