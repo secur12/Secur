@@ -1,6 +1,10 @@
 PODS:
-  - Alamofire (4.9.0)
+  - Alamofire (5.0.5)
+  - AssetsPickerViewController (2.7.5):
+    - Device
+    - SnapKit
   - CropViewController (2.5.2)
+  - Device (3.2.1)
   - DKCamera (1.6.7)
   - DKImagePickerController (4.2.2):
     - DKImagePickerController/Camera (= 4.2.2)
@@ -51,19 +55,16 @@ PODS:
     - SDWebImage
     - SDWebImageFLPlugin
   - FLAnimatedImage (1.0.12)
-  - KeychainAccess (4.1.0)
-  - LBTATools (1.0.8)
-  - MBProgressHUD (1.1.0)
-  - MediaBrowser (2.3.0):
+  - ImageViewer.swift (3.0.12):
     - SDWebImage
-    - UICircularProgressRing
-  - Moya (12.0.1):
-    - Moya/Core (= 12.0.1)
-  - Moya/Core (12.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.0)
+  - KeychainAccess (4.1.0)
+  - LBTATools (1.0.12)
+  - MBProgressHUD (1.1.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - Require (2.0.0)
-  - Result (4.1.0)
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
@@ -72,17 +73,17 @@ PODS:
     - SDWebImage/Core (~> 5.6)
   - SnapKit (4.0.1)
   - SwipeSelectingCollectionView (0.1.4)
-  - UICircularProgressRing (6.5.0)
   - Wendy (0.1.0-alpha):
     - Require (~> 2.0.0)
 
 DEPENDENCIES:
+  - AssetsPickerViewController (~> 2.0)
   - DKImagePickerController
+  - ImageViewer.swift (~> 3.0)
   - KeychainAccess
   - LBTATools
   - MBProgressHUD (~> 1.1.0)
-  - MediaBrowser
-  - Moya (~> 12.0)
+  - Moya
   - SnapKit (~> 4.0.0)
   - SwipeSelectingCollectionView
   - Wendy (~> 0.1.0-alpha)
@@ -90,46 +91,46 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AssetsPickerViewController
     - CropViewController
+    - Device
     - DKCamera
     - DKImagePickerController
     - DKPhotoGallery
     - FLAnimatedImage
+    - ImageViewer.swift
     - KeychainAccess
     - LBTATools
     - MBProgressHUD
-    - MediaBrowser
     - Moya
     - Require
-    - Result
     - SDWebImage
     - SDWebImageFLPlugin
     - SnapKit
     - SwipeSelectingCollectionView
-    - UICircularProgressRing
     - Wendy
 
 SPEC CHECKSUMS:
-  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  AssetsPickerViewController: 6954aff04b95d26be0d65a58557a9dfbef7811c3
   CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
+  Device: 0738862dd8a30856b4bd9e21cb9b728873d21392
   DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
   DKImagePickerController: 4a3e7948a848c4348e600b3fe5ce41478835fa10
   DKPhotoGallery: 0290d32343574f06eaa4c26f8f2f8a1035e916be
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  ImageViewer.swift: d4769c57ff8aef6da7e01bb9283f8554469b2498
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
-  LBTATools: 913ba0a3fbad250d042368ca2a0f314cdb015de1
+  LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MediaBrowser: 6dc19b2d900db201083f2cdfb8bd650be7382bc3
-  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Require: f93abc18dda985f665465cf027cea7166455fb28
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SDWebImageFLPlugin: 6c2295fb1242d44467c6c87dc5db6b0a13228fd8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwipeSelectingCollectionView: 8d2c8b8a8c3c1c79550c5b3a8424f84b0a6481f7
-  UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   Wendy: 416b195f26f158784235072d24baf8a6e32cfbf3
 
-PODFILE CHECKSUM: fe14d49b1ea1be377a676457246cd43523bc66a6
+PODFILE CHECKSUM: 936e4517e4a54f824aff26cbab3146a46d6d8154
 
 COCOAPODS: 1.8.4

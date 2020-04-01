@@ -10,7 +10,9 @@ import UIKit
 import SnapKit
 import DKImagePickerController
 import DKPhotoGallery
-import MediaBrowser
+import AssetsPickerViewController
+import SwipeSelectingCollectionView
+import ImageViewer_swift
 
 class AlbumsViewController: BaseViewController {
 
@@ -28,7 +30,7 @@ class AlbumsViewController: BaseViewController {
 
     private var albumNameTextField: UITextField?
     private let albumCellReuseIdentifier: String = "AlbumCell"
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createUI()
@@ -137,10 +139,14 @@ extension AlbumsViewController: AlbumsViewProtocol {
             self.presenter.didClickAddAlbumOnSheet()
         }
         let addPhotoVideoButton = UIAlertAction(title: "Photo/video", style: .default) { _ in
-             
+//
+
+//            let browser = MediaBrowser(delegate: self)
+
+
+            self.navigationController?.pushViewController(ImagesViewController(), animated: true)
             
-            
-            //
+//            
 //            let pickerController = DKImagePickerController()
 //            pickerController.singleSelect = false
 //            pickerController.autoCloseOnSingleSelect = false
@@ -154,7 +160,7 @@ extension AlbumsViewController: AlbumsViewProtocol {
 //                print("didSelectAssets")
 //                print(assets)
 //            }
-           // self.present(pickerController, animated: true) {}
+//            self.present(pickerController, animated: true) {}
             
             
             
@@ -218,3 +224,6 @@ extension AlbumsViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
+
