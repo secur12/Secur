@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "99EAE32514CAA452AFA381A6172A1587"
-               BuildableName = "LBTATools"
+               BuildableName = "LBTATools.framework"
                BlueprintName = "LBTATools"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

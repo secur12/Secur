@@ -1,19 +1,4 @@
 #!/bin/sh
-                
-# ---- this is added by cocoapods-binary ---
-# Readlink cannot handle relative symlink well, so we override it to a new one
-# If the path isn't an absolute path, we add a realtive prefix.
-old_read_link=`which readlink`
-readlink () {
-    path=`$old_read_link $1`;
-    if [ $(echo "$path" | cut -c 1-1) = '/' ]; then
-        echo $path;
-    else
-        echo "`dirname $1`/$path";
-    fi
-}
-# --- 
-#!/bin/sh
 set -e
 set -u
 set -o pipefail
@@ -61,8 +46,8 @@ install_framework()
   fi
 
   # Use filter instead of exclude so missing patterns don't throw errors.
-  echo "rsync --copy-links --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \"${source}\" \"${destination}\""
-  rsync --copy-links --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${source}" "${destination}"
+  echo "rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \"${source}\" \"${destination}\""
+  rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${source}" "${destination}"
 
   local basename
   basename="$(basename -s .framework "$1")"
@@ -101,8 +86,8 @@ install_dsym() {
   local source="$1"
   if [ -r "$source" ]; then
     # Copy the dSYM into a the targets temp dir.
-    echo "rsync --copy-links --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \"${source}\" \"${DERIVED_FILES_DIR}\""
-    rsync --copy-links --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${source}" "${DERIVED_FILES_DIR}"
+    echo "rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \"${source}\" \"${DERIVED_FILES_DIR}\""
+    rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${source}" "${DERIVED_FILES_DIR}"
 
     local basename
     basename="$(basename -s .framework.dSYM "$source")"
@@ -115,8 +100,8 @@ install_dsym() {
 
     if [[ $STRIP_BINARY_RETVAL == 1 ]]; then
       # Move the stripped file into its final destination.
-      echo "rsync --copy-links --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \"${DERIVED_FILES_DIR}/${basename}.framework.dSYM\" \"${DWARF_DSYM_FOLDER_PATH}\""
-      rsync --copy-links --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${DERIVED_FILES_DIR}/${basename}.framework.dSYM" "${DWARF_DSYM_FOLDER_PATH}"
+      echo "rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \"${DERIVED_FILES_DIR}/${basename}.framework.dSYM\" \"${DWARF_DSYM_FOLDER_PATH}\""
+      rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${DERIVED_FILES_DIR}/${basename}.framework.dSYM" "${DWARF_DSYM_FOLDER_PATH}"
     else
       # The dSYM was not stripped at all, in this case touch a fake folder so the input/output paths from Xcode do not reexecute this script because the file is missing.
       touch "${DWARF_DSYM_FOLDER_PATH}/${basename}.framework.dSYM"
@@ -128,8 +113,8 @@ install_dsym() {
 install_bcsymbolmap() {
     local bcsymbolmap_path="$1"
     local destination="${BUILT_PRODUCTS_DIR}"
-    echo "rsync --copy-links --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${bcsymbolmap_path}" "${destination}""
-    rsync --copy-links --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${bcsymbolmap_path}" "${destination}"
+    echo "rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${bcsymbolmap_path}" "${destination}""
+    rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers" --filter "- PrivateHeaders" --filter "- Modules" "${bcsymbolmap_path}" "${destination}"
 }
 
 # Signs a framework with the provided identity
@@ -176,84 +161,40 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${PODS_ROOT}/Alamofire/Alamofire.framework"
-  install_dsym "${PODS_ROOT}/Alamofire/Alamofire.framework.dSYM"
-  install_framework "${PODS_ROOT}/AssetsPickerViewController/AssetsPickerViewController.framework"
-  install_dsym "${PODS_ROOT}/AssetsPickerViewController/AssetsPickerViewController.framework.dSYM"
-  install_framework "${PODS_ROOT}/CropViewController/CropViewController.framework"
-  install_dsym "${PODS_ROOT}/CropViewController/CropViewController.framework.dSYM"
-  install_framework "${PODS_ROOT}/DKCamera/DKCamera.framework"
-  install_dsym "${PODS_ROOT}/DKCamera/DKCamera.framework.dSYM"
-  install_framework "${PODS_ROOT}/DKImagePickerController/DKImagePickerController.framework"
-  install_dsym "${PODS_ROOT}/DKImagePickerController/DKImagePickerController.framework.dSYM"
-  install_framework "${PODS_ROOT}/DKPhotoGallery/DKPhotoGallery.framework"
-  install_dsym "${PODS_ROOT}/DKPhotoGallery/DKPhotoGallery.framework.dSYM"
-  install_framework "${PODS_ROOT}/Device/Device.framework"
-  install_dsym "${PODS_ROOT}/Device/Device.framework.dSYM"
-  install_framework "${PODS_ROOT}/FLAnimatedImage/FLAnimatedImage.framework"
-  install_dsym "${PODS_ROOT}/FLAnimatedImage/FLAnimatedImage.framework.dSYM"
-  install_framework "${PODS_ROOT}/ImageViewer.swift/ImageViewer_swift.framework"
-  install_dsym "${PODS_ROOT}/ImageViewer.swift/ImageViewer_swift.framework.dSYM"
-  install_framework "${PODS_ROOT}/KeychainAccess/KeychainAccess.framework"
-  install_dsym "${PODS_ROOT}/KeychainAccess/KeychainAccess.framework.dSYM"
-  install_framework "${PODS_ROOT}/LBTATools/LBTATools.framework"
-  install_dsym "${PODS_ROOT}/LBTATools/LBTATools.framework.dSYM"
-  install_framework "${PODS_ROOT}/MBProgressHUD/MBProgressHUD.framework"
-  install_dsym "${PODS_ROOT}/MBProgressHUD/MBProgressHUD.framework.dSYM"
-  install_framework "${PODS_ROOT}/Moya/Moya.framework"
-  install_dsym "${PODS_ROOT}/Moya/Moya.framework.dSYM"
-  install_framework "${PODS_ROOT}/Require/Require.framework"
-  install_dsym "${PODS_ROOT}/Require/Require.framework.dSYM"
-  install_framework "${PODS_ROOT}/SDWebImage/SDWebImage.framework"
-  install_dsym "${PODS_ROOT}/SDWebImage/SDWebImage.framework.dSYM"
-  install_framework "${PODS_ROOT}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework"
-  install_dsym "${PODS_ROOT}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework.dSYM"
-  install_framework "${PODS_ROOT}/SnapKit/SnapKit.framework"
-  install_dsym "${PODS_ROOT}/SnapKit/SnapKit.framework.dSYM"
-  install_framework "${PODS_ROOT}/SwipeSelectingCollectionView/SwipeSelectingCollectionView.framework"
-  install_dsym "${PODS_ROOT}/SwipeSelectingCollectionView/SwipeSelectingCollectionView.framework.dSYM"
-  install_framework "${PODS_ROOT}/Wendy/Wendy.framework"
-  install_dsym "${PODS_ROOT}/Wendy/Wendy.framework.dSYM"
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DKPhotoGallery/DKPhotoGallery.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LBTATools/LBTATools.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Moya/Moya.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Require/Require.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Wendy/Wendy.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${PODS_ROOT}/Alamofire/Alamofire.framework"
-  install_dsym "${PODS_ROOT}/Alamofire/Alamofire.framework.dSYM"
-  install_framework "${PODS_ROOT}/AssetsPickerViewController/AssetsPickerViewController.framework"
-  install_dsym "${PODS_ROOT}/AssetsPickerViewController/AssetsPickerViewController.framework.dSYM"
-  install_framework "${PODS_ROOT}/CropViewController/CropViewController.framework"
-  install_dsym "${PODS_ROOT}/CropViewController/CropViewController.framework.dSYM"
-  install_framework "${PODS_ROOT}/DKCamera/DKCamera.framework"
-  install_dsym "${PODS_ROOT}/DKCamera/DKCamera.framework.dSYM"
-  install_framework "${PODS_ROOT}/DKImagePickerController/DKImagePickerController.framework"
-  install_dsym "${PODS_ROOT}/DKImagePickerController/DKImagePickerController.framework.dSYM"
-  install_framework "${PODS_ROOT}/DKPhotoGallery/DKPhotoGallery.framework"
-  install_dsym "${PODS_ROOT}/DKPhotoGallery/DKPhotoGallery.framework.dSYM"
-  install_framework "${PODS_ROOT}/Device/Device.framework"
-  install_dsym "${PODS_ROOT}/Device/Device.framework.dSYM"
-  install_framework "${PODS_ROOT}/FLAnimatedImage/FLAnimatedImage.framework"
-  install_dsym "${PODS_ROOT}/FLAnimatedImage/FLAnimatedImage.framework.dSYM"
-  install_framework "${PODS_ROOT}/ImageViewer.swift/ImageViewer_swift.framework"
-  install_dsym "${PODS_ROOT}/ImageViewer.swift/ImageViewer_swift.framework.dSYM"
-  install_framework "${PODS_ROOT}/KeychainAccess/KeychainAccess.framework"
-  install_dsym "${PODS_ROOT}/KeychainAccess/KeychainAccess.framework.dSYM"
-  install_framework "${PODS_ROOT}/LBTATools/LBTATools.framework"
-  install_dsym "${PODS_ROOT}/LBTATools/LBTATools.framework.dSYM"
-  install_framework "${PODS_ROOT}/MBProgressHUD/MBProgressHUD.framework"
-  install_dsym "${PODS_ROOT}/MBProgressHUD/MBProgressHUD.framework.dSYM"
-  install_framework "${PODS_ROOT}/Moya/Moya.framework"
-  install_dsym "${PODS_ROOT}/Moya/Moya.framework.dSYM"
-  install_framework "${PODS_ROOT}/Require/Require.framework"
-  install_dsym "${PODS_ROOT}/Require/Require.framework.dSYM"
-  install_framework "${PODS_ROOT}/SDWebImage/SDWebImage.framework"
-  install_dsym "${PODS_ROOT}/SDWebImage/SDWebImage.framework.dSYM"
-  install_framework "${PODS_ROOT}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework"
-  install_dsym "${PODS_ROOT}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework.dSYM"
-  install_framework "${PODS_ROOT}/SnapKit/SnapKit.framework"
-  install_dsym "${PODS_ROOT}/SnapKit/SnapKit.framework.dSYM"
-  install_framework "${PODS_ROOT}/SwipeSelectingCollectionView/SwipeSelectingCollectionView.framework"
-  install_dsym "${PODS_ROOT}/SwipeSelectingCollectionView/SwipeSelectingCollectionView.framework.dSYM"
-  install_framework "${PODS_ROOT}/Wendy/Wendy.framework"
-  install_dsym "${PODS_ROOT}/Wendy/Wendy.framework.dSYM"
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/DKPhotoGallery/DKPhotoGallery.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LBTATools/LBTATools.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Moya/Moya.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Require/Require.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Wendy/Wendy.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

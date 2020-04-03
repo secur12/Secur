@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7756D2C4366C827BCB6F90569E4492F3"
-               BuildableName = "Wendy"
+               BuildableName = "Wendy.framework"
                BlueprintName = "Wendy"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

@@ -1,10 +1,6 @@
 PODS:
   - Alamofire (5.0.5)
-  - AssetsPickerViewController (2.7.5):
-    - Device
-    - SnapKit
   - CropViewController (2.5.2)
-  - Device (3.2.1)
   - DKCamera (1.6.7)
   - DKImagePickerController (4.2.2):
     - DKImagePickerController/Camera (= 4.2.2)
@@ -55,8 +51,6 @@ PODS:
     - SDWebImage
     - SDWebImageFLPlugin
   - FLAnimatedImage (1.0.12)
-  - ImageViewer.swift (3.0.12):
-    - SDWebImage
   - KeychainAccess (4.1.0)
   - LBTATools (1.0.12)
   - MBProgressHUD (1.1.0)
@@ -72,33 +66,29 @@ PODS:
     - FLAnimatedImage (>= 1.0.11)
     - SDWebImage/Core (~> 5.6)
   - SnapKit (4.0.1)
-  - SwipeSelectingCollectionView (0.1.4)
+  - UICircularProgressRing (6.5.0)
   - Wendy (0.1.0-alpha):
     - Require (~> 2.0.0)
 
 DEPENDENCIES:
-  - AssetsPickerViewController (~> 2.0)
   - DKImagePickerController
-  - ImageViewer.swift (~> 3.0)
   - KeychainAccess
   - LBTATools
   - MBProgressHUD (~> 1.1.0)
   - Moya
+  - SDWebImage (~> 5.6.1)
   - SnapKit (~> 4.0.0)
-  - SwipeSelectingCollectionView
+  - UICircularProgressRing (~> 6.5.0)
   - Wendy (~> 0.1.0-alpha)
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - AssetsPickerViewController
     - CropViewController
-    - Device
     - DKCamera
     - DKImagePickerController
     - DKPhotoGallery
     - FLAnimatedImage
-    - ImageViewer.swift
     - KeychainAccess
     - LBTATools
     - MBProgressHUD
@@ -107,19 +97,16 @@ SPEC REPOS:
     - SDWebImage
     - SDWebImageFLPlugin
     - SnapKit
-    - SwipeSelectingCollectionView
+    - UICircularProgressRing
     - Wendy
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
-  AssetsPickerViewController: 6954aff04b95d26be0d65a58557a9dfbef7811c3
   CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
-  Device: 0738862dd8a30856b4bd9e21cb9b728873d21392
   DKCamera: a902b66921fca14b7a75266feb8c7568aa7caa71
   DKImagePickerController: 4a3e7948a848c4348e600b3fe5ce41478835fa10
   DKPhotoGallery: 0290d32343574f06eaa4c26f8f2f8a1035e916be
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  ImageViewer.swift: d4769c57ff8aef6da7e01bb9283f8554469b2498
   KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
   LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
@@ -128,9 +115,9 @@ SPEC CHECKSUMS:
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SDWebImageFLPlugin: 6c2295fb1242d44467c6c87dc5db6b0a13228fd8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwipeSelectingCollectionView: 8d2c8b8a8c3c1c79550c5b3a8424f84b0a6481f7
+  UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   Wendy: 416b195f26f158784235072d24baf8a6e32cfbf3
 
-PODFILE CHECKSUM: 936e4517e4a54f824aff26cbab3146a46d6d8154
+PODFILE CHECKSUM: a67071b262d3f20da373035781b1bf571f93aa9c
 
 COCOAPODS: 1.8.4
