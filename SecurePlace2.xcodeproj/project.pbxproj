@@ -60,7 +60,6 @@
 		B110911924365946005E3293 /* FMWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11090D224365945005E3293 /* FMWarningView.swift */; };
 		B110911A24365946005E3293 /* FMPhotoInteractionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11090D424365945005E3293 /* FMPhotoInteractionAnimator.swift */; };
 		B110911B24365946005E3293 /* FMPhotoPickerImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11090D724365945005E3293 /* FMPhotoPickerImageCollectionViewCell.xib */; };
-		B110911C24365946005E3293 /* FMPhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11090D824365945005E3293 /* FMPhotoPickerViewController.xib */; };
 		B110911D24365946005E3293 /* FMPhotoPickerBatchSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11090D924365945005E3293 /* FMPhotoPickerBatchSelector.swift */; };
 		B110911E24365946005E3293 /* FMPhotoPickerImageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11090DA24365945005E3293 /* FMPhotoPickerImageCollectionViewLayout.swift */; };
 		B110911F24365946005E3293 /* FMPhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11090DB24365945005E3293 /* FMPhotoPickerViewController.swift */; };
@@ -149,6 +148,8 @@
 		B136335223B295E300DDD935 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136335123B295E300DDD935 /* KeychainManager.swift */; };
 		B1432E0C02B77327EAEABB7C /* PINConfirmProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05FCAD1479C2C0B8F24C1CD /* PINConfirmProtocols.swift */; };
 		B14AA1A3225E2B530073BA54 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14AA1A2225E2B530073BA54 /* SSTextField.swift */; };
+		B156959924378B6A00CFBB74 /* FMPhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B156958324378B6900CFBB74 /* FMPhotoPickerViewController.xib */; };
+		B156959B24378B8900CFBB74 /* FMPhotoPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B156959A24378B8900CFBB74 /* FMPhotoPickerViewController.xib */; };
 		B1621AA1234CE3D5008F6AC3 /* BaseScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */; };
 		B16E015423B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015323B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift */; };
 		B16E015623B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015523B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift */; };
@@ -433,7 +434,6 @@
 		B11090D224365945005E3293 /* FMWarningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMWarningView.swift; sourceTree = "<group>"; };
 		B11090D424365945005E3293 /* FMPhotoInteractionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPhotoInteractionAnimator.swift; sourceTree = "<group>"; };
 		B11090D724365945005E3293 /* FMPhotoPickerImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMPhotoPickerImageCollectionViewCell.xib; sourceTree = "<group>"; };
-		B11090D824365945005E3293 /* FMPhotoPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMPhotoPickerViewController.xib; sourceTree = "<group>"; };
 		B11090D924365945005E3293 /* FMPhotoPickerBatchSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPhotoPickerBatchSelector.swift; sourceTree = "<group>"; };
 		B11090DA24365945005E3293 /* FMPhotoPickerImageCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPhotoPickerImageCollectionViewLayout.swift; sourceTree = "<group>"; };
 		B11090DB24365945005E3293 /* FMPhotoPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMPhotoPickerViewController.swift; sourceTree = "<group>"; };
@@ -639,6 +639,8 @@
 		B136334E23AE91A300DDD935 /* SSPasscode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPasscode.swift; sourceTree = "<group>"; };
 		B136335123B295E300DDD935 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		B14AA1A2225E2B530073BA54 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
+		B156958324378B6900CFBB74 /* FMPhotoPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMPhotoPickerViewController.xib; sourceTree = "<group>"; };
+		B156959A24378B8900CFBB74 /* FMPhotoPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FMPhotoPickerViewController.xib; sourceTree = "<group>"; };
 		B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollViewController.swift; sourceTree = "<group>"; };
 		B16E015323B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINConfirmPresenter+SignUp.swift"; sourceTree = "<group>"; };
 		B16E015523B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINConfirmPresenter+SignInNoKey.swift"; sourceTree = "<group>"; };
@@ -1097,7 +1099,8 @@
 			isa = PBXGroup;
 			children = (
 				B11090D724365945005E3293 /* FMPhotoPickerImageCollectionViewCell.xib */,
-				B11090D824365945005E3293 /* FMPhotoPickerViewController.xib */,
+				B156958324378B6900CFBB74 /* FMPhotoPickerViewController.xib */,
+				B156959A24378B8900CFBB74 /* FMPhotoPickerViewController.xib */,
 				B11090D924365945005E3293 /* FMPhotoPickerBatchSelector.swift */,
 				B11090DA24365945005E3293 /* FMPhotoPickerImageCollectionViewLayout.swift */,
 				B11090DB24365945005E3293 /* FMPhotoPickerViewController.swift */,
@@ -1112,7 +1115,6 @@
 				B11090DE24365945005E3293 /* Viewer */,
 				B11090E324365945005E3293 /* FMPhotoPresenterViewController.xib */,
 				B11090E424365945005E3293 /* Views */,
-				B11090ED24365945005E3293 /* FMPhotoPresenterViewController.swift */,
 				B11090EE24365945005E3293 /* Editor */,
 			);
 			path = Presenter;
@@ -1134,8 +1136,9 @@
 			children = (
 				B11090E524365945005E3293 /* FMPlaybackControlView.swift */,
 				B11090E624365945005E3293 /* Progress */,
-				B11090EA24365945005E3293 /* FMPresenterTopView.swift */,
+				B11090ED24365945005E3293 /* FMPhotoPresenterViewController.swift */,
 				B11090EB24365945005E3293 /* FMPresenterBottomView.swift */,
+				B11090EA24365945005E3293 /* FMPresenterTopView.swift */,
 				B11090EC24365945005E3293 /* FMPresenterEditMenuView.swift */,
 			);
 			path = Views;
@@ -2679,7 +2682,8 @@
 				B11ECCAA225B42E700B2CC4E /* LaunchScreen.storyboard in Resources */,
 				B1116C8124362C5A002FEE09 /* MediaBrowser.xcassets in Resources */,
 				B11ECCA7225B42E700B2CC4E /* Assets.xcassets in Resources */,
-				B110911C24365946005E3293 /* FMPhotoPickerViewController.xib in Resources */,
+				B156959B24378B8900CFBB74 /* FMPhotoPickerViewController.xib in Resources */,
+				B156959924378B6A00CFBB74 /* FMPhotoPickerViewController.xib in Resources */,
 				B110914224365946005E3293 /* README.md in Resources */,
 				B110910D24365945005E3293 /* Assets.xcassets in Resources */,
 				B11ECCA5225B42E500B2CC4E /* Main.storyboard in Resources */,

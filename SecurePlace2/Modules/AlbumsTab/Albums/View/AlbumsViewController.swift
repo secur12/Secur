@@ -33,6 +33,10 @@ class AlbumsViewController: BaseViewController {
         super.viewDidLoad()
         self.createUI()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
     private func createUI() {
         view.backgroundColor = .white
