@@ -126,7 +126,7 @@ class FMPhotoPresenterViewController: UIViewController {
         self.bottomView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         bottomViewBottomConstraint = self.bottomView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         bottomViewBottomConstraint.isActive = true
-        self.bottomView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        self.bottomView.heightAnchor.constraint(equalToConstant: 116.withRatio()).isActive = true
         
         self.pageViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.pageViewController.didMove(toParent: self)
@@ -162,13 +162,14 @@ class FMPhotoPresenterViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.updateTopView()
         self.updateBottomView()
+        
     }
     
     override func viewDidLayoutSubviews() {
         bottomView.updateFrames()
         
         if #available(iOS 11.0, *) {
-            transparentViewHeightConstraint.constant = view.safeAreaInsets.top + 44 // 44 is the height of nav bar
+            transparentViewHeightConstraint.constant = view.safeAreaInsets.top + 44.withRatio() // 44 is the height of nav bar
             bottomViewBottomConstraint.constant = -view.safeAreaInsets.bottom
             
             unsafeAreaBottomViewHeightConstraint.constant = view.safeAreaInsets.bottom
@@ -247,6 +248,7 @@ class FMPhotoPresenterViewController: UIViewController {
     }
     
     private func updateBottomView() {
+        self.bottomView.resetOperationsControlView()
         guard let fmAsset = dataSource.photo(atIndex: currentPhotoIndex) else { return }
         
         if fmAsset.mediaType == .video {

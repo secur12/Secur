@@ -41,7 +41,8 @@ class FMVideoViewController: FMPhotoViewController {
         playIcon.center = self.view.center
         playIcon.setImage(UIImage(named: "icon_play", in: Bundle(for: self.classForCoder), compatibleWith: nil), for: .normal)
         playIcon.addTarget(self, action: #selector(playButtonHandler), for: .touchUpInside)
-        self.view.addSubview(playIcon)
+        //self.view.addSubview(playIcon)
+        playIcon.isHidden = true
         
         
         photo.requestThumb { image in
@@ -86,7 +87,7 @@ class FMVideoViewController: FMPhotoViewController {
         
         Helper.requestAVAsset(asset: asset) { avAsset in
             // Do not run on main thread for better perf
-            DispatchQueue.global(qos: .userInitiated).async {
+            DispatchQueue.main.async {
                 guard self.shouldUpdateView == true,
                     let avAsset = avAsset else { return }
                 
@@ -96,10 +97,10 @@ class FMVideoViewController: FMPhotoViewController {
                 self.playerController = AVPlayerViewController()
                 self.playerController?.player = self.player
                 
-                DispatchQueue.main.async {
-                    self.playerController?.view.frame = self.view.frame
-                    self.playerController?.showsPlaybackControls = false
-                }
+            
+                self.playerController?.view.frame = self.view.frame
+                self.playerController?.showsPlaybackControls = false
+                
                 
                 self.addPlayerTimeObserverIfNeeded()
            }

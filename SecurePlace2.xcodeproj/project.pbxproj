@@ -149,6 +149,7 @@
 		B1555261243CFAE0000E8CD0 /* FMFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1555228243CFAE0000E8CD0 /* FMFilter.swift */; };
 		B1555262243CFAE0000E8CD0 /* FMFilterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1555229243CFAE0000E8CD0 /* FMFilterable.swift */; };
 		B1555263243CFAE0000E8CD0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B155522A243CFAE0000E8CD0 /* README.md */; };
+		B1555265243D0327000E8CD0 /* FMOperationsControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1555264243D0327000E8CD0 /* FMOperationsControlView.swift */; };
 		B1621AA1234CE3D5008F6AC3 /* BaseScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */; };
 		B16E015423B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015323B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift */; };
 		B16E015623B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015523B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift */; };
@@ -639,6 +640,7 @@
 		B1555228243CFAE0000E8CD0 /* FMFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMFilter.swift; sourceTree = "<group>"; };
 		B1555229243CFAE0000E8CD0 /* FMFilterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMFilterable.swift; sourceTree = "<group>"; };
 		B155522A243CFAE0000E8CD0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B1555264243D0327000E8CD0 /* FMOperationsControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMOperationsControlView.swift; sourceTree = "<group>"; };
 		B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollViewController.swift; sourceTree = "<group>"; };
 		B16E015323B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINConfirmPresenter+SignUp.swift"; sourceTree = "<group>"; };
 		B16E015523B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINConfirmPresenter+SignInNoKey.swift"; sourceTree = "<group>"; };
@@ -2026,6 +2028,7 @@
 			isa = PBXGroup;
 			children = (
 				B1555206243CFAE0000E8CD0 /* FMPlaybackControlView.swift */,
+				B1555264243D0327000E8CD0 /* FMOperationsControlView.swift */,
 				B1555207243CFAE0000E8CD0 /* Progress */,
 				B155520B243CFAE0000E8CD0 /* FMPresenterTopView.swift */,
 				B155520C243CFAE0000E8CD0 /* FMPresenterBottomView.swift */,
@@ -2921,6 +2924,7 @@
 				B1555248243CFAE0000E8CD0 /* FMPlaybackProgressTrackLayer.swift in Sources */,
 				B190682E233F8F6A0085BA59 /* SignInApiRequest.swift in Sources */,
 				476D6274619001A99BE3C8CB /* OneTimeCodeWireFrame.swift in Sources */,
+				B1555265243D0327000E8CD0 /* FMOperationsControlView.swift in Sources */,
 				B1116C8524362C5A002FEE09 /* MediaZoomingScrollView.swift in Sources */,
 				1FCC1AA437232EEEF49BE7D8 /* OneTimeCode+DIResolver.swift in Sources */,
 				B1555247243CFAE0000E8CD0 /* FMPlaybackControlView.swift in Sources */,
