@@ -116,9 +116,14 @@ class FMPhotoPresenterViewController: UIViewController {
         self.bottomView.touchEnded = { [unowned self] in
             self.swipeInteractionController?.enable()
         }
-//        self.bottomView.onTapEditButton = { [unowned self] in
-//
-//        }
+        
+        self.bottomView.didClickShareHandler = {
+            print("share")
+        }
+        
+        self.bottomView.didClickDeleteHandler = { 
+            print("delete")
+        }
         
         self.view.addSubview(bottomView)
         self.bottomView.translatesAutoresizingMaskIntoConstraints = false
@@ -188,7 +193,7 @@ class FMPhotoPresenterViewController: UIViewController {
         let n = dataSource.numberOfSelectedPhoto()
         if self.config.selectMode == .multiple {
             if n > 0 {
-                determineButton.isHidden = true
+                //determineButton.isHidden = true
                 numberOfSelectedPhotoContainer.isHidden = false
                 numberOfSelectedPhoto.isHidden = false
                 numberOfSelectedPhoto.text = "\(n)"

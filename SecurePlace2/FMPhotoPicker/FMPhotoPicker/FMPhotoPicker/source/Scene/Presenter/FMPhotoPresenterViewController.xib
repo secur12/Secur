@@ -193,6 +193,6 @@
     </objects>
     <resources>
         <image name="arrowRight" width="90" height="90"/>
-        <image name="check_on" width="28" height="28"/>
+        <image name="check_on" width="30" height="30"/>
     </resources>
 </document>

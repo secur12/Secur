@@ -29,6 +29,9 @@ class FMOperationsControlView: UIView {
     private var playPauseButton: UIButton!
     private var isPlaying = false
     
+    public var didClickShareHandler: (() -> Void)?
+    public var didClickDeleteHandler: (() -> Void)?
+    
     init() {
         super.init(frame: .zero)
         createUI()
@@ -83,12 +86,11 @@ class FMOperationsControlView: UIView {
     
     func resetUI() {
         self.isPlaying = false
-        //NotificationCenter.default.post(name: .controller_pause, object: nil)
         updatePlayButton()
     }
     
     @objc func shareButtonPressed() {
-        
+        self.didClickShareHandler?()
     }
     
     @objc func playPauseButtonPressed() {
@@ -102,7 +104,7 @@ class FMOperationsControlView: UIView {
     }
 
     @objc func deleteButtonPressed() {
-        
+        self.didClickDeleteHandler?()
     }
     
     @objc private func playerPlay() {

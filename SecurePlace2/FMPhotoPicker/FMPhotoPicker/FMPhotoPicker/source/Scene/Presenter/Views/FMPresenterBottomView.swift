@@ -15,6 +15,9 @@ class FMPresenterBottomView: UIView {
     
     public var playbackControlView: FMPlaybackControlView
     public var operationsControlView: FMOperationsControlView
+  
+    public var didClickShareHandler: (() -> Void)?
+    public var didClickDeleteHandler: (() -> Void)?
     
     public var touchBegan: () -> Void = {} {
         didSet { self.playbackControlView.touchBegan = self.touchBegan }
@@ -40,6 +43,14 @@ class FMPresenterBottomView: UIView {
         operationsControlView.snp.makeConstraints { (make) in
             make.height.equalTo(49.withRatio())
             make.right.left.bottom.equalToSuperview()
+        }
+        
+        operationsControlView.didClickDeleteHandler = {
+            self.didClickDeleteHandler?()
+        }
+        
+        operationsControlView.didClickShareHandler = {
+            self.didClickShareHandler?()
         }
         
         playbackControlView.translatesAutoresizingMaskIntoConstraints = false
