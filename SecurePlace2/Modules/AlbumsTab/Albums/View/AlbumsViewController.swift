@@ -25,10 +25,12 @@ class AlbumsViewController: BaseViewController {
     private let categoriesCollectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init())
     private let categoriesCollectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
     private let plusButton: SSPlusButton = SSPlusButton()
-
+    
     private var albumNameTextField: UITextField?
+    
     private let albumCellReuseIdentifier: String = "AlbumCell"
-        
+    private var cellIsInEditingMode: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createUI()
@@ -44,6 +46,7 @@ class AlbumsViewController: BaseViewController {
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Albums"
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Edit", style: .plain, target: self, action: #selector(self.didClickEditButton))
         navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Add +", style: .plain, target: self, action: #selector(self.didClickPlusButton))
 
         view.addSubview(topSeparator)
@@ -72,7 +75,7 @@ class AlbumsViewController: BaseViewController {
         let albumCellSize = CGSize(width: 140.withRatio(), height: 178.withRatio())
         myAlbumsCollectionViewLayout.scrollDirection = .horizontal
         myAlbumsCollectionViewLayout.itemSize = albumCellSize
-        myAlbumsCollectionViewLayout.sectionInset = UIEdgeInsets(top: 9.withRatio(), left: 20.withRatio(), bottom: 15.withRatio(), right: 20.withRatio())
+        myAlbumsCollectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20.withRatio(), bottom: 0, right: 20.withRatio())
         myAlbumsCollectionViewLayout.minimumLineSpacing = 15.0.withRatio()
         myAlbumsCollectionViewLayout.minimumInteritemSpacing = 20.withRatio()
         myAlbumsCollectionView.setCollectionViewLayout(myAlbumsCollectionViewLayout, animated: true)
@@ -85,7 +88,7 @@ class AlbumsViewController: BaseViewController {
             make.top.equalTo(myAlbumsLabel.snp.bottom).offset(9.withRatio())
             make.left.equalToSuperview()
             make.right.equalToSuperview()
-            make.height.equalTo(albumCellSize.height)
+            make.height.equalTo(albumCellSize.height+11.5.withRatio())
         }
         
         middleSeparator.backgroundColor = Colors.lightGrey
@@ -106,7 +109,7 @@ class AlbumsViewController: BaseViewController {
         let categoryCellSize = CGSize(width: 140.withRatio(), height: 178.withRatio())
         categoriesCollectionViewLayout.scrollDirection = .horizontal
         categoriesCollectionViewLayout.itemSize = categoryCellSize
-        categoriesCollectionViewLayout.sectionInset = UIEdgeInsets(top: 9.withRatio(), left: 20.withRatio(), bottom: 15.withRatio(), right: 20.withRatio())
+        categoriesCollectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20.withRatio(), bottom: 0, right: 20.withRatio())
         categoriesCollectionViewLayout.minimumLineSpacing = 15.0.withRatio()
         categoriesCollectionViewLayout.minimumInteritemSpacing = 20.withRatio()
         categoriesCollectionView.setCollectionViewLayout(categoriesCollectionViewLayout, animated: true)
@@ -124,7 +127,7 @@ class AlbumsViewController: BaseViewController {
         
         plusButton.addTarget(self, action: #selector(didClickPlusButton), for: .touchUpInside)
         plusButton.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-17.withRatio())
+            make.bottom.equalToSuperview().offset(-17.withRatio() - (tabBarController?.tabBar.frame.size.height.withRatio() ?? -66.withRatio()))
             make.right.equalToSuperview().offset(-17.withRatio())
             make.height.width.equalTo(56.withRatio())
         }
@@ -133,9 +136,32 @@ class AlbumsViewController: BaseViewController {
     @objc func didClickPlusButton() {
         presenter.didClickPlusButton()
     }
+    
+    @objc func didClickEditButton() {
+        cellIsInEditingMode = true
+        myAlbumsCollectionViewLayout.sectionInset = UIEdgeInsets(top: 11.5.withRatio(), left: 20.withRatio(), bottom: 0, right: 20.withRatio())
+        DispatchQueue.main.async {
+            self.myAlbumsCollectionView.reloadData()
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Done", style: .done, target: self, action: #selector(self.didClickFinishEditButton))
+            self.navigationItem.rightBarButtonItem = nil
+            self.plusButton.isHidden = true
+        }
+    }
+    
+    @objc func didClickFinishEditButton() {
+        cellIsInEditingMode = false
+        myAlbumsCollectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20.withRatio(), bottom: 0, right: 20.withRatio())
+        DispatchQueue.main.async {
+            self.myAlbumsCollectionView.reloadData()
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "Edit", style: .plain, target: self, action: #selector(self.didClickEditButton))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Add +", style: .plain, target: self, action: #selector(self.didClickPlusButton))
+            self.plusButton.isHidden = false
+        }
+    }
 }
 
 extension AlbumsViewController: AlbumsViewProtocol {
+    
     func showAddActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let addAlbumButton = UIAlertAction(title: "Album", style: .default) { _ in
@@ -207,6 +233,14 @@ extension AlbumsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if collectionView == myAlbumsCollectionView {
            let model = AlbumModel(albumTitle: "Sample", numberOfItems: "538", backgroundImage: UIImage(named: "honolulu"), isLocked: true, password: "111")
           cell?.fill(model: model)
+            
+            cell?.tag = indexPath.row
+            cell?.delegate = self
+            if(cellIsInEditingMode) {
+                cell?.deleteButton.isHidden = false
+            } else {
+                cell?.deleteButton.isHidden = true
+            }
         } else {
             let model = AlbumModel(albumTitle: "Videos", numberOfItems: "777", backgroundImage: nil, isLocked: false, password: nil)
             cell?.fill(model: model)
@@ -219,6 +253,12 @@ extension AlbumsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         self.presenter.didSelectAlbum()
     }
     
+}
+
+extension AlbumsViewController: AlbumCellDelegate {
+    func didClickDeleteAlbum(tag: Int) {
+        print(tag)
+    }
 }
 
 extension AlbumsViewController: UITextFieldDelegate {

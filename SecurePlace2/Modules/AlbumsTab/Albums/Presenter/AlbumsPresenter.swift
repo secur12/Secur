@@ -5,7 +5,6 @@
 //  Created by YY on 25/12/2019.
 //  Copyright © 2019 Security Inc.. All rights reserved.
 //
-import DKImagePickerController
 
 class AlbumsPresenter: BasePresenter {
 
@@ -18,8 +17,6 @@ class AlbumsPresenter: BasePresenter {
         self.interactor = interactor
         self.wireFrame = wireFrame
     }
-    
-    
 }
 
 extension AlbumsPresenter: AlbumsPresenterProtocol {

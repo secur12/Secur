@@ -150,6 +150,8 @@
 		B1555262243CFAE0000E8CD0 /* FMFilterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1555229243CFAE0000E8CD0 /* FMFilterable.swift */; };
 		B1555263243CFAE0000E8CD0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B155522A243CFAE0000E8CD0 /* README.md */; };
 		B1555265243D0327000E8CD0 /* FMOperationsControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1555264243D0327000E8CD0 /* FMOperationsControlView.swift */; };
+		B1555267243F5155000E8CD0 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1555266243F5154000E8CD0 /* BaseTabBarController.swift */; };
+		B155526B243FE3F5000E8CD0 /* SSDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155526A243FE3F5000E8CD0 /* SSDeleteButton.swift */; };
 		B1621AA1234CE3D5008F6AC3 /* BaseScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */; };
 		B16E015423B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015323B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift */; };
 		B16E015623B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015523B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift */; };
@@ -641,6 +643,8 @@
 		B1555229243CFAE0000E8CD0 /* FMFilterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMFilterable.swift; sourceTree = "<group>"; };
 		B155522A243CFAE0000E8CD0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B1555264243D0327000E8CD0 /* FMOperationsControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMOperationsControlView.swift; sourceTree = "<group>"; };
+		B1555266243F5154000E8CD0 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		B155526A243FE3F5000E8CD0 /* SSDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDeleteButton.swift; sourceTree = "<group>"; };
 		B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollViewController.swift; sourceTree = "<group>"; };
 		B16E015323B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINConfirmPresenter+SignUp.swift"; sourceTree = "<group>"; };
 		B16E015523B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PINConfirmPresenter+SignInNoKey.swift"; sourceTree = "<group>"; };
@@ -1809,6 +1813,7 @@
 				B11ECCF9225B520B00B2CC4E /* BaseNavigationController */,
 				B11ECD04225B520B00B2CC4E /* BaseViewController.swift */,
 				B1621AA0234CE3D5008F6AC3 /* BaseScrollViewController.swift */,
+				B1555266243F5154000E8CD0 /* BaseTabBarController.swift */,
 				B11ECD06225B520B00B2CC4E /* BaseInteractor.swift */,
 				B11ECD08225B520B00B2CC4E /* BasePresenter.swift */,
 			);
@@ -1899,6 +1904,7 @@
 				B1F2CF052281684E008E68B5 /* SSDescriptionLabel.swift */,
 				B1F2CF0722816CD5008E68B5 /* SSContinueButton.swift */,
 				B136334E23AE91A300DDD935 /* SSPasscode.swift */,
+				B155526A243FE3F5000E8CD0 /* SSDeleteButton.swift */,
 				B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */,
 			);
 			path = "Custom Views";
@@ -2859,6 +2865,7 @@
 				B155525B243CFAE0000E8CD0 /* FMImageEditorViewController.swift in Sources */,
 				B155525E243CFAE0000E8CD0 /* FMImageEditor.swift in Sources */,
 				B1CFF720225DC4330076C44C /* MailWireFrame.swift in Sources */,
+				B155526B243FE3F5000E8CD0 /* SSDeleteButton.swift in Sources */,
 				B1127EE2225C9F5C0023D0AE /* Colors.swift in Sources */,
 				B1116C7B24362C5A002FEE09 /* MediaBrowser.swift in Sources */,
 				B11ECD1E225B520C00B2CC4E /* BasePresenter.swift in Sources */,
@@ -2867,6 +2874,7 @@
 				B16E015423B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift in Sources */,
 				B1127ED9225C95F20023D0AE /* NetworkRequestWrapper.swift in Sources */,
 				B136335223B295E300DDD935 /* KeychainManager.swift in Sources */,
+				B1555267243F5155000E8CD0 /* BaseTabBarController.swift in Sources */,
 				B1AF91942265C57700FB22B8 /* CreateGroceryListItemPendingTask.swift in Sources */,
 				B1555240243CFAE0000E8CD0 /* FMPhotoPickerViewController.swift in Sources */,
 				B11ECD16225B520C00B2CC4E /* BaseNavigationControllerWireFrame.swift in Sources */,

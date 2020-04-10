@@ -36,10 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.networkProvider = NetworkRequestProvider(networkWrapper: networkWrapper, tokenRefresher: nil, accountManager: self.accountManager)
 
         let resolver = DIResolver(networkController: self.networkProvider)
-        let startScreenController = resolver.presentAlbumsViewController()
-        let navi = UINavigationController(rootViewController: startScreenController)
+        let startScreenController = BaseTabBarController(resolver: resolver)
 
-        self.window?.rootViewController = navi //PINSetupViewController()
+        self.window?.rootViewController = startScreenController
         self.window?.makeKeyAndVisible()
         
         do {

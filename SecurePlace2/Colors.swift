@@ -58,6 +58,9 @@ class Colors {
         return UIColor.RGB(r: 56, g: 148, b: 247)
     }
     
+    static var deleteRedColor: UIColor {
+        return UIColor.RGB(r: 255, g: 59, b: 48)
+    }
     
 }
 
