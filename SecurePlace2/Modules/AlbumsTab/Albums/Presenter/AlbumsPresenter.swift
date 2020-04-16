@@ -19,21 +19,13 @@ class AlbumsPresenter: BasePresenter {
     }
 }
 
-extension AlbumsPresenter: AlbumsPresenterProtocol {
-    func didClickAddAlbumOnSheet() {
-        view?.showAddAlbumAlert()
-    }
-    
-    func didClickPhotoVideoOnSheet() {
-
-    }
-    
+extension AlbumsPresenter: AlbumsPresenterProtocol {    
     func didClickCreateAlbum(named: String) {
         
     }
     
     func didClickPlusButton() {
-        self.view?.showAddActionSheet()
+        view?.showAddAlbumAlert()
     }
     
     func didSelectAlbum() {

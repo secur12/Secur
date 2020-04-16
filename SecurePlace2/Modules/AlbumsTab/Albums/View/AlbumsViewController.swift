@@ -165,7 +165,7 @@ extension AlbumsViewController: AlbumsViewProtocol {
     func showAddActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let addAlbumButton = UIAlertAction(title: "Album", style: .default) { _ in
-            self.presenter.didClickAddAlbumOnSheet()
+            //self.presenter.didClickAddAlbumOnSheet()
         }
         let addPhotoVideoButton = UIAlertAction(title: "Photo/video", style: .default) { _ in
 
@@ -185,9 +185,7 @@ extension AlbumsViewController: AlbumsViewProtocol {
 //            }
 //            self.present(pickerController, animated: true) {}
             
-            
-            
-            self.presenter.didClickPhotoVideoOnSheet()
+            //self.presenter.didClickPhotoVideoOnSheet()
         }
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
         actionSheet.addAction(addAlbumButton)

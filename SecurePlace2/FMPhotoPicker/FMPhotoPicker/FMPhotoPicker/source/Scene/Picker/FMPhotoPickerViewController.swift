@@ -34,6 +34,7 @@ public class FMPhotoPickerViewController: UIViewController {
 
     private let config: FMPhotoPickerConfig
     private var isSelectionViewHidden: Bool = true
+    private let plusButton: SSPlusButton = SSPlusButton()
     
     //  The controller for multiple select/deselect
     private lazy var batchSelector: FMPhotoPickerBatchSelector = {
@@ -59,7 +60,6 @@ public class FMPhotoPickerViewController: UIViewController {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     // MARK: - Life cycle
     override public func viewDidLoad() {
@@ -87,6 +87,7 @@ public class FMPhotoPickerViewController: UIViewController {
         
         self.numberOfSelectedPhotoContainer.layer.cornerRadius = self.numberOfSelectedPhotoContainer.frame.size.width / 2
         self.numberOfSelectedPhotoContainer.isHidden = true
+        
         //self.determineButton.isHidden = true
         
         // set button title
@@ -96,13 +97,20 @@ public class FMPhotoPickerViewController: UIViewController {
         //self.determineButton.titleLabel!.font = UIFont.systemFont(ofSize: config.titleFontSize)
         
         //set title
-        self.title = "Name_from_model"
+        self.title = "Screenshots"
         
         //set collectionview
         self.imageCollectionView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        view.addSubview(plusButton)
+        plusButton.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-17.withRatio() - (tabBarController?.tabBar.frame.size.height.withRatio() ?? -66.withRatio()))
+            make.right.equalToSuperview().offset(-17.withRatio())
+            make.height.width.equalTo(56.withRatio())
         }
         
     }

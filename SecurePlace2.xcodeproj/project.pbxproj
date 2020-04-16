@@ -17,14 +17,15 @@
 		2EDE7D909E155F4485D6D1EC /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E31C478FB7540379FBBE7 /* GalleryViewController.swift */; };
 		31A2BD8DA724BE4AAAF0BB4C /* AlbumsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E2441FF0FC51C919A15ED /* AlbumsInteractor.swift */; };
 		32E9B2F781F2E13BA673662B /* PINSetupWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C56700715980E2F16CA97C /* PINSetupWireFrame.swift */; };
-		3305970E41E95DB55F3FD396 /* Pods_SecurePlace2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D23C8D45F190295A1B9C25 /* Pods_SecurePlace2Tests.framework */; };
 		40C50E4F24512BC044BB3DEF /* MasterPasswordWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A1955165F77E52006A391 /* MasterPasswordWireFrame.swift */; };
+		45D1467ED0D5124E59183A67 /* libPods-SecurePlace2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF052A4C1CC759F3CC3F7132 /* libPods-SecurePlace2.a */; };
 		476D6274619001A99BE3C8CB /* OneTimeCodeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9EA79564F5F41566D6E92A /* OneTimeCodeWireFrame.swift */; };
 		48B8B6D26D3AE607A5DA7040 /* MasterPassword+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446ECD42A5EBC80430DEDA7F /* MasterPassword+DIResolver.swift */; };
 		4F30A159482A60DD140ACB0F /* MasterPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6BF7A932DAF814F2F5CA8 /* MasterPasswordProtocols.swift */; };
 		50DFC3EA375EDCD75D7EE36E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACC5F99DA5B9550360309D4 /* StartScreenViewController.swift */; };
 		53AB7586C5C8FB4220810D1A /* PINConfirm+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E2CBF447EA9442D3B2E02E /* PINConfirm+DIResolver.swift */; };
 		5F770B63EC9642DC509D1700 /* PINSetupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4176573BE30F8A818A004A /* PINSetupProtocols.swift */; };
+		640EC1295B1D6CF6EDB32667 /* libPods-SecurePlace2UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D35385E3809A08736DB6A1B /* libPods-SecurePlace2UITests.a */; };
 		68B37E41E8D3B2E77BB9ED21 /* MasterPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0D4028B3F29B2CCE35030 /* MasterPasswordInteractor.swift */; };
 		6CF2B58EEA08A728686216B7 /* PINConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989C7A8F4C19EFEF8572602 /* PINConfirmPresenter.swift */; };
 		75D9FECFE175B7D8EAE93E92 /* GalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C917972192D2AD4D1CDC2B38 /* GalleryInteractor.swift */; };
@@ -36,10 +37,8 @@
 		8B83C28F7F7D035A56691620 /* OneTimeCodeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A59D1D970570823632684BE /* OneTimeCodeProtocols.swift */; };
 		8E61625AF5FF83DF2CE2AA88 /* StartScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BE3F883BFDA66FDF3179FD /* StartScreenInteractor.swift */; };
 		8E74C342A6629E43220E335A /* AlbumsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021EB019669A2BC6C9267BC /* AlbumsPresenter.swift */; };
-		99A76B1381B86B4EF49A016B /* Pods_SecurePlace2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69984AE9A21D778BD89D66B /* Pods_SecurePlace2UITests.framework */; };
 		9CB6EA43F865E6ADB2103831 /* Gallery+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7860EB2D82DE00933DB5E /* Gallery+DIResolver.swift */; };
 		9FB7ACA5357449F43662EF3F /* OneTimeCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1646A2E56A109CDD6CFDFA /* OneTimeCodePresenter.swift */; };
-		A5A2DE86BA6D7A8C1CF29577 /* Pods_SecurePlace2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56B27A366115963A24A94D7 /* Pods_SecurePlace2.framework */; };
 		ADC9D257B1368CBAB5EB389C /* MasterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37689FDB60AF9D014A89836B /* MasterPasswordViewController.swift */; };
 		B021A370F95BD675B2120C2B /* AlbumsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45E515F4034EEC7E35495 /* AlbumsWireFrame.swift */; };
 		B1116C302436196D002FEE09 /* GalleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1116C2F2436196C002FEE09 /* GalleryDataSource.swift */; };
@@ -67,7 +66,6 @@
 		B1127EE0225C972A0023D0AE /* NetworkRequestProviderProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1127EDF225C972A0023D0AE /* NetworkRequestProviderProtocols.swift */; };
 		B1127EE2225C9F5C0023D0AE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1127EE1225C9F5C0023D0AE /* Colors.swift */; };
 		B114596622835CB3008EAF69 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114596522835CB3008EAF69 /* Extensions.swift */; };
-		B11D26082434E79D0091D0CA /* Pods_SecurePlace2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11D25EC2434E76B0091D0CA /* Pods_SecurePlace2.framework */; };
 		B11D26092434E79D0091D0CA /* Pods_SecurePlace2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B11D25EC2434E76B0091D0CA /* Pods_SecurePlace2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B11ECCA0225B42E500B2CC4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECC9F225B42E500B2CC4E /* AppDelegate.swift */; };
 		B11ECCA2225B42E500B2CC4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECCA1225B42E500B2CC4E /* ViewController.swift */; };
@@ -86,7 +84,7 @@
 		B11ECD1C225B520C00B2CC4E /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD06225B520B00B2CC4E /* BaseInteractor.swift */; };
 		B11ECD1E225B520C00B2CC4E /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD08225B520B00B2CC4E /* BasePresenter.swift */; };
 		B11ECD26225B53CF00B2CC4E /* DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD25225B53CE00B2CC4E /* DIResolver.swift */; };
-		B121656C2434CCD8009ABEBC /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B121656C2434CCD8009ABEBC /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B12A591F242F8A4A000A1F7C /* SSPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */; };
 		B136334F23AE91A300DDD935 /* SSPasscode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136334E23AE91A300DDD935 /* SSPasscode.swift */; };
 		B136335223B295E300DDD935 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B136335123B295E300DDD935 /* KeychainManager.swift */; };
@@ -156,7 +154,7 @@
 		B16E015423B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015323B9AAE1005E3F03 /* PINConfirmPresenter+SignUp.swift */; };
 		B16E015623B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015523B9AAF4005E3F03 /* PINConfirmPresenter+SignInNoKey.swift */; };
 		B16E015823B9AB0A005E3F03 /* PINConfirmPresenter+SignInWithKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E015723B9AB0A005E3F03 /* PINConfirmPresenter+SignInWithKey.swift */; };
-		B176FB362434DDE300B0F23E /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B176FB362434DDE300B0F23E /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B181EBCD2268ED2000DF8FE3 /* AES256Crypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181EBCC2268ED2000DF8FE3 /* AES256Crypter.swift */; };
 		B181EBD022690E2000DF8FE3 /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181EBCF22690E2000DF8FE3 /* ReceiptManager.swift */; };
 		B190682E233F8F6A0085BA59 /* SignInApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B190682D233F8F6A0085BA59 /* SignInApiRequest.swift */; };
@@ -190,6 +188,7 @@
 		D7B0D235949881E5D41CD1E4 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE93E2E7EEAFFB8CC1687A0E /* AlbumsViewController.swift */; };
 		DF5E3CFE60C1E7F766350DCC /* StartScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC0E359A4022EE849A3C44 /* StartScreenPresenter.swift */; };
 		E0012141066D17F4C7E9757F /* PINSetup+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853074D4B5C09B2996F1278C /* PINSetup+DIResolver.swift */; };
+		E38531F28AC78A1DDAA530B2 /* libPods-SecurePlace2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1584FA6551ABF93D2A41CE4A /* libPods-SecurePlace2Tests.a */; };
 		E7149A69DFEA6B5160626312 /* MasterPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F18C6C808FDD9C03CEDB23 /* MasterPasswordPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -378,9 +377,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B176FB362434DDE300B0F23E /* (null) in Embed Frameworks */,
+				B176FB362434DDE300B0F23E /* BuildFile in Embed Frameworks */,
 				B11D26092434E79D0091D0CA /* Pods_SecurePlace2.framework in Embed Frameworks */,
-				B121656C2434CCD8009ABEBC /* (null) in Embed Frameworks */,
+				B121656C2434CCD8009ABEBC /* BuildFile in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +390,8 @@
 		0A362ADAEAE9D607C1EE8913 /* Pods-SecurePlace2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2Tests.debug.xcconfig"; path = "Target Support Files/Pods-SecurePlace2Tests/Pods-SecurePlace2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0A59D1D970570823632684BE /* OneTimeCodeProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeProtocols.swift; sourceTree = "<group>"; };
 		0B50B9C9537AD964B32B77EE /* PINConfirmInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmInteractor.swift; sourceTree = "<group>"; };
+		1584FA6551ABF93D2A41CE4A /* libPods-SecurePlace2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SecurePlace2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D35385E3809A08736DB6A1B /* libPods-SecurePlace2UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SecurePlace2UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D54B6378E057103AB173409 /* Pods-SecurePlace2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2.debug.xcconfig"; path = "Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2.debug.xcconfig"; sourceTree = "<group>"; };
 		1F20ADA71EB10D7F769790C6 /* OneTimeCodeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeViewController.swift; sourceTree = "<group>"; };
 		2728036313B452DEAECF9F28 /* Pods-SecurePlace2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2.release.xcconfig"; path = "Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2.release.xcconfig"; sourceTree = "<group>"; };
@@ -413,7 +414,6 @@
 		853074D4B5C09B2996F1278C /* PINSetup+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PINSetup+DIResolver.swift"; sourceTree = "<group>"; };
 		92C56700715980E2F16CA97C /* PINSetupWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupWireFrame.swift; sourceTree = "<group>"; };
 		93BB0C26FAB2196109DE00FE /* PINConfirmWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmWireFrame.swift; sourceTree = "<group>"; };
-		97D23C8D45F190295A1B9C25 /* Pods_SecurePlace2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecurePlace2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0E2CBF447EA9442D3B2E02E /* PINConfirm+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PINConfirm+DIResolver.swift"; sourceTree = "<group>"; };
 		A1A7860EB2D82DE00933DB5E /* Gallery+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Gallery+DIResolver.swift"; sourceTree = "<group>"; };
 		AD7A1955165F77E52006A391 /* MasterPasswordWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordWireFrame.swift; sourceTree = "<group>"; };
@@ -684,15 +684,14 @@
 		BE93E2E7EEAFFB8CC1687A0E /* AlbumsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		BF4B251FDC0E79BF0B10B070 /* Authorisation+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Authorisation+DIResolver.swift"; sourceTree = "<group>"; };
 		C52B0209140E9BD3C1E594D0 /* PINSetupViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupViewController.swift; sourceTree = "<group>"; };
-		C69984AE9A21D778BD89D66B /* Pods_SecurePlace2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecurePlace2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C917972192D2AD4D1CDC2B38 /* GalleryInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryInteractor.swift; sourceTree = "<group>"; };
+		CF052A4C1CC759F3CC3F7132 /* libPods-SecurePlace2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SecurePlace2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D837AC1A11F6C5921454E648 /* PINSetupInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupInteractor.swift; sourceTree = "<group>"; };
 		D97CC00F21A29894421BF8E1 /* StartScreenProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenProtocols.swift; sourceTree = "<group>"; };
 		DF9EA79564F5F41566D6E92A /* OneTimeCodeWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeWireFrame.swift; sourceTree = "<group>"; };
 		E1B233BB11A8E4D81AF96798 /* GalleryPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryPresenter.swift; sourceTree = "<group>"; };
 		E2BC0E359A4022EE849A3C44 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
 		E465C69D1F235097E49F6F1D /* GalleryWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryWireFrame.swift; sourceTree = "<group>"; };
-		E56B27A366115963A24A94D7 /* Pods_SecurePlace2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecurePlace2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F18C6C808FDD9C03CEDB23 /* MasterPasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordPresenter.swift; sourceTree = "<group>"; };
 		EA97D81FD2EAEBAC33B7AF2B /* Albums+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Albums+DIResolver.swift"; sourceTree = "<group>"; };
 		F4C2930347EA014324ABF516 /* PINConfirmViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmViewController.swift; sourceTree = "<group>"; };
@@ -705,8 +704,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B11D26082434E79D0091D0CA /* Pods_SecurePlace2.framework in Frameworks */,
-				A5A2DE86BA6D7A8C1CF29577 /* Pods_SecurePlace2.framework in Frameworks */,
+				45D1467ED0D5124E59183A67 /* libPods-SecurePlace2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,7 +712,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3305970E41E95DB55F3FD396 /* Pods_SecurePlace2Tests.framework in Frameworks */,
+				E38531F28AC78A1DDAA530B2 /* libPods-SecurePlace2Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,7 +720,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99A76B1381B86B4EF49A016B /* Pods_SecurePlace2UITests.framework in Frameworks */,
+				640EC1295B1D6CF6EDB32667 /* libPods-SecurePlace2UITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -998,9 +996,9 @@
 				B12165682434CCB2009ABEBC /* AssetsPickerViewController.framework */,
 				B12165652434CCAB009ABEBC /* Alamofire.framework */,
 				B188999F2434C772006DD8C5 /* Alamofire.framework */,
-				E56B27A366115963A24A94D7 /* Pods_SecurePlace2.framework */,
-				97D23C8D45F190295A1B9C25 /* Pods_SecurePlace2Tests.framework */,
-				C69984AE9A21D778BD89D66B /* Pods_SecurePlace2UITests.framework */,
+				CF052A4C1CC759F3CC3F7132 /* libPods-SecurePlace2.a */,
+				1584FA6551ABF93D2A41CE4A /* libPods-SecurePlace2Tests.a */,
+				1D35385E3809A08736DB6A1B /* libPods-SecurePlace2UITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2414,7 +2412,7 @@
 				B11ECC99225B42E500B2CC4E /* Frameworks */,
 				B11ECC9A225B42E500B2CC4E /* Resources */,
 				B121656D2434CCD9009ABEBC /* Embed Frameworks */,
-				C971AD4427A2B6B38CADA602 /* [CP] Embed Pods Frameworks */,
+				5A643ED05B43A09BE1547882 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2736,6 +2734,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5A643ED05B43A09BE1547882 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/CropViewController/TOCropViewControllerBundle.bundle",
+				"${PODS_ROOT}/DKCamera/DKCamera/DKCameraResource.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/DKImagePickerController/DKImagePickerController.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/DKPhotoGallery/DKPhotoGallery.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TOCropViewControllerBundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DKCameraResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DKImagePickerController.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DKPhotoGallery.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		96B60CA5A867571422CFF3DF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2778,54 +2800,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C971AD4427A2B6B38CADA602 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework",
-				"${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework",
-				"${BUILT_PRODUCTS_DIR}/DKPhotoGallery/DKPhotoGallery.framework",
-				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
-				"${BUILT_PRODUCTS_DIR}/LBTATools/LBTATools.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Require/Require.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImageFLPlugin/SDWebImageFLPlugin.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
-				"${BUILT_PRODUCTS_DIR}/Wendy/Wendy.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKCamera.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKImagePickerController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKPhotoGallery.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBTATools.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Require.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImageFLPlugin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Wendy.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -9,7 +9,6 @@
 import UIKit
 
 protocol AlbumsViewProtocol: class {
-    func showAddActionSheet()
     func showAddAlbumAlert()
 }
 
@@ -20,8 +19,6 @@ protocol AlbumsWireFrameProtocol: class {
 protocol AlbumsPresenterProtocol: class {
     func didSelectAlbum()
     func didClickPlusButton()
-    func didClickAddAlbumOnSheet()
-    func didClickPhotoVideoOnSheet()
     func didClickCreateAlbum(named: String)
 }
 

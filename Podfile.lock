@@ -58,7 +58,6 @@ PODS:
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
-  - Require (2.0.0)
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
@@ -67,8 +66,6 @@ PODS:
     - SDWebImage/Core (~> 5.6)
   - SnapKit (4.0.1)
   - UICircularProgressRing (6.5.0)
-  - Wendy (0.1.0-alpha):
-    - Require (~> 2.0.0)
 
 DEPENDENCIES:
   - DKImagePickerController
@@ -79,7 +76,6 @@ DEPENDENCIES:
   - SDWebImage (~> 5.6.1)
   - SnapKit (~> 4.0.0)
   - UICircularProgressRing (~> 6.5.0)
-  - Wendy (~> 0.1.0-alpha)
 
 SPEC REPOS:
   trunk:
@@ -93,12 +89,10 @@ SPEC REPOS:
     - LBTATools
     - MBProgressHUD
     - Moya
-    - Require
     - SDWebImage
     - SDWebImageFLPlugin
     - SnapKit
     - UICircularProgressRing
-    - Wendy
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
@@ -111,13 +105,11 @@ SPEC CHECKSUMS:
   LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
-  Require: f93abc18dda985f665465cf027cea7166455fb28
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SDWebImageFLPlugin: 6c2295fb1242d44467c6c87dc5db6b0a13228fd8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
-  Wendy: 416b195f26f158784235072d24baf8a6e32cfbf3
 
-PODFILE CHECKSUM: a67071b262d3f20da373035781b1bf571f93aa9c
+PODFILE CHECKSUM: 7bd8f1994fdfba3225a10aafb8b263f916b53cb4
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
