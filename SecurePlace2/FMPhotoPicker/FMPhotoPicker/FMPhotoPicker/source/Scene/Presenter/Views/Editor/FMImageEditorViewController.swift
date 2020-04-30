@@ -117,11 +117,11 @@ public class FMImageEditorViewController: UIViewController {
         self.view.backgroundColor = kBackgroundColor
     }
     
-    public init(config: FMPhotoPickerConfig, sourceImage: UIImage) {
+    public init(config: FMPhotoPickerConfig, sourceImage: UIImage, thumbnail: UIImage) {
         self.config = config
         
         let forceCropType = config.forceCropEnabled ? config.availableCrops.first! : nil
-        let fmPhotoAsset = FMPhotoAsset(sourceImage: sourceImage, forceCropType: forceCropType)
+        let fmPhotoAsset = FMPhotoAsset(id: 0, sourceImage: sourceImage, thumbnail: thumbnail, forceCropType: forceCropType)
         self.fmPhotoAsset = fmPhotoAsset
         
         self.originalThumb = sourceImage

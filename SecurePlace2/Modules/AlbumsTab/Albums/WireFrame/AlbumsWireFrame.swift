@@ -12,9 +12,9 @@ class AlbumsWireFrame: BaseWireFrame {
 }
 
 extension AlbumsWireFrame: AlbumsWireFrameProtocol {
-    func presentGallery(from view: AlbumsViewProtocol?) {
+    func presentGallery(from view: AlbumsViewProtocol?, model: AlbumModel) {
         guard let fromView = view as? UIViewController else { return }
-        let viewController = self.resolver.presentGalleryViewController()
+        let viewController = self.resolver.presentGalleryViewController(album: model)
         fromView.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: - Gallery
 protocol GalleryProtocol {
-    func presentGalleryViewController() -> UIViewController
+    func presentGalleryViewController(album: AlbumModel) -> UIViewController
 }
 
 extension DIResolver: GalleryProtocol {
-    func presentGalleryViewController() -> UIViewController {
+    func presentGalleryViewController(album: AlbumModel) -> UIViewController {
         //let datasource = GalleryDataSource()
         //let viewController = FMPhotoPickerViewController(config: FMPhotoPickerConfig())
 //        let interactor = GalleryInteractor()
@@ -23,6 +23,6 @@ extension DIResolver: GalleryProtocol {
 //        viewController.presenter = presenter
         var fv = FMPhotoPickerConfig()
         fv.mediaTypes = [.image, .video]
-        return FMPhotoPickerViewController(config: fv)
+        return FMPhotoPickerViewController(config: fv, albumModel: album)
     }
 }

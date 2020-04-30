@@ -11,17 +11,19 @@ import Photos
 import AVFoundation
 
 class Helper: NSObject {
-    static func generateVideoFrames(from phAsset: PHAsset, numberOfFrames: Int = 9, completion: @escaping ([CGImage]) -> Void) {
+    static func generateVideoFrames(from avAsset: AVAsset, numberOfFrames: Int = 9, completion: @escaping ([CGImage]) -> Void) {
+        
+        
         DispatchQueue.global(qos: .userInitiated).async {
-            let multiTask = DispatchGroup()
-            var asset: AVAsset?
-            
-            multiTask.enter()
-            Helper.requestAVAsset(asset: phAsset, complete: { avAsset in
-                asset = avAsset
-                multiTask.leave()
-            })
-            multiTask.wait()
+//            let multiTask = DispatchGroup()
+             var asset: AVAsset? = avAsset
+//
+//            multiTask.enter()
+//            Helper.requestAVAsset(asset: phAsset, complete: { avAsset in
+//                asset = avAsset
+//                multiTask.leave()
+//            })
+//            multiTask.wait()
             
             guard let avAsset = asset else { return completion([]) }
             

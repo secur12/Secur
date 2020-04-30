@@ -36,7 +36,7 @@ class FMImageViewController: FMPhotoViewController {
         
         self.scalingImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.scalingImageView.clipsToBounds = true
-        self.scalingImageView.eclipsePreviewEnabled = config.eclipsePreviewEnabled
+        self.scalingImageView.eclipsePreviewEnabled = false
         
         self.view.addSubview(self.scalingImageView)
         
@@ -74,7 +74,7 @@ class FMImageViewController: FMPhotoViewController {
             scrollView.panGestureRecognizer.isEnabled = false;
         }
     }
-    
+
     // MARK: - Logic
     @objc private func handleDoubleTapWithGestureRecognizer(_ recognizer: UITapGestureRecognizer) {
         let pointInView = recognizer.location(in: scalingImageView.imageView)

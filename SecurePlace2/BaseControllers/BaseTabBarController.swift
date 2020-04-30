@@ -50,12 +50,12 @@ extension BaseTabBarController {
         albumsButton.tag = 1
         albumsController.tabBarItem = albumsButton
 
-        let cardsController = UINavigationController(rootViewController: UIViewController())
+        let cardsController = UINavigationController(rootViewController: resolver.presentCardsViewController())
         let cardsButton = UITabBarItem.init(title: "Cards", image: UIImage(systemName: "creditcard"), selectedImage: UIImage(systemName: "creditcard.fill"))
         cardsButton.tag = 2
         cardsController.tabBarItem = cardsButton
 
-        let credentialsController = UINavigationController(rootViewController: UIViewController())
+        let credentialsController = UINavigationController(rootViewController: resolver.presentCredentialsViewController())
         let credentialsButton = UITabBarItem(title: "Credentials", image: UIImage(systemName: "person.icloud"), selectedImage: UIImage(systemName: "person.icloud.fill"))
         credentialsButton.tag = 3
         credentialsController.tabBarItem = credentialsButton

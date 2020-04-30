@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-struct AlbumModel {
+public struct AlbumModel {
+    
+    let id: Int
     let albumTitle: String
     let numberOfItems: String
     let backgroundImage: UIImage?
@@ -17,7 +19,8 @@ struct AlbumModel {
     let password: String?
     
     
-    init(albumTitle: String, numberOfItems: String, backgroundImage: UIImage?, isLocked: Bool, password: String?) {
+    init(id: Int, albumTitle: String, numberOfItems: String, backgroundImage: UIImage?, isLocked: Bool, password: String?) {
+        self.id = id
         self.albumTitle = albumTitle
         self.numberOfItems = numberOfItems
         self.backgroundImage = backgroundImage

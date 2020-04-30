@@ -15,7 +15,7 @@ class FMPhotoViewController: UIViewController {
     
     public var dataSource: FMPhotosDataSource!
     
-    public var config: FMPhotoPickerConfig
+    public var config: FMPhotoPickerConfig?
     
     // MARK: - Init
     public init(withPhoto photo: FMPhotoAsset, config: FMPhotoPickerConfig) {

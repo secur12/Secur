@@ -52,10 +52,10 @@ class FMVideoViewController: FMPhotoViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        photo.requestFullSizePhoto(cropState: .edited, filterState: .edited) { fullSizeImage in
-            if self.shouldUpdateView == false { return }
+        photo.requestFullSizePhoto(cropState: .edited, filterState: .edited) { [weak self] fullSizeImage in
+            if self?.shouldUpdateView == false { return }
             if let fullSizeImage = fullSizeImage {
-                self.thumbImageView.image = fullSizeImage
+                self?.thumbImageView.image = fullSizeImage
             }
         }
         loadVideoIfNeeded()
@@ -83,16 +83,16 @@ class FMVideoViewController: FMPhotoViewController {
     
     private func loadVideoIfNeeded() {
         guard (playerController == nil),
-            let asset = photo.asset else { return }
-        
-        Helper.requestAVAsset(asset: asset) { avAsset in
-            // Do not run on main thread for better perf
+            let url = photo.encryptedVideoURL else { return }
+//
+//        Helper.requestAVAsset(asset: asset) { avAsset in
+//            // Do not run on main thread for better perf
             DispatchQueue.main.async {
                 guard self.shouldUpdateView == true,
-                    let avAsset = avAsset else { return }
+                    let url = self.photo.encryptedVideoURL else { return }
                 
-                let playerItem = AVPlayerItem(asset: avAsset)
-                self.player = AVPlayer(playerItem: playerItem)
+                let playerItem = AVPlayerItem(url: url)
+                self.player = AVPlayer(url: url)
                 
                 self.playerController = AVPlayerViewController()
                 self.playerController?.player = self.player
@@ -104,7 +104,7 @@ class FMVideoViewController: FMPhotoViewController {
                 
                 self.addPlayerTimeObserverIfNeeded()
            }
-        }
+       // }
     }
     
     // MARK -
@@ -254,11 +254,11 @@ class FMVideoViewController: FMPhotoViewController {
     func actuallySeekToTime() {
         isSeekInProgress = true
         let seekTimeInProgress = chaseTime
-        player!.seek(to: seekTimeInProgress, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero, completionHandler: { isFinished in
-            if CMTimeCompare(seekTimeInProgress, self.chaseTime) == 0 {
-                self.isSeekInProgress = false
+        player!.seek(to: seekTimeInProgress, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero, completionHandler: { [weak self] isFinished in
+            if CMTimeCompare(seekTimeInProgress, self?.chaseTime ?? CMTime() ) == 0 {
+                self?.isSeekInProgress = false
             } else {
-                self.trySeekToChaseTime()
+                self?.trySeekToChaseTime()
             }
         })
     }

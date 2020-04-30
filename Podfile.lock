@@ -58,6 +58,11 @@ PODS:
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
   - SDWebImage (5.6.1):
     - SDWebImage/Core (= 5.6.1)
   - SDWebImage/Core (5.6.1)
@@ -73,6 +78,7 @@ DEPENDENCIES:
   - LBTATools
   - MBProgressHUD (~> 1.1.0)
   - Moya
+  - RealmSwift
   - SDWebImage (~> 5.6.1)
   - SnapKit (~> 4.0.0)
   - UICircularProgressRing (~> 6.5.0)
@@ -89,6 +95,8 @@ SPEC REPOS:
     - LBTATools
     - MBProgressHUD
     - Moya
+    - Realm
+    - RealmSwift
     - SDWebImage
     - SDWebImageFLPlugin
     - SnapKit
@@ -105,11 +113,13 @@ SPEC CHECKSUMS:
   LBTATools: 389a901a01b9a56bea5682c40cd6e23530f40015
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SDWebImageFLPlugin: 6c2295fb1242d44467c6c87dc5db6b0a13228fd8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
 
-PODFILE CHECKSUM: 7bd8f1994fdfba3225a10aafb8b263f916b53cb4
+PODFILE CHECKSUM: 160db63ef476cf749a8b411446118c3ff3f24e82
 
 COCOAPODS: 1.9.1

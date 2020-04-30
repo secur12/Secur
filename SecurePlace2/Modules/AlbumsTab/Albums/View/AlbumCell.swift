@@ -73,7 +73,7 @@ class AlbumCell: UICollectionViewCell {
         albumTitle.numberOfLines = 1
         albumTitle.font = UIFont.systemFont(ofSize: 12.9.withRatio(), weight: .regular)
         albumTitle.snp.makeConstraints { (make) in
-            make.top.equalTo(backgroundImage.snp.bottom).offset(4.withRatio())
+            make.top.equalTo(backgroundImage.snp.bottom).offset(6.withRatio())
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
@@ -105,7 +105,11 @@ class AlbumCell: UICollectionViewCell {
             self.backgroundImage.image = image
             self.firstTitleLetter.isHidden = true
         } else {
-            self.backgroundImage.backgroundColor = Colors.generateAlbumBackgroundColor
+            let gradient = CAGradientLayer()
+            gradient.frame = bounds
+            gradient.colors = Colors.getRandomGradient()
+            self.backgroundImage.layer.insertSublayer(gradient, at: 0)
+            //self.backgroundImage.backgroundColor = Colors.generateAlbumBackgroundColor
             self.firstTitleLetter.text = model.albumTitle.first?.uppercased()
         }
         

@@ -223,20 +223,20 @@ class FMPhotoPresenterViewController: UIViewController {
             self.selectedIcon.image = UIImage(named: "check_off", in: Bundle(for: self.classForCoder), compatibleWith: nil)
         }
         
-        // Update photo title
-        if let photoAsset = self.dataSource.photo(atIndex: self.currentPhotoIndex),
-            let creationDate = photoAsset.asset?.creationDate {
-            //self.photoTitle.text = self.formatter.string(from: creationDate)
-        }
+//        // Update photo title
+//        if let photoAsset = self.dataSource.photo(atIndex: self.currentPhotoIndex),
+//            let creationDate = photoAsset.asset?.creationDate {
+//            //self.photoTitle.text = self.formatter.string(from: creationDate)
+//        }
     }
     
     private func changeToPhoto(photo: FMPhotoAsset) {
-        let photoViewController = initializaPhotoViewController(forPhoto: photo)
-        self.pageViewController.setViewControllers([photoViewController], direction: .forward, animated: true, completion: nil)
+        self.pageViewController.setViewControllers([initializaPhotoViewController(forPhoto: photo)], direction: .forward, animated: true, completion: nil)
         
         self.updateInfoBar()
     }
     
+    //инишлаиз Видеовью
     private func initializaPhotoViewController(forPhoto photo: FMPhotoAsset) -> FMPhotoViewController {
         if photo.mediaType == .image {
             let imageViewController = FMImageViewController(withPhoto: photo, config: self.config)
@@ -259,8 +259,11 @@ class FMPhotoPresenterViewController: UIViewController {
         if fmAsset.mediaType == .video {
             bottomView.videoMode()
             fmAsset.requestVideoFrames { cgImages in
-                if let asset = fmAsset.asset {
-                    self.bottomView.resetPlaybackControl(cgImages: cgImages, duration: asset.duration)
+                //ENCRYPT HERE
+                if let videoURL = fmAsset.encryptedVideoURL {
+                    if let videoDuration = fmAsset.videoDuration {
+                    self.bottomView.resetPlaybackControl(cgImages: cgImages, duration: CMTimeGetSeconds(videoDuration))
+                    }
                 }
             }
         } else {

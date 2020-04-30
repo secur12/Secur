@@ -23,7 +23,7 @@ class FMPhotoPickerImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var editedMarkImageView: UIImageView!
     @IBOutlet weak var editedMarkImageViewTopConstraint: NSLayoutConstraint!
     
-    private weak var photoAsset: FMPhotoAsset?
+    weak var photoAsset: FMPhotoAsset?
     
     public var onTapSelect = {}
     
@@ -40,12 +40,19 @@ class FMPhotoPickerImageCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        self.imageView.image = nil
-        self.videoInfoView.isHidden = true
-        
         self.photoAsset?.cancelAllRequest()
+        self.imageView.image = nil
+        //self.imageView = nil
+        self.photoAsset = nil
+                self.videoInfoView.isHidden = true
+        
+        print("[cell] prepare for reuse")
     }
-    
+
+    deinit {
+        print("[cell] deinit")
+    }
+
     public func loadView(isSelectionViewHidden: Bool, photoAsset: FMPhotoAsset, selectMode: FMSelectMode, selectedIndex: Int?) {
         self.selectMode = selectMode
         
@@ -58,11 +65,11 @@ class FMPhotoPickerImageCollectionViewCell: UICollectionViewCell {
             self.selectedIndex.isHidden = false
             self.selectButton.isHidden = false
         }
-        
+
         self.photoAsset = photoAsset
 
-        photoAsset.requestThumb() { image in
-            self.imageView.image = image
+        photoAsset.requestThumb() { [weak self] image in
+            self?.imageView.image = image
         }
         
         photoAsset.thumbChanged = { [weak self, weak photoAsset] image in
@@ -73,17 +80,23 @@ class FMPhotoPickerImageCollectionViewCell: UICollectionViewCell {
         
         if photoAsset.mediaType == .video {
             self.videoInfoView.isHidden = false
-            self.videoLengthLabel.text = photoAsset.asset?.duration.stringTime
+            
+            if let videoURL = photoAsset.encryptedVideoURL {
+                if let videoDuration = photoAsset.videoDuration {
+                self.videoLengthLabel.text = CMTimeGetSeconds(videoDuration).stringTime
+                }
+            }
         }
         
         self.editedMarkImageView.isHidden = !photoAsset.isEdited()
         
         self.performSelectionAnimation(selectedIndex: selectedIndex)
     }
+    
     @IBAction func onTapSelects(_ sender: Any) {
         self.onTapSelect()
     }
-    
+
     func performSelectionAnimation(selectedIndex: Int?) {
         if let selectedIndex = selectedIndex {
             if self.selectMode == .multiple {

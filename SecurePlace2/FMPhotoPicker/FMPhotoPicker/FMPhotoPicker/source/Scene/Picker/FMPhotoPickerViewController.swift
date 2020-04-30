@@ -8,6 +8,8 @@
 
 import UIKit
 import Photos
+import DKImagePickerController
+import MBProgressHUD
 
 // MARK: - Delegate protocol
 public protocol FMPhotoPickerViewControllerDelegate: class {
@@ -24,6 +26,7 @@ public class FMPhotoPickerViewController: UIViewController {
     
     // MARK: - Public
     public weak var delegate: FMPhotoPickerViewControllerDelegate? = nil
+    private var isScrolled = false
     
     // MARK: - Private
     
@@ -35,7 +38,10 @@ public class FMPhotoPickerViewController: UIViewController {
     private let config: FMPhotoPickerConfig
     private var isSelectionViewHidden: Bool = true
     private let plusButton: SSPlusButton = SSPlusButton()
-    
+    private var pickerController: DKImagePickerController!
+    private var albumModel: AlbumModel
+    private let provider = MediaLocalProvider(realmWrapper: RealmWrapper())
+
     //  The controller for multiple select/deselect
     private lazy var batchSelector: FMPhotoPickerBatchSelector = {
         return FMPhotoPickerBatchSelector(viewController: self, collectionView: self.imageCollectionView, dataSource: self.dataSource)
@@ -45,15 +51,19 @@ public class FMPhotoPickerViewController: UIViewController {
         didSet {
             if self.config.selectMode == .multiple {
                 // Enable batchSelector in multiple selection mode only
-               //self.batchSelector.enable()
+                //self.batchSelector.enable()
             }
         }
     }
     
     // MARK: - Init
-    public init(config: FMPhotoPickerConfig) {
+    public init(config: FMPhotoPickerConfig, albumModel: AlbumModel) {
         self.config = config
+        self.albumModel = albumModel
         super.init(nibName: nil, bundle: nil)
+        if dataSource == nil {
+            self.requestAndFetchAssets()
+        }
         //super.init(nibName: "FMPhotoPickerViewController", bundle: Bundle(for: type(of: self)))
     }
     
@@ -65,13 +75,6 @@ public class FMPhotoPickerViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
-    }
-    
-    override public func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if self.dataSource == nil {
-            self.requestAndFetchAssets()
-        }
     }
     
     // MARK: - Setup View
@@ -91,13 +94,13 @@ public class FMPhotoPickerViewController: UIViewController {
         //self.determineButton.isHidden = true
         
         // set button title
-//        self.cancelButton.setTitle(config.strings["picker_button_cancel"], for: .normal)
-//        self.cancelButton.titleLabel!.font = UIFont.systemFont(ofSize: config.titleFontSize)
+        //        self.cancelButton.setTitle(config.strings["picker_button_cancel"], for: .normal)
+        //        self.cancelButton.titleLabel!.font = UIFont.systemFont(ofSize: config.titleFontSize)
         //self.determineButton.setTitle(config.strings["picker_button_select_done"], for: .normal)
         //self.determineButton.titleLabel!.font = UIFont.systemFont(ofSize: config.titleFontSize)
         
         //set title
-        self.title = "Screenshots"
+        self.title = albumModel.albumTitle
         
         //set collectionview
         self.imageCollectionView.snp.makeConstraints { (make) in
@@ -112,7 +115,143 @@ public class FMPhotoPickerViewController: UIViewController {
             make.right.equalToSuperview().offset(-17.withRatio())
             make.height.width.equalTo(56.withRatio())
         }
+        plusButton.addTarget(self, action: #selector(didClickPlusButton), for: .touchUpInside)
         
+        pickerController = DKImagePickerController()
+        pickerController.singleSelect = false
+        pickerController.autoCloseOnSingleSelect = false
+        pickerController.containsGPSInMetadata = true
+        pickerController.allowSwipeToSelect = true
+        pickerController.allowSelectAll = true
+        pickerController.allowsLandscape = true
+        pickerController.showsEmptyAlbums = true
+        pickerController.showsCancelButton = true
+        pickerController.didSelectAssets = { [weak self] (assets: [DKAsset]) in
+            self?.showLoading(message: "Processing")
+            let forceCropType = self?.config.forceCropEnabled
+
+
+            for asset in assets {
+                if asset.type == .photo {
+
+                    if let phasset = asset.originalAsset {
+                        let requestImageOption = PHImageRequestOptions()
+                        requestImageOption.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
+                        let manager = PHImageManager.default()
+                        manager.requestImage(for: phasset, targetSize: PHImageManagerMaximumSize, contentMode:PHImageContentMode.default, options: requestImageOption) { [weak self] (image: UIImage?, _) in
+
+                            if let originalImage = image {
+                                let uuid = UUID().uuidString
+                                self?.provider.savePhotoFile(name: uuid, image: originalImage, compressionRate: 0) {
+                                    [weak self]  (originalImageName) in
+
+                                    self?.provider.savePhotoFile(name: uuid+"_comressed", image: originalImage, compressionRate: 0) {
+                                        [weak self]  (compressedImageName) in
+
+                                        if let originalName = originalImageName, let compressedName = compressedImageName {
+                                            let mediaModel = MediaModel(
+                                                id: 0,
+                                                type: "photo",
+                                                albumId: self?.albumModel.id ?? 0,
+                                                creationDate: Date(),
+                                                encryptedFilePath: originalName,
+                                                thumbnailName: compressedName,
+                                                durationSeconds: nil,
+                                                timeScale: nil,
+                                                videoPreviewPath: nil)
+
+                                            self?.provider.saveMediaModel(mediaModel) { [weak self] (model) in
+                                                if let model = model {
+                                                    self?.provider.loadPhotoWith(fileUrlPath: model.fileName) { [weak self] (originalImage) in
+
+                                                        self?.provider.loadPhotoWith(fileUrlPath: model.thumbnailName) { [weak self] (thumbnailImage) in
+
+
+                                                            let asset = FMPhotoAsset(id: model.id, sourceImage: originalImage ?? UIImage(), thumbnail: thumbnailImage ?? UIImage(), forceCropType: forceCropType as? FMCroppable)
+                                                            self?.dataSource.photoAssets.append(asset)
+                                                            DispatchQueue.main.async {
+                                                                self?.imageCollectionView.reloadWithoutScrolling()
+                                                                self?.imageCollectionView.scrollToItem(at: IndexPath(item: (self?.dataSource.photoAssets.count ?? 1)-1, section: 0), at: .bottom, animated: true)
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                } else if asset.type == .video {
+
+                    if let phasset = asset.originalAsset {
+                        let requestImageOption = PHImageRequestOptions()
+                        requestImageOption.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
+                        let manager = PHImageManager.default()
+                        manager.requestAVAsset(forVideo: phasset, options: nil) { [weak self] (avAsset, audioMix, info) in
+
+                            if let originalVideo = avAsset as? AVURLAsset {
+                                self?.provider.saveVideoFile(name: UUID().uuidString, video: originalVideo) {
+                                    [weak self] (videoNameAndExtension, thumbnailName) in
+
+                                    if let videoName = videoNameAndExtension {
+                                        let mediaModel = MediaModel(
+                                            id: 0,
+                                            type: "video",
+                                            albumId: self?.albumModel.id ?? 0,
+                                            creationDate: Date(),
+                                            encryptedFilePath: videoName,
+                                            thumbnailName: thumbnailName ?? "",
+                                            durationSeconds: originalVideo.duration.seconds,
+                                            timeScale: originalVideo.duration.timescale,
+                                            videoPreviewPath: thumbnailName)
+
+                                        self?.provider.saveMediaModel(mediaModel) { [weak self] (model) in
+                                            if let model = model {
+                                                self?.provider.loadVideoWith(fileUrlPath: model.fileName) { [weak self] (videoURL) in
+                                                    if let videoURL = videoURL {
+                                                        self?.provider.loadPhotoWith(fileUrlPath: model.videoPreviewFileName) { [weak self] (image) in
+                                                            if let thumbnailImage = image {
+                                                                let asset = FMPhotoAsset(id: model.id, sourceVideo: videoURL, videoDuration: CMTimeMakeWithSeconds(model.durationSeconds, preferredTimescale: model.timeScale), thumbnail: thumbnailImage, forceCropType: forceCropType as? FMCroppable)
+                                                                self?.dataSource.photoAssets.append(asset)
+                                                                DispatchQueue.main.async {
+                                                                    self?.imageCollectionView.reloadWithoutScrolling()
+                                                                    self?.imageCollectionView.scrollToItem(at: IndexPath(item: (self?.dataSource.photoAssets.count ?? 1)-1, section: 0), at: .bottom, animated: true)
+                                                                }
+
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                self?.fetchPhotos()
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            self?.hideLoading()
+        }
+    }
+
+    public func showLoading(message: String?) {
+        if let message = message {
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+            loadingNotification.label.text = "Loading"
+        } else {
+            let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.indeterminate
+        }
+    }
+
+    public func hideLoading() {
+        MBProgressHUD.hideAllHUDs(for: view, animated: true)
     }
     
     @objc func chooseButtonPressed(sender: UIBarButtonItem) {
@@ -123,6 +262,7 @@ public class FMPhotoPickerViewController: UIViewController {
         DispatchQueue.main.async {
             self.imageCollectionView.reloadWithoutScrolling()
         }
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc func cancelButtonPressed(sender: UIBarButtonItem) {
@@ -134,7 +274,8 @@ public class FMPhotoPickerViewController: UIViewController {
         DispatchQueue.main.async {
             self.imageCollectionView.reloadWithoutScrolling()
         }
-     }
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     // MARK: - Target Actions
     @IBAction func onTapCancel(_ sender: Any) {
@@ -143,6 +284,10 @@ public class FMPhotoPickerViewController: UIViewController {
     
     @IBAction func onTapDetermine(_ sender: Any) {
         processDetermination()
+    }
+    
+    @objc func didClickPlusButton() {
+        self.present(self.pickerController, animated: true) {}
     }
     
     // MARK: - Logic
@@ -155,16 +300,40 @@ public class FMPhotoPickerViewController: UIViewController {
     }
     
     private func fetchPhotos() {
-        let photoAssets = Helper.getAssets(allowMediaTypes: self.config.mediaTypes)
         let forceCropType = config.forceCropEnabled ? config.availableCrops.first! : nil
-        let fmPhotoAssets = photoAssets.map { FMPhotoAsset(asset: $0, forceCropType: forceCropType) }
-        self.dataSource = FMPhotosDataSource(photoAssets: fmPhotoAssets)
-        
-        if self.dataSource.numberOfPhotos > 0 {
-            self.imageCollectionView.reloadData()
-            self.imageCollectionView.selectItem(at: IndexPath(row: self.dataSource.numberOfPhotos - 1, section: 0),
-                                                animated: false,
-                                                scrollPosition: .bottom)
+        provider.getMediasInAlbum(with: albumModel.id) { [weak self] (mediaModels, error) in
+            if let error = error {
+                return
+            }
+
+            if let mediaModels = mediaModels {
+                var mediaArray = [FMPhotoAsset]()
+                for model in mediaModels {
+                    if model.type == "photo" {
+                        self?.provider.loadPhotoWith(fileUrlPath: model.fileName) { [weak self] (originalImage) in
+                            self?.provider.loadPhotoWith(fileUrlPath: model.thumbnailName) { [weak self] (thumbnailImage) in
+                                let asset = FMPhotoAsset(id: model.id, sourceImage: originalImage ?? UIImage(), thumbnail: thumbnailImage ?? UIImage(), forceCropType: forceCropType)
+                                mediaArray.append(asset)
+                            }
+                        }
+                    } else if model.type == "video" {
+                        self?.provider.loadVideoWith(fileUrlPath: model.fileName) { [weak self] (videoURL) in
+                            if let videoURL = videoURL {
+                                self?.provider.loadPhotoWith(fileUrlPath: model.videoPreviewFileName) { [weak self] (image) in
+                                    if let thumbnailImage = image {
+                                        let asset = FMPhotoAsset(id: model.id, sourceVideo: videoURL, videoDuration: CMTimeMakeWithSeconds(model.durationSeconds, preferredTimescale: model.timeScale), thumbnail: thumbnailImage, forceCropType: forceCropType)
+                                        mediaArray.append(asset)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                self?.dataSource = FMPhotosDataSource(photoAssets: mediaArray)
+                DispatchQueue.main.async {
+                    self?.imageCollectionView.reloadWithoutScrolling()
+                }
+            }
         }
     }
     
@@ -178,6 +347,17 @@ public class FMPhotoPickerViewController: UIViewController {
         } else {
             //self.determineButton.isHidden = true
             self.numberOfSelectedPhotoContainer.isHidden = true
+        }
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !isScrolled && imageCollectionView.visibleCells.count > 0 {
+            isScrolled = true
+            let section = 0
+            let item = imageCollectionView.numberOfItems(inSection: section) - 1
+            let lastIndexPath = IndexPath(item: item, section: section)
+            imageCollectionView.scrollToItem(at: lastIndexPath, at: .bottom, animated: false)
         }
     }
     
@@ -205,6 +385,10 @@ public class FMPhotoPickerViewController: UIViewController {
             }
         }
     }
+
+    deinit {
+        print("\n sdfghj")
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -215,25 +399,33 @@ extension FMPhotoPickerViewController: UICollectionViewDataSource {
         }
         return 0
     }
-    
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FMPhotoPickerImageCollectionViewCell.reuseId, for: indexPath) as? FMPhotoPickerImageCollectionViewCell,
-            let photoAsset = self.dataSource.photo(atIndex: indexPath.item) else {
-            return UICollectionViewCell()
-        }
-        
-        cell.loadView(isSelectionViewHidden: self.isSelectionViewHidden, photoAsset: photoAsset,
-                      selectMode: self.config.selectMode,
-                      selectedIndex: self.dataSource.selectedIndexOfPhoto(atIndex: indexPath.item))
-        cell.onTapSelect = { [unowned self, unowned cell] in
+
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+
+        guard let photoAsset = self.dataSource.photo(atIndex: indexPath.item) else { return }
+
+        let cell = cell as? FMPhotoPickerImageCollectionViewCell
+
+        cell?.loadView(isSelectionViewHidden: self.isSelectionViewHidden, photoAsset: photoAsset,
+                       selectMode: self.config.selectMode,
+                       selectedIndex: self.dataSource.selectedIndexOfPhoto(atIndex: indexPath.item))
+        cell?.onTapSelect = { [unowned self, unowned cell] in
             if let selectedIndex = self.dataSource.selectedIndexOfPhoto(atIndex: indexPath.item) {
                 self.dataSource.unsetSeclectedForPhoto(atIndex: indexPath.item)
-                cell.performSelectionAnimation(selectedIndex: nil)
+                cell?.performSelectionAnimation(selectedIndex: nil)
                 self.reloadAffectedCellByChangingSelection(changedIndex: selectedIndex)
             } else {
                 self.tryToAddPhotoToSelectedList(photoIndex: indexPath.item)
             }
             self.updateControlBar()
+        }
+    }
+
+
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FMPhotoPickerImageCollectionViewCell.reuseId, for: indexPath) as? FMPhotoPickerImageCollectionViewCell else {
+            return UICollectionViewCell()
         }
         
         return cell
@@ -242,7 +434,7 @@ extension FMPhotoPickerViewController: UICollectionViewDataSource {
     /**
      Reload all photocells that behind the deselected photocell
      - parameters:
-        - changedIndex: The index of the deselected photocell in the selected list
+     - changedIndex: The index of the deselected photocell in the selected list
      */
     public func reloadAffectedCellByChangingSelection(changedIndex: Int) {
         let affectedList = self.dataSource.affectedSelectedIndexs(changedIndex: changedIndex)
@@ -288,10 +480,10 @@ extension FMPhotoPickerViewController: UICollectionViewDataSource {
             }
         } else {  // single selection mode
             var indexPaths = [IndexPath]()
-            self.dataSource.getSelectedPhotos().forEach { photo in
-                guard let photoIndex = self.dataSource.index(ofPhoto: photo) else { return }
+            self.dataSource.getSelectedPhotos().forEach { [weak self] photo in
+                guard let photoIndex = self?.dataSource.index(ofPhoto: photo) else { return }
                 indexPaths.append(IndexPath(row: photoIndex, section: 0))
-                self.dataSource.unsetSeclectedForPhoto(atIndex: photoIndex)
+                self?.dataSource.unsetSeclectedForPhoto(atIndex: photoIndex)
             }
             
             self.dataSource.setSeletedForPhoto(atIndex: index)
@@ -300,6 +492,20 @@ extension FMPhotoPickerViewController: UICollectionViewDataSource {
             self.updateControlBar()
         }
     }
+
+    //    func generateThumbnail(asset: PHAsset) -> UIImage? {
+    //        do {
+    //            let asset = AVURLAsset(url: path, options: nil)
+    //            let imgGenerator = AVAssetImageGenerator(asset: asset)
+    //            imgGenerator.appliesPreferredTrackTransform = true
+    //            let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
+    //            let thumbnail = UIImage(cgImage: cgImage)
+    //            return thumbnail
+    //        } catch let error {
+    //            print("*** Error generating thumbnail: \(error.localizedDescription)")
+    //            return nil
+    //        }
+    //    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -309,19 +515,19 @@ extension FMPhotoPickerViewController: UICollectionViewDelegate {
         
         self.presentedPhotoIndex = indexPath.item
         
-        vc.didSelectPhotoHandler = { photoIndex in
-            self.tryToAddPhotoToSelectedList(photoIndex: photoIndex)
+        vc.didSelectPhotoHandler = { [weak self] photoIndex in
+            self?.tryToAddPhotoToSelectedList(photoIndex: photoIndex)
         }
-        vc.didDeselectPhotoHandler = { photoIndex in
-            if let selectedIndex = self.dataSource.selectedIndexOfPhoto(atIndex: photoIndex) {
-                self.dataSource.unsetSeclectedForPhoto(atIndex: photoIndex)
-                self.reloadAffectedCellByChangingSelection(changedIndex: selectedIndex)
-                self.imageCollectionView.reloadItems(at: [IndexPath(row: photoIndex, section: 0)])
-                self.updateControlBar()
+        vc.didDeselectPhotoHandler = { [weak self] photoIndex in
+            if let selectedIndex = self?.dataSource.selectedIndexOfPhoto(atIndex: photoIndex) {
+                self?.dataSource.unsetSeclectedForPhoto(atIndex: photoIndex)
+                self?.reloadAffectedCellByChangingSelection(changedIndex: selectedIndex)
+                self?.imageCollectionView.reloadItems(at: [IndexPath(row: photoIndex, section: 0)])
+                self?.updateControlBar()
             }
         }
-        vc.didMoveToViewControllerHandler = { vc, photoIndex in
-            self.presentedPhotoIndex = photoIndex
+        vc.didMoveToViewControllerHandler = { [weak self] vc, photoIndex in
+            self?.presentedPhotoIndex = photoIndex
         }
         vc.didTapDetermine = {
             self.processDetermination()

@@ -10,16 +10,25 @@ import UIKit
 
 protocol AlbumsViewProtocol: class {
     func showAddAlbumAlert()
+    func insertAlbums(albums: [AlbumModel])
+    func showOkAlertController(title: String?, message: String?, callback: (() -> Void)?)
+    func showAlert(title: String?, message: String?, buttons: [UIAlertAction])
 }
 
 protocol AlbumsWireFrameProtocol: class {
-    func presentGallery(from view: AlbumsViewProtocol?)
+    func presentGallery(from view: AlbumsViewProtocol?, model: AlbumModel)
 }
 
 protocol AlbumsPresenterProtocol: class {
-    func didSelectAlbum()
+    func viewDidLoad()
+    func didClickDeleteAlbum(album: AlbumModel)
+    func didSelectAlbum(model: AlbumModel)
     func didClickPlusButton()
     func didClickCreateAlbum(named: String)
 }
 
-protocol AlbumsInteractorProtocol: class { }
+protocol AlbumsInteractorProtocol: class {
+    func saveAlbum(_ album: AlbumModel, completion: ((AlbumModel?) -> Void)?)
+    func deleteAlbum(_ album: AlbumModel, completion: (([AlbumModel]?) -> Void)?)
+    func getAlbums(_ completion: (([AlbumModel]?, Error?) -> Void)?)
+}

@@ -30,10 +30,12 @@ class AlbumsViewController: BaseViewController {
     
     private let albumCellReuseIdentifier: String = "AlbumCell"
     private var cellIsInEditingMode: Bool = false
+    private var dataSource: AlbumsDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createUI()
+        self.presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +58,10 @@ class AlbumsViewController: BaseViewController {
         view.addSubview(categoriesLabel)
         view.addSubview(categoriesCollectionView)
         view.addSubview(plusButton)
-        
+
+        self.dataSource = AlbumsDataSource()
+        self.dataSource.delegate = self
+
         topSeparator.backgroundColor = Colors.lightGrey
         topSeparator.snp.makeConstraints { (make) in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -93,7 +98,7 @@ class AlbumsViewController: BaseViewController {
         
         middleSeparator.backgroundColor = Colors.lightGrey
         middleSeparator.snp.makeConstraints { (make) in
-            make.top.equalTo(myAlbumsCollectionView.snp.bottom).offset(15.withRatio())
+            make.top.equalTo(myAlbumsCollectionView.snp.bottom).offset(18.withRatio())
             make.left.equalToSuperview().offset(20.withRatio())
             make.height.equalTo(0.3.withRatio())
             make.right.equalToSuperview()
@@ -161,7 +166,13 @@ class AlbumsViewController: BaseViewController {
 }
 
 extension AlbumsViewController: AlbumsViewProtocol {
-    
+
+    func showDeleteAlbumAlertFor(album: AlbumModel) {
+        showAlert(title: "Warning!", message: "Are you sure that you want to delete the album ?", buttons: [UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            self.presenter.didClickDeleteAlbum(album: album)
+        }), UIAlertAction(title: "No", style: .cancel, handler: nil) ])
+    }
+
     func showAddActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let addAlbumButton = UIAlertAction(title: "Album", style: .default) { _ in
@@ -213,49 +224,66 @@ extension AlbumsViewController: AlbumsViewProtocol {
              self.present(alertController, animated: true)
         }
     }
+
+    func insertAlbums(albums: [AlbumModel]) {
+        self.dataSource.insertItems(albums)
+    }
 }
 
 extension AlbumsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == myAlbumsCollectionView {
-            return 7
+            return dataSource.getNumberOfItems(in: section)
         } else {
-            return 9
+            return 2
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumCellReuseIdentifier, for: indexPath) as? AlbumCell
-        
         if collectionView == myAlbumsCollectionView {
-           let model = AlbumModel(albumTitle: "Sample", numberOfItems: "538", backgroundImage: UIImage(named: "honolulu"), isLocked: true, password: "111")
-          cell?.fill(model: model)
-            
+            let cell = dataSource.getCell(for: collectionView, indexPath: indexPath) as? AlbumCell
             cell?.tag = indexPath.row
             cell?.delegate = self
-            if(cellIsInEditingMode) {
+            if cellIsInEditingMode {
                 cell?.deleteButton.isHidden = false
             } else {
                 cell?.deleteButton.isHidden = true
             }
-        } else {
-            let model = AlbumModel(albumTitle: "Videos", numberOfItems: "777", backgroundImage: nil, isLocked: false, password: nil)
-            cell?.fill(model: model)
+            return cell ?? UICollectionViewCell()
+        } else if collectionView == categoriesCollectionView {
+            if indexPath.row == 0 {
+               let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumCellReuseIdentifier, for: indexPath) as? AlbumCell
+               let model = AlbumModel(id: -2, albumTitle: "Videos", numberOfItems: "0", backgroundImage: nil, isLocked: false, password: nil)
+               cell?.fill(model: model)
+               return cell ?? UICollectionViewCell()
+            } else if indexPath.row == 1 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumCellReuseIdentifier, for: indexPath) as? AlbumCell
+                let model = AlbumModel(id: -1, albumTitle: "Favourites ❤️", numberOfItems: "0", backgroundImage: nil, isLocked: false, password: nil)
+                cell?.fill(model: model)
+                return cell ?? UICollectionViewCell()
+            }
         }
-        
-        return cell ?? UICollectionViewCell()
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.presenter.didSelectAlbum()
+        if let albumModel = self.dataSource.getModelBy(index: indexPath.row) {
+            self.presenter.didSelectAlbum(model: albumModel)
+        }
     }
-    
+}
+
+extension AlbumsViewController: AlbumsDataSourceDelegate {
+    func reloadData() {
+        self.myAlbumsCollectionView.reloadData()
+    }
 }
 
 extension AlbumsViewController: AlbumCellDelegate {
     func didClickDeleteAlbum(tag: Int) {
-        print(tag)
+        if let albumModel = dataSource.getModelBy(index: tag) {
+            self.showDeleteAlbumAlertFor(album: albumModel)
+        }
     }
 }
 

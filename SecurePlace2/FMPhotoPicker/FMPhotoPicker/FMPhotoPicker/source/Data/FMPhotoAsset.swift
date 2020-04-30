@@ -11,8 +11,23 @@ import UIKit
 import Photos
 
 public class FMPhotoAsset {
-    let asset: PHAsset?
-    let sourceImage: UIImage?
+    
+    //TEMP
+    var id: Int
+
+    var sourceImage: UIImage?
+
+    var thumbnail: UIImage?
+
+    var encryptedVideoURL: URL?
+    
+    //var encryptedPhotoURL: URL?
+    
+    //var encryptedVideoThumbURL: URL?
+    
+    var videoDuration: CMTime?
+    
+    //var videoPreview: UIImage?
     
     var mediaType: FMMediaType
     
@@ -37,20 +52,38 @@ public class FMPhotoAsset {
      */
     private var canceledFullSizeRequest = false
     
-    init(asset: PHAsset, forceCropType: FMCroppable?) {
-        self.asset = asset
-        self.mediaType = FMMediaType(withPHAssetMediaType: asset.mediaType)
-        self.sourceImage = nil
-        
-        self.editor = self.initializeEditor(for: forceCropType, imageSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight))
-    }
+    //инит с PHAsset
+//    init(asset: PHAsset, forceCropType: FMCroppable?) {
+//        self.asset = asset
+//        self.mediaType = FMMediaType(withPHAssetMediaType: asset.mediaType)
+//        self.sourceImage = nil
+//
+//        self.editor = self.initializeEditor(for: forceCropType, imageSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight))
+//    }
     
-    init(sourceImage: UIImage, forceCropType: FMCroppable?) {
+    init(id: Int, sourceImage: UIImage, thumbnail: UIImage, forceCropType: FMCroppable?) {
+        self.id = id
         self.sourceImage = sourceImage
+        self.thumbnail = thumbnail
         self.mediaType = .image
-        self.asset = nil
+
+        //self.asset = nil
         
         self.editor = self.initializeEditor(for: forceCropType, imageSize: sourceImage.size)
+    }
+
+    deinit {
+        print("deinit fmphoto")
+    }
+    
+    init(id: Int, sourceVideo: URL, videoDuration: CMTime, thumbnail: UIImage, forceCropType: FMCroppable?) {
+        self.id = id
+        self.encryptedVideoURL = sourceVideo
+        self.mediaType = .video
+        self.videoDuration = videoDuration
+        self.thumbnail = thumbnail
+        
+        self.editor = self.initializeEditor(for: forceCropType, imageSize: CGSize(width: 20, height: 30))
     }
     
     private func initializeEditor(for forceCropType: FMCroppable?, imageSize: CGSize) -> FMImageEditor {
@@ -79,10 +112,13 @@ public class FMPhotoAsset {
         if let videoFrames = self.videoFrames {
             complete(videoFrames)
         } else {
-            if let asset = asset {
-                Helper.generateVideoFrames(from: asset) { cgImages in
-                    self.videoFrames = cgImages
-                    complete(cgImages)
+            //complete([])
+            //ENCRYPT HERE
+            if let videoUrl = encryptedVideoURL {
+            let avAsset = AVAsset(url: videoUrl)
+            Helper.generateVideoFrames(from: avAsset) { cgImages in
+                self.videoFrames = cgImages
+                complete(cgImages)
                 }
             } else {
                 complete([])
@@ -91,63 +127,49 @@ public class FMPhotoAsset {
     }
     
     func requestThumb(refresh: Bool=false, _ complete: @escaping (UIImage?) -> Void) {
+        
         if let editedThumb = self.editedThumb, !refresh {
             complete(editedThumb)
         } else {
-            // It is not absolutely right but it gives much better performance in most cases
-            let cropScale = (editor.cropArea.scaleW + editor.cropArea.scaleH) / 2
-            let size = CGSize(width: 200 / cropScale, height: 200 / cropScale)
-            if let asset = asset {
-                self.thumbRequestId = Helper.getPhoto(by: asset, in: size) { image in
-                    self.thumbRequestId = nil
-                    
-                    guard let image = image else { return complete(nil) }
-                    
-                    self.editedThumb    = self.editor.reproduce(source: image, cropState: .edited, filterState: .edited)
-                    self.filterdThumb   = self.editor.reproduce(source: image, cropState: .edited, filterState: .original)
-                    
-                    complete(self.editedThumb)
+            
+        if(mediaType == .image) {
+        let cropScale = (editor.cropArea.scaleW + editor.cropArea.scaleH) / 2
+        let size = CGSize(width: 200 / cropScale, height: 200 / cropScale)
+
+        guard let image = thumbnail else { return complete(nil) }
+        self.editedThumb    = self.editor.reproduce(source: image, cropState: .edited, filterState: .edited)
+        self.filterdThumb   = self.editor.reproduce(source: image, cropState: .edited, filterState: .original)
+        let edited = self.editor.reproduce(source: image.resize(toSizeInPixel: size), cropState: .edited, filterState: .edited)
+        complete(edited)
+            
+        } else if(mediaType == .video) {
+           //DECRYPT HERE
+            if let thumbnail = thumbnail {
+                complete(thumbnail)
                 }
-            } else {
-                guard let image = sourceImage else { return complete(nil) }
-                let edited = self.editor.reproduce(source: image.resize(toSizeInPixel: size), cropState: .edited, filterState: .edited)
-                complete(edited)
             }
         }
     }
     
     func requestImage(in desireSize: CGSize, _ complete: @escaping (UIImage?) -> Void) {
-        if let asset = asset {
-            _ = Helper.getPhoto(by: asset, in: desireSize) { image in
-                guard let image = image else { return complete(nil) }
-                let edited = self.editor.reproduce(source: image, cropState: .edited, filterState: .edited)
-                complete(edited)
-            }
-        } else {
+//        if let asset = asset {
+//            _ = Helper.getPhoto(by: asset, in: desireSize) { image in
+//                guard let image = image else { return complete(nil) }
+//                let edited = self.editor.reproduce(source: image, cropState: .edited, filterState: .edited)
+//                complete(edited)
+//            }
+//        } else {
             guard let image = sourceImage?.resize(toSizeInPixel: desireSize) else { return complete(nil) }
             let edited = self.editor.reproduce(source: image, cropState: .edited, filterState: .edited)
             complete(edited)
-        }
+      //  }
     }
     
     func requestFullSizePhoto(cropState: FMImageEditState, filterState: FMImageEditState, complete: @escaping (UIImage?) -> Void) {
-        if let asset = asset {
-            self.fullSizePhotoRequestId = Helper.getPhoto(by: asset, in: CGSize(width: 2000, height: 2000)){ image in
-                self.fullSizePhotoRequestId = nil
-                if self.canceledFullSizeRequest {
-                    self.canceledFullSizeRequest = false
-                    complete(nil)
-                } else {
-                    guard let image = image else { return complete(nil) }
-                    let result = self.editor.reproduce(source: image, cropState: cropState, filterState: filterState)
-                    complete(result)
-                }
-            }
-        } else {
-            guard let image = sourceImage else { return complete(nil) }
-            let result = self.editor.reproduce(source: image, cropState: cropState, filterState: filterState)
-            complete(result)
-        }
+        
+        guard let image = sourceImage else { return complete(nil) }
+        let result = self.editor.reproduce(source: image, cropState: cropState, filterState: filterState)
+        complete(result)
     }
     
     public func cancelAllRequest() {

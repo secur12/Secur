@@ -13,6 +13,7 @@ target 'SecurePlace2' do
   pod 'DKImagePickerController'
   pod 'UICircularProgressRing', '~> 6.5.0'
   pod 'SDWebImage', '~> 5.6.1'
+  pod 'RealmSwift'
   
   # Pods for SecurePlace2
 

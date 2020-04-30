@@ -10,7 +10,7 @@ import Foundation
 import Photos
 
 class FMPhotosDataSource {
-    public private(set) var photoAssets: [FMPhotoAsset]
+    public var photoAssets: [FMPhotoAsset]
     private var selectedPhotoIndexes: [Int]
     
     init(photoAssets: [FMPhotoAsset]) {
@@ -73,7 +73,7 @@ class FMPhotosDataSource {
         return self.photoAssets[index]
     }
     
-    public func index(ofPhoto photo: FMPhotoAsset) -> Int? {
+    public func index(ofPhoto photo: FMPhotoAsset?) -> Int? {
         return self.photoAssets.index(where: { $0 === photo })
     }
     

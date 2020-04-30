@@ -61,7 +61,47 @@ class Colors {
     static var deleteRedColor: UIColor {
         return UIColor.RGB(r: 255, g: 59, b: 48)
     }
-    
+
+    //gradients
+    static var blueGradient: [CGColor]  {
+        return [UIColor.RGB(r: 168, g: 216, b: 255).cgColor, UIColor.RGB(r: 0, g: 123, b: 255).cgColor]
+    }
+
+    static var darkBlueGradient: [CGColor]  {
+        return [UIColor.RGB(r: 56, g: 114, b: 255).cgColor, UIColor.RGB(r: 33, g: 29, b: 126).cgColor]
+    }
+
+    static var lightOrangeGradient: [CGColor]  {
+        return [UIColor.RGB(r: 255, g: 212, b: 116).cgColor, UIColor.RGB(r: 255, g: 171, b: 64).cgColor]
+    }
+
+    static var redGradient: [CGColor]  {
+        return [UIColor.RGB(r: 189, g: 48, b: 76).cgColor, UIColor.RGB(r: 121, g: 47, b: 50).cgColor]
+    }
+
+    static var darkOrangeGradient: [CGColor]  {
+        return [UIColor.RGB(r: 253, g: 106, b: 59).cgColor, UIColor.RGB(r: 232, g: 36, b: 36).cgColor]
+    }
+
+    static var oceanGreenGradient: [CGColor]  {
+        return [UIColor.RGB(r: 0, g: 153, b: 255).cgColor, UIColor.RGB(r: 0, g: 255, b: 206).cgColor]
+    }
+
+    static var redBlueGradient: [CGColor]  {
+        return [UIColor.RGB(r: 101, g: 101, b: 255).cgColor, UIColor.RGB(r: 240, g: 36, b: 68).cgColor]
+    }
+
+    //get random gradient
+    static func getRandomGradient() -> [CGColor]? {
+        let gradients = [blueGradient,
+                darkBlueGradient,
+                lightOrangeGradient,
+                redGradient,
+                darkOrangeGradient,
+                oceanGreenGradient,
+                redBlueGradient]
+        return gradients.randomElement()
+    }
 }
 
 extension UIColor {
