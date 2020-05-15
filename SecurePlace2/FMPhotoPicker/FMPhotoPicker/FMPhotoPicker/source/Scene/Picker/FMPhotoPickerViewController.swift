@@ -38,6 +38,7 @@ public class FMPhotoPickerViewController: UIViewController {
     private let config: FMPhotoPickerConfig
     private var isSelectionViewHidden: Bool = true
     private let plusButton: SSPlusButton = SSPlusButton()
+
     private var pickerController: DKImagePickerController!
     private var albumModel: AlbumModel
     private let provider = MediaLocalProvider(realmWrapper: RealmWrapper())
@@ -116,7 +117,7 @@ public class FMPhotoPickerViewController: UIViewController {
             make.height.width.equalTo(56.withRatio())
         }
         plusButton.addTarget(self, action: #selector(didClickPlusButton), for: .touchUpInside)
-        
+
         pickerController = DKImagePickerController()
         pickerController.singleSelect = false
         pickerController.autoCloseOnSingleSelect = false
@@ -253,19 +254,58 @@ public class FMPhotoPickerViewController: UIViewController {
     public func hideLoading() {
         MBProgressHUD.hideAllHUDs(for: view, animated: true)
     }
-    
+
+    @objc func deleteButtonPressed() {
+        let alertController: UIAlertController = UIAlertController(title: "Are you sure?", message: "Do you want to delete all this files?\nFiles will be deleted and cannot be restored.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            self.deleteButton()
+        }))
+        alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    func deleteButton() {
+        for (index, element) in self.dataSource.getSelectedPhotos().enumerated() {
+         if element.mediaType == .image {
+         provider.deleteMedia(element.id) { (fileName, _) in
+             if let fileName = fileName {
+                 self.provider.deletePhoto(named: fileName) { (result) in
+                     self.provider.deletePhoto(named: fileName+"_comressed") { (result) in
+
+                     }
+                 }
+             }
+
+         }
+         } else if element.mediaType == .video {
+             provider.deleteMedia(element.id) { (fileName, thumnailName) in
+                 if let fileName = fileName, let thumnailName = thumnailName {
+                     self.provider.deletePhoto(named: fileName) { (result) in
+                         self.provider.deletePhoto(named: thumnailName) { (result) in
+
+                         }
+                     }
+                 }
+             }
+         }
+     }
+     self.fetchPhotos()
+     self.imageCollectionView.reloadWithoutScrolling()
+    }
+
     @objc func chooseButtonPressed(sender: UIBarButtonItem) {
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Cancel", style: .done, target: self, action: #selector(self.cancelButtonPressed(sender:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonPressed))
         self.isSelectionViewHidden = false
         self.batchSelector.enable()
         DispatchQueue.main.async {
             self.imageCollectionView.reloadWithoutScrolling()
         }
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc func cancelButtonPressed(sender: UIBarButtonItem) {
+        self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.setHidesBackButton(false, animated: false)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Choose", style: .plain, target: self, action: #selector(self.chooseButtonPressed(sender:)))
         self.isSelectionViewHidden = true
@@ -274,7 +314,6 @@ public class FMPhotoPickerViewController: UIViewController {
         DispatchQueue.main.async {
             self.imageCollectionView.reloadWithoutScrolling()
         }
-        self.tabBarController?.tabBar.isHidden = false
     }
 
     // MARK: - Target Actions
@@ -515,15 +554,15 @@ extension FMPhotoPickerViewController: UICollectionViewDelegate {
         
         self.presentedPhotoIndex = indexPath.item
         
-        vc.didSelectPhotoHandler = { [weak self] photoIndex in
-            self?.tryToAddPhotoToSelectedList(photoIndex: photoIndex)
+        vc.didSelectPhotoHandler = { photoIndex in
+            self.tryToAddPhotoToSelectedList(photoIndex: photoIndex)
         }
-        vc.didDeselectPhotoHandler = { [weak self] photoIndex in
-            if let selectedIndex = self?.dataSource.selectedIndexOfPhoto(atIndex: photoIndex) {
-                self?.dataSource.unsetSeclectedForPhoto(atIndex: photoIndex)
-                self?.reloadAffectedCellByChangingSelection(changedIndex: selectedIndex)
-                self?.imageCollectionView.reloadItems(at: [IndexPath(row: photoIndex, section: 0)])
-                self?.updateControlBar()
+        vc.didDeselectPhotoHandler = {  photoIndex in
+            if let selectedIndex = self.dataSource.selectedIndexOfPhoto(atIndex: photoIndex) {
+                self.dataSource.unsetSeclectedForPhoto(atIndex: photoIndex)
+                self.reloadAffectedCellByChangingSelection(changedIndex: selectedIndex)
+                self.imageCollectionView.reloadItems(at: [IndexPath(row: photoIndex, section: 0)])
+                self.updateControlBar()
             }
         }
         vc.didMoveToViewControllerHandler = { [weak self] vc, photoIndex in

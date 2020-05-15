@@ -50,7 +50,7 @@ class FMOperationsControlView: UIView {
 
         addSubview(shareButton)
         addSubview(playPauseButton)
-        addSubview(deleteButton)
+        //addSubview(deleteButton)
         
         playPauseButton.snp.makeConstraints { (make) in
             make.centerX.centerY.equalToSuperview()
@@ -63,11 +63,11 @@ class FMOperationsControlView: UIView {
             make.height.width.equalTo(37.withRatio())
         }
         
-        deleteButton.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-15.withRatio())
-            make.centerY.equalToSuperview()
-            make.height.width.equalTo(37.withRatio())
-        }
+//        deleteButton.snp.makeConstraints { (make) in
+//            make.right.equalToSuperview().offset(-15.withRatio())
+//            make.centerY.equalToSuperview()
+//            make.height.width.equalTo(37.withRatio())
+//        }
         
     }
     

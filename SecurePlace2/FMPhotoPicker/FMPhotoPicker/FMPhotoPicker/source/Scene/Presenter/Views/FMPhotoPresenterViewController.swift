@@ -118,7 +118,22 @@ class FMPhotoPresenterViewController: UIViewController {
         }
         
         self.bottomView.didClickShareHandler = {
-            print("share")
+            let fmPhotoAsset = self.dataSource.photo(atIndex: self.currentPhotoIndex)
+            if fmPhotoAsset?.mediaType == .video {
+                let videoUrl = [fmPhotoAsset?.encryptedVideoURL]
+                let activityViewController = UIActivityViewController(activityItems: videoUrl, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                DispatchQueue.main.async {
+                    self.present(activityViewController, animated: true, completion: nil)
+                }
+            } else if fmPhotoAsset?.mediaType == .image {
+                let image = [fmPhotoAsset?.sourceImage]
+                let activityViewController = UIActivityViewController(activityItems: image, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                DispatchQueue.main.async {
+                    self.present(activityViewController, animated: true, completion: nil)
+                }
+            }
         }
         
         self.bottomView.didClickDeleteHandler = { 

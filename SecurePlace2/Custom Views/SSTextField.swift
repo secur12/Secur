@@ -14,7 +14,7 @@ class SSTextField: UITextField {
         super.init(frame: CGRect.zero)
         self.backgroundColor = Colors.fieldGrey
         self.textColor = Colors.textGrey
-        self.font = UIFont.systemFont(ofSize: 18.withRatio(), weight: .regular)
+        self.font = UIFont.systemFont(ofSize: 16.withRatio(), weight: .regular)
         self.layer.cornerRadius = 8.withRatio()
         self.placeholder = placeholder
         self.keyboardType = type

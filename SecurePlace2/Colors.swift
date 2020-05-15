@@ -49,7 +49,11 @@ class Colors {
     static var lightGrey: UIColor {
         return UIColor.RGB(r: 137, g: 137, b: 137)
     }
-    
+
+    static var textLightGrey: UIColor {
+        return UIColor.RGB(r: 211, g: 221, b: 229)
+    }
+
     static var generateAlbumBackgroundColor: UIColor {
         return UIColor.RGB(r: 53, g: 89, b: 150)
     }
@@ -92,15 +96,13 @@ class Colors {
     }
 
     //get random gradient
-    static func getRandomGradient() -> [CGColor]? {
+    static func getRandomGradient() -> [CGColor] {
         let gradients = [blueGradient,
                 darkBlueGradient,
-                lightOrangeGradient,
                 redGradient,
                 darkOrangeGradient,
-                oceanGreenGradient,
                 redBlueGradient]
-        return gradients.randomElement()
+        return gradients.randomElement() ?? oceanGreenGradient
     }
 }
 

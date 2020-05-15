@@ -235,7 +235,7 @@ extension AlbumsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if collectionView == myAlbumsCollectionView {
             return dataSource.getNumberOfItems(in: section)
         } else {
-            return 2
+            return 1
         }
     }
     
@@ -256,19 +256,16 @@ extension AlbumsViewController: UICollectionViewDelegate, UICollectionViewDataSo
                let model = AlbumModel(id: -2, albumTitle: "Videos", numberOfItems: "0", backgroundImage: nil, isLocked: false, password: nil)
                cell?.fill(model: model)
                return cell ?? UICollectionViewCell()
-            } else if indexPath.row == 1 {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: albumCellReuseIdentifier, for: indexPath) as? AlbumCell
-                let model = AlbumModel(id: -1, albumTitle: "Favourites ❤️", numberOfItems: "0", backgroundImage: nil, isLocked: false, password: nil)
-                cell?.fill(model: model)
-                return cell ?? UICollectionViewCell()
             }
         }
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == myAlbumsCollectionView {
         if let albumModel = self.dataSource.getModelBy(index: indexPath.row) {
             self.presenter.didSelectAlbum(model: albumModel)
+        }
         }
     }
 }

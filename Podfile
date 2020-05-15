@@ -14,6 +14,7 @@ target 'SecurePlace2' do
   pod 'UICircularProgressRing', '~> 6.5.0'
   pod 'SDWebImage', '~> 5.6.1'
   pod 'RealmSwift'
+  pod 'KeychainAccess'
   
   # Pods for SecurePlace2
 
