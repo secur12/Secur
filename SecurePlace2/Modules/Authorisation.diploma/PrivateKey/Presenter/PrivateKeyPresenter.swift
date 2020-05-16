@@ -31,12 +31,22 @@ extension PrivateKeyPresenter: PrivateKeyPresenterProtocol {
         keychain["privateKeySHA1"] = privateKeySHA1
 
         do {
-            let privateKeyDecryptedData = privateKey.data(using: .utf8)!
+            var privateKeyDecryptedData = privateKey.data(using: .utf8)!
+
+            let additionalBytesLength = 64-privateKeyDecryptedData.count
+            privateKeyDecryptedData.append(Data(count: additionalBytesLength))
+
             let privateKeySalt = AES256Crypter.randomSalt()
             let privateKeyIV = AES256Crypter.randomIv()
             let key = try AES256Crypter.createKey(password: masterPassword.data(using: .utf8)!, salt: privateKeySalt)
             let aes = try AES256Crypter(key: key, iv: privateKeyIV)
             let encryptedPrivateKeyData = try aes.encrypt(privateKeyDecryptedData)
+
+//            var realmK = Data(count: 64)
+//            _ = realmK.withUnsafeMutableBytes { bytes in
+//              SecRandomCopyBytes(kSecRandomDefault, 64, bytes)
+//            }
+            keychain[data: "realmKey"] = privateKeyDecryptedData
 
             keychain[data: "privateKeyCrypted"] = encryptedPrivateKeyData
             keychain[data: "privateKeySalt"] = privateKeySalt

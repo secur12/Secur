@@ -6,6 +6,7 @@
 //  Copyright © 2020 Security Inc.. All rights reserved.
 //
 import Foundation
+import KeychainAccess
 
 class CardsPresenter: BasePresenter {
 
@@ -55,6 +56,9 @@ extension CardsPresenter: CardsPresenterProtocol {
     }
 
     private func fetchData(tableType: TableType) {
+
+        let keychain = Keychain(service: "com.secur.SecurInc")
+        guard let privateKeyDecryptedData = keychain[data: "privateKeyDecryptedData"] else { return }
 
         switch (tableType) {
             case .credit:

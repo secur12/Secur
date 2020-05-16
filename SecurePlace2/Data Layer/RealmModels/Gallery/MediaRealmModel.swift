@@ -21,6 +21,8 @@ class MediaRealmModel: Object {
     @objc dynamic var durationSeconds: Double = 0.0
     @objc dynamic var timeScale: Int32 = Int32(0.0)
     @objc dynamic var videoPreviewFileName: String = ""
+    @objc dynamic var initializationVector: Data = Data()
+    @objc dynamic var salt: Data = Data()
 
     override static func primaryKey() -> String? { return #keyPath(MediaRealmModel.id) }
 
@@ -33,7 +35,9 @@ class MediaRealmModel: Object {
                                     thumbnailName: self.thumbnailName,
                                     durationSeconds: self.durationSeconds,
                                     timeScale: self.timeScale,
-                                    videoPreviewPath: self.videoPreviewFileName)
+                                    videoPreviewPath: self.videoPreviewFileName,
+                                    initializationVector: self.initializationVector,
+                                    salt: self.salt)
         return model
     }
 
@@ -55,12 +59,15 @@ class MediaRealmModel: Object {
         realmModel.durationSeconds = model.durationSeconds
         realmModel.timeScale = model.timeScale
         realmModel.videoPreviewFileName = model.videoPreviewFileName
+        realmModel.initializationVector = model.initializationVector
+        realmModel.salt = model.salt
 
         return realmModel
     }
 
     func incrementID() -> Int {
-        let realm = try! Realm()
-        return (realm.objects(MediaRealmModel.self).max(ofProperty: "id") as Int? ?? 0) + 1
+        let realmWrapper = RealmWrapper()
+        let realm = realmWrapper.getRealm()
+        return (realm?.objects(MediaRealmModel.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import KeychainAccess
 import DKImagePickerController
 import MBProgressHUD
 
@@ -42,6 +43,8 @@ public class FMPhotoPickerViewController: UIViewController {
     private var pickerController: DKImagePickerController!
     private var albumModel: AlbumModel
     private let provider = MediaLocalProvider(realmWrapper: RealmWrapper())
+
+    private let keychain = Keychain(service: "com.secur.SecurInc")
 
     //  The controller for multiple select/deselect
     private lazy var batchSelector: FMPhotoPickerBatchSelector = {
@@ -80,7 +83,8 @@ public class FMPhotoPickerViewController: UIViewController {
     
     // MARK: - Setup View
     private func setupView() {
-        
+        guard let privateKeyDecryptedData = keychain[data: "privateKeyDecryptedData"] else { return }
+
         //set navigationBar
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Choose", style: .plain, target: self, action: #selector(self.chooseButtonPressed(sender:)))
         
@@ -131,7 +135,6 @@ public class FMPhotoPickerViewController: UIViewController {
             self?.showLoading(message: "Processing")
             let forceCropType = self?.config.forceCropEnabled
 
-
             for asset in assets {
                 if asset.type == .photo {
 
@@ -143,13 +146,18 @@ public class FMPhotoPickerViewController: UIViewController {
 
                             if let originalImage = image {
                                 let uuid = UUID().uuidString
-                                self?.provider.savePhotoFile(name: uuid, image: originalImage, compressionRate: 0) {
+
+                                let salt = AES256Crypter.randomSalt()
+                                let iv = AES256Crypter.randomIv()
+
+                                self?.provider.savePhotoFile(name: uuid, image: originalImage, compressionRate: 0, initializationVector: iv, salt: salt, privateKeyDecryptedData: privateKeyDecryptedData) {
                                     [weak self]  (originalImageName) in
 
-                                    self?.provider.savePhotoFile(name: uuid+"_comressed", image: originalImage, compressionRate: 0) {
+                                    self?.provider.savePhotoFile(name: uuid+"_comressed", image: originalImage, compressionRate: 0, initializationVector: iv, salt: salt, privateKeyDecryptedData: privateKeyDecryptedData) {
                                         [weak self]  (compressedImageName) in
 
                                         if let originalName = originalImageName, let compressedName = compressedImageName {
+
                                             let mediaModel = MediaModel(
                                                 id: 0,
                                                 type: "photo",
@@ -159,14 +167,15 @@ public class FMPhotoPickerViewController: UIViewController {
                                                 thumbnailName: compressedName,
                                                 durationSeconds: nil,
                                                 timeScale: nil,
-                                                videoPreviewPath: nil)
+                                                videoPreviewPath: nil,
+                                                initializationVector: iv,
+                                                salt: salt)
 
                                             self?.provider.saveMediaModel(mediaModel) { [weak self] (model) in
                                                 if let model = model {
-                                                    self?.provider.loadPhotoWith(fileUrlPath: model.fileName) { [weak self] (originalImage) in
+                                                    self?.provider.loadPhotoWith(initializationVector: model.initializationVector, salt: model.salt, privateKeyDecryptedData: privateKeyDecryptedData, fileUrlPath: model.fileName) { [weak self] (originalImage) in
 
-                                                        self?.provider.loadPhotoWith(fileUrlPath: model.thumbnailName) { [weak self] (thumbnailImage) in
-
+                                                        self?.provider.loadPhotoWith(initializationVector: model.initializationVector, salt: model.salt, privateKeyDecryptedData: privateKeyDecryptedData, fileUrlPath: model.thumbnailName) { [weak self] (thumbnailImage) in
 
                                                             let asset = FMPhotoAsset(id: model.id, sourceImage: originalImage ?? UIImage(), thumbnail: thumbnailImage ?? UIImage(), forceCropType: forceCropType as? FMCroppable)
                                                             self?.dataSource.photoAssets.append(asset)
@@ -194,7 +203,11 @@ public class FMPhotoPickerViewController: UIViewController {
                         manager.requestAVAsset(forVideo: phasset, options: nil) { [weak self] (avAsset, audioMix, info) in
 
                             if let originalVideo = avAsset as? AVURLAsset {
-                                self?.provider.saveVideoFile(name: UUID().uuidString, video: originalVideo) {
+
+                                let salt = AES256Crypter.randomSalt()
+                                let iv = AES256Crypter.randomIv()
+
+                                self?.provider.saveVideoFile(name: UUID().uuidString, video: originalVideo, initializationVector: iv, salt: salt, privateKeyDecryptedData: privateKeyDecryptedData) {
                                     [weak self] (videoNameAndExtension, thumbnailName) in
 
                                     if let videoName = videoNameAndExtension {
@@ -207,13 +220,17 @@ public class FMPhotoPickerViewController: UIViewController {
                                             thumbnailName: thumbnailName ?? "",
                                             durationSeconds: originalVideo.duration.seconds,
                                             timeScale: originalVideo.duration.timescale,
-                                            videoPreviewPath: thumbnailName)
+                                            videoPreviewPath: thumbnailName,
+                                            initializationVector: iv,
+                                            salt: salt)
 
                                         self?.provider.saveMediaModel(mediaModel) { [weak self] (model) in
                                             if let model = model {
-                                                self?.provider.loadVideoWith(fileUrlPath: model.fileName) { [weak self] (videoURL) in
+                                                self?.provider.loadVideoWith(initializationVector: model.initializationVector, salt: model.salt, privateKeyDecryptedData: privateKeyDecryptedData, fileUrlPath: model.fileName) { [weak self] (videoURL) in
                                                     if let videoURL = videoURL {
-                                                        self?.provider.loadPhotoWith(fileUrlPath: model.videoPreviewFileName) { [weak self] (image) in
+                                                        self?.provider.loadPhotoWith(initializationVector: model.initializationVector, salt: model.salt,
+                                                            privateKeyDecryptedData: privateKeyDecryptedData,
+                                                            fileUrlPath: model.videoPreviewFileName) { [weak self] (image) in
                                                             if let thumbnailImage = image {
                                                                 let asset = FMPhotoAsset(id: model.id, sourceVideo: videoURL, videoDuration: CMTimeMakeWithSeconds(model.durationSeconds, preferredTimescale: model.timeScale), thumbnail: thumbnailImage, forceCropType: forceCropType as? FMCroppable)
                                                                 self?.dataSource.photoAssets.append(asset)
@@ -345,20 +362,22 @@ public class FMPhotoPickerViewController: UIViewController {
                 return
             }
 
+            guard let privateKeyDecryptedData = self?.keychain[data: "privateKeyDecryptedData"] else { return }
+
             if let mediaModels = mediaModels {
                 var mediaArray = [FMPhotoAsset]()
                 for model in mediaModels {
                     if model.type == "photo" {
-                        self?.provider.loadPhotoWith(fileUrlPath: model.fileName) { [weak self] (originalImage) in
-                            self?.provider.loadPhotoWith(fileUrlPath: model.thumbnailName) { [weak self] (thumbnailImage) in
+                        self?.provider.loadPhotoWith(initializationVector: model.initializationVector, salt: model.salt, privateKeyDecryptedData: privateKeyDecryptedData, fileUrlPath: model.fileName) { [weak self] (originalImage) in
+                            self?.provider.loadPhotoWith(initializationVector: model.initializationVector, salt: model.salt, privateKeyDecryptedData: privateKeyDecryptedData, fileUrlPath: model.thumbnailName) { [weak self] (thumbnailImage) in
                                 let asset = FMPhotoAsset(id: model.id, sourceImage: originalImage ?? UIImage(), thumbnail: thumbnailImage ?? UIImage(), forceCropType: forceCropType)
                                 mediaArray.append(asset)
                             }
                         }
                     } else if model.type == "video" {
-                        self?.provider.loadVideoWith(fileUrlPath: model.fileName) { [weak self] (videoURL) in
+                        self?.provider.loadVideoWith(initializationVector: model.initializationVector, salt: model.salt, privateKeyDecryptedData: privateKeyDecryptedData, fileUrlPath: model.fileName) { [weak self] (videoURL) in
                             if let videoURL = videoURL {
-                                self?.provider.loadPhotoWith(fileUrlPath: model.videoPreviewFileName) { [weak self] (image) in
+                                self?.provider.loadPhotoWith(initializationVector: model.initializationVector, salt: model.salt, privateKeyDecryptedData: privateKeyDecryptedData, fileUrlPath: model.videoPreviewFileName) { [weak self] (image) in
                                     if let thumbnailImage = image {
                                         let asset = FMPhotoAsset(id: model.id, sourceVideo: videoURL, videoDuration: CMTimeMakeWithSeconds(model.durationSeconds, preferredTimescale: model.timeScale), thumbnail: thumbnailImage, forceCropType: forceCropType)
                                         mediaArray.append(asset)

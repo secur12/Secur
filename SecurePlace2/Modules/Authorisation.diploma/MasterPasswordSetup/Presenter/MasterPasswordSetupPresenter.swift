@@ -38,6 +38,7 @@ class MasterPasswordSetupPresenter: BasePresenter {
 
                 if(String(data: decryptedPrivateKeyData, encoding: String.Encoding.utf8) != nil) {
                     keychain[data: "privateKeyDecryptedData"] = decryptedPrivateKeyData
+                    keychain[data: "realmKey"] = decryptedPrivateKeyData
                     self.wireFrame.switchToTabBar(from: self.view)
                 } else {
                     self.view?.showOkAlertController(title: "Error", message: "Master password is incorrect. Try again.", callback: nil)

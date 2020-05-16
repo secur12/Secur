@@ -19,9 +19,11 @@ struct MediaModel {
     let durationSeconds: Double
     let timeScale: Int32
     let videoPreviewFileName: String
+    let initializationVector: Data
+    let salt: Data
 
 
-    init(id: Int, type: String, albumId: Int, creationDate: Date, encryptedFilePath: String, thumbnailName: String, durationSeconds: Double?, timeScale: Int32?, videoPreviewPath: String?) {
+    init(id: Int, type: String, albumId: Int, creationDate: Date, encryptedFilePath: String, thumbnailName: String, durationSeconds: Double?, timeScale: Int32?, videoPreviewPath: String?, initializationVector: Data, salt: Data) {
         self.id = id
         self.type = type
         self.albumId = albumId
@@ -31,5 +33,7 @@ struct MediaModel {
         self.durationSeconds = durationSeconds ?? 0.0
         self.timeScale = timeScale ?? Int32(0.0)
         self.videoPreviewFileName = videoPreviewPath ?? ""
+        self.initializationVector = initializationVector
+        self.salt = salt
     }
 }

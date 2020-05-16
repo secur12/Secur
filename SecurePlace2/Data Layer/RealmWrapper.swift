@@ -8,43 +8,50 @@
 
 import Foundation
 import RealmSwift
+import KeychainAccess
 
 public class RealmWrapper {
 
-    private func getRealm() -> Realm {
+    private let keychain: Keychain
+    private let config: Realm.Configuration
+    //private let realm: Realm
+    
+    init() {
+        self.keychain = Keychain(service: "com.secur.SecurInc")
+        let documentDirectory = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let url = documentDirectory.appendingPathComponent("my-new-realm.realm")
+        self.config = Realm.Configuration(fileURL: url, encryptionKey: keychain[data: "realmKey"])
+    }
 
-        var realm: Realm?
-        do {
-            try realm = Realm()
-        } catch let error {
-            debugPrint("Can't create realm: \(error)")
-        }
-        realm?.autorefresh = false
-
-        return realm!
+    func getRealm() -> Realm? {
+        return try? Realm(configuration: config)
     }
 
     func readOperationSync(_ closure: (_ realm: Realm) -> Void) {
-        let realm = getRealm()
+        do {
+            let realm = try Realm(configuration: config)
+            realm.autorefresh = false
+            closure(realm)
+        } catch {
 
-        closure(realm)
+        }
     }
 
     func writeOperationSync(_ closure: (_ realm: Realm) -> Void) throws {
-        let realm = getRealm()
 
+        let realm = try Realm(configuration: config)
+        realm.autorefresh = false
         realm.beginWrite()
-
         closure(realm)
-
         try realm.commitWrite()
+
     }
 
     func readOperationAsync(_ closure: @escaping (_ realm: Realm) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
-            autoreleasepool {
+                    autoreleasepool {
                 self.readOperationSync(closure)
-            }
+           }
         }
     }
 
@@ -52,25 +59,23 @@ public class RealmWrapper {
         DispatchQueue.global(qos: .userInitiated).async {
             autoreleasepool {
                 var err: Error?
-
                 do {
                     try self.writeOperationSync(closure)
                 } catch let error {
                     err = error
                 }
-
                 callback?(err)
             }
         }
     }
 
-    func dropAllData() {
-        do {
-            try writeOperationSync {
-                $0.deleteAll()
-            }
-        } catch {
-            debugPrint("Unavailable to delete all")
-        }
-    }
+//    func dropAllData() {
+//        do {
+//            try writeOperationSync {
+//                $0.deleteAll()
+//            }
+//        } catch {
+//            debugPrint("Unavailable to delete all")
+//        }
+//    }
 }

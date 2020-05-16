@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public struct CardModel {
+public struct CardModel: Codable {
 
     let id: Int
     let cardNumber: String
@@ -33,5 +33,22 @@ public struct CardModel {
         self.paymentSystem = paymentSystem
         self.topGradientColorHex = topGradientColorHex
         self.bottomGradientColorHex = bottomGradientColorHex
+    }
+
+    static func convertToData(card:CardModel) -> Data {
+        var cardObject = card
+        return Data(bytes: &cardObject, count: MemoryLayout<CardModel>.stride)
+    }
+
+    static func convertToCard(data:Data) -> CardModel {
+        guard data.count == MemoryLayout<CardModel>.stride else {
+            fatalError("")
+        }
+
+        var card:CardModel?
+        data.withUnsafeBytes({(bytes: UnsafePointer<CardModel>)->Void in
+            card = UnsafePointer<CardModel>(bytes).pointee
+        })
+        return card!
     }
 }

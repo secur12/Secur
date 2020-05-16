@@ -21,7 +21,6 @@ class CardRealmModel: Object {
     @objc dynamic var paymentSystem: String = ""
     @objc dynamic var topGradientColorHex: String = ""
     @objc dynamic var bottomGradientColorHex: String = ""
-    
 
     override static func primaryKey() -> String? { return #keyPath(AlbumRealmModel.id) }
 
