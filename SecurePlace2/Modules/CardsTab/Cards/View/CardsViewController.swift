@@ -36,7 +36,6 @@ class CardsViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.presenter.viewLoaded(segment: segmentedControl.selectedSegmentIndex)
-
     }
 
     private func createUI() {

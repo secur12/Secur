@@ -12,6 +12,10 @@ protocol CredentialsViewProtocol: class { }
 
 protocol CredentialsWireFrameProtocol: class { }
 
-protocol CredentialsPresenterProtocol: class { }
+protocol CredentialsPresenterProtocol: class {
+
+    func didClickAddCredentialsButton()
+    func deleteCredential(model: CredentialModel)
+}
 
 protocol CredentialsInteractorProtocol: class { }

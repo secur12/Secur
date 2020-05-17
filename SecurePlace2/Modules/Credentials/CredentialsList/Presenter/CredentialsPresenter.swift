@@ -19,4 +19,14 @@ class CredentialsPresenter: BasePresenter {
     }
 }
 
-extension CredentialsPresenter: CredentialsPresenterProtocol { }
+extension CredentialsPresenter: CredentialsPresenterProtocol {
+    
+    func deleteCredential(model: CredentialModel) {
+
+    }
+
+    func didClickAddCredentialsButton() {
+
+    }
+
+}

@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		02591E549A177441AB0AD18C /* PINSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B0209140E9BD3C1E594D0 /* PINSetupViewController.swift */; };
-		034C6A61BC13C2781EAAA047 /* SSAddCredentialProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9516586F0C008807F6321A /* SSAddCredentialProtocols.swift */; };
+		034C6A61BC13C2781EAAA047 /* AddCredentialProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9516586F0C008807F6321A /* AddCredentialProtocols.swift */; };
 		06F1479CE414FDA82B341207 /* PrivateKeyProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE61D4D6413473FF9DE441E /* PrivateKeyProtocols.swift */; };
-		07B59C81407CABCC5DCE4DC0 /* SSAddCredentialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C253706405BC8FEAB65E312C /* SSAddCredentialPresenter.swift */; };
+		07B59C81407CABCC5DCE4DC0 /* AddCredentialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C253706405BC8FEAB65E312C /* AddCredentialPresenter.swift */; };
 		0A9B07FC81AAF04B844C7112 /* Albums+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA97D81FD2EAEBAC33B7AF2B /* Albums+DIResolver.swift */; };
 		0B52885A90D30E435F663059 /* MasterPasswordSetupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4C2E0594F7ACA2202A256 /* MasterPasswordSetupInteractor.swift */; };
 		0CB63070DC40AA0296B2C71D /* PINConfirmWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BB0C26FAB2196109DE00FE /* PINConfirmWireFrame.swift */; };
@@ -22,11 +22,11 @@
 		256151780839C3022CBF308A /* SSPasswordGeneratorWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFE2B473FCD2B93D17573E /* SSPasswordGeneratorWireFrame.swift */; };
 		281E789C35C1B73B56091702 /* PINConfirmInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B50B9C9537AD964B32B77EE /* PINConfirmInteractor.swift */; };
 		2B0AB71EFD93395F9C55D2F8 /* SSCredentialServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA26881A15452712C44E4B81 /* SSCredentialServicesViewController.swift */; };
-		2CDEF08FFBB8D40C56FF0E1C /* SSAddCredential+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C2ED070E24D9218FB655B9 /* SSAddCredential+DIResolver.swift */; };
+		2CDEF08FFBB8D40C56FF0E1C /* AddCredential+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C2ED070E24D9218FB655B9 /* AddCredential+DIResolver.swift */; };
 		2EDE7D909E155F4485D6D1EC /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1E31C478FB7540379FBBE7 /* GalleryViewController.swift */; };
 		31A2BD8DA724BE4AAAF0BB4C /* AlbumsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E2441FF0FC51C919A15ED /* AlbumsInteractor.swift */; };
 		32E9B2F781F2E13BA673662B /* PINSetupWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C56700715980E2F16CA97C /* PINSetupWireFrame.swift */; };
-		331A913950C9B39EE434DD25 /* SSAddCredentialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1A212A7CEDBD9F2345593 /* SSAddCredentialViewController.swift */; };
+		331A913950C9B39EE434DD25 /* AddCredentialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1A212A7CEDBD9F2345593 /* AddCredentialViewController.swift */; };
 		40C50E4F24512BC044BB3DEF /* MasterPasswordWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A1955165F77E52006A391 /* MasterPasswordWireFrame.swift */; };
 		45D1467ED0D5124E59183A67 /* libPods-SecurePlace2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF052A4C1CC759F3CC3F7132 /* libPods-SecurePlace2.a */; };
 		476D6274619001A99BE3C8CB /* OneTimeCodeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9EA79564F5F41566D6E92A /* OneTimeCodeWireFrame.swift */; };
@@ -38,7 +38,7 @@
 		59D94136DF5D440052482F0C /* SSCredentialServicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BE932F640C55E9AD3D106D /* SSCredentialServicesInteractor.swift */; };
 		5D03A1F16638B5DBFE492F4D /* CardsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620280662CA2DABFAB4D6D3A /* CardsWireFrame.swift */; };
 		5F770B63EC9642DC509D1700 /* PINSetupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4176573BE30F8A818A004A /* PINSetupProtocols.swift */; };
-		60B0514444840D9B98723854 /* SSCredentialServices+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7DC9FF650C345FCF637C7 /* SSCredentialServices+DIResolver.swift */; };
+		60B0514444840D9B98723854 /* CredentialServices+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7DC9FF650C345FCF637C7 /* CredentialServices+DIResolver.swift */; };
 		640EC1295B1D6CF6EDB32667 /* libPods-SecurePlace2UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D35385E3809A08736DB6A1B /* libPods-SecurePlace2UITests.a */; };
 		68B37E41E8D3B2E77BB9ED21 /* MasterPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0D4028B3F29B2CCE35030 /* MasterPasswordInteractor.swift */; };
 		6CF2B58EEA08A728686216B7 /* PINConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989C7A8F4C19EFEF8572602 /* PINConfirmPresenter.swift */; };
@@ -46,9 +46,9 @@
 		74CA312BC2EC899B09A53366 /* MasterPasswordSetup+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A006CEDAB4514FBA0EF3C3B /* MasterPasswordSetup+DIResolver.swift */; };
 		75D9FECFE175B7D8EAE93E92 /* GalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C917972192D2AD4D1CDC2B38 /* GalleryInteractor.swift */; };
 		768652117A1344268A724508 /* GalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B233BB11A8E4D81AF96798 /* GalleryPresenter.swift */; };
-		7792C2385F8FF7EF232F47ED /* SSCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02660E6B46E8CAE6BE08D8FA /* SSCredentialsViewController.swift */; };
+		7792C2385F8FF7EF232F47ED /* CredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02660E6B46E8CAE6BE08D8FA /* CredentialsViewController.swift */; };
 		77B58BD6637B726D817689E0 /* OneTimeCodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3547C9E5EC87B50889A3BA91 /* OneTimeCodeInteractor.swift */; };
-		794DB59A15A4863CF6C93EA1 /* SSCredentialsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A67208F2B9BFCA2B3B399 /* SSCredentialsProtocols.swift */; };
+		794DB59A15A4863CF6C93EA1 /* CredentialsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A67208F2B9BFCA2B3B399 /* CredentialsProtocols.swift */; };
 		7F1D8879248DEB456D43CB75 /* GalleryWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465C69D1F235097E49F6F1D /* GalleryWireFrame.swift */; };
 		7F455D0E66EC71AACD91B8A3 /* SSCredentialServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D00803CB050E5D6CC24299 /* SSCredentialServicesPresenter.swift */; };
 		86925EA765863C74E3675B56 /* StartScreenWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C9358D26852BE14F7579E /* StartScreenWireFrame.swift */; };
@@ -66,7 +66,7 @@
 		A5C016CF08E60C306265E487 /* AddCardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F428F5F20A090657AC082F5F /* AddCardProtocols.swift */; };
 		A6ADED1B5E08DC97EC98D6D6 /* SSCredentialServicesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F63B2FC73B7A960644428 /* SSCredentialServicesProtocols.swift */; };
 		AA29C553823674DA93C24CD8 /* PrivateKey+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B04CCB8E5E78710D002E /* PrivateKey+DIResolver.swift */; };
-		AB9B9A33D61B24EC6558B47C /* SSPasswordGenerator+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAA921D8D0BE4839012C29 /* SSPasswordGenerator+DIResolver.swift */; };
+		AB9B9A33D61B24EC6558B47C /* PasswordGenerator+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FAA921D8D0BE4839012C29 /* PasswordGenerator+DIResolver.swift */; };
 		ADC9D257B1368CBAB5EB389C /* MasterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37689FDB60AF9D014A89836B /* MasterPasswordViewController.swift */; };
 		B021A370F95BD675B2120C2B /* AlbumsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A45E515F4034EEC7E35495 /* AlbumsWireFrame.swift */; };
 		B1116C302436196D002FEE09 /* GalleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1116C2F2436196C002FEE09 /* GalleryDataSource.swift */; };
@@ -112,6 +112,10 @@
 		B11ECD1C225B520C00B2CC4E /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD06225B520B00B2CC4E /* BaseInteractor.swift */; };
 		B11ECD1E225B520C00B2CC4E /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD08225B520B00B2CC4E /* BasePresenter.swift */; };
 		B11ECD26225B53CF00B2CC4E /* DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11ECD25225B53CE00B2CC4E /* DIResolver.swift */; };
+		B120156E24714087000A58DA /* CredentialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120156D24714087000A58DA /* CredentialCell.swift */; };
+		B1201570247140B8000A58DA /* CredentialsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120156F247140B8000A58DA /* CredentialsDataSource.swift */; };
+		B120157224716266000A58DA /* CredentialsRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120157124716266000A58DA /* CredentialsRealmModel.swift */; };
+		B120157424716AC1000A58DA /* CredentialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120157324716AC1000A58DA /* CredentialModel.swift */; };
 		B121656C2434CCD8009ABEBC /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B12A591F242F8A4A000A1F7C /* SSPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */; };
 		B13317672455997500D36DAE /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13317662455997500D36DAE /* RealmWrapper.swift */; };
@@ -249,12 +253,12 @@
 		D4CDEDC3B937875E8A3F5CB7 /* MasterPasswordSetupWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17403C2CB2CE13E42D7EC86B /* MasterPasswordSetupWireFrame.swift */; };
 		D7B0D235949881E5D41CD1E4 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE93E2E7EEAFFB8CC1687A0E /* AlbumsViewController.swift */; };
 		DC3977C59179CA33C8140ADF /* CardsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB954AF77AF33802839BEF8 /* CardsProtocols.swift */; };
-		DCA558C6B1D8327823C2ACB6 /* SSAddCredentialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5B27B9EC8D138B991620A /* SSAddCredentialInteractor.swift */; };
-		DCD18211FE859384DD91E8CA /* SSAddCredentialWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895CDA83DE4718B2A96DA6F /* SSAddCredentialWireFrame.swift */; };
+		DCA558C6B1D8327823C2ACB6 /* AddCredentialInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5B27B9EC8D138B991620A /* AddCredentialInteractor.swift */; };
+		DCD18211FE859384DD91E8CA /* AddCredentialWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895CDA83DE4718B2A96DA6F /* AddCredentialWireFrame.swift */; };
 		DD13E241367469CEE47C9309 /* PrivateKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9F64DBDB25F795868A900 /* PrivateKeyViewController.swift */; };
 		DF5E3CFE60C1E7F766350DCC /* StartScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BC0E359A4022EE849A3C44 /* StartScreenPresenter.swift */; };
 		E0012141066D17F4C7E9757F /* PINSetup+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853074D4B5C09B2996F1278C /* PINSetup+DIResolver.swift */; };
-		E2281E22464C8079EE9253F1 /* SSCredentialsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B49036F589E177088EB2BE /* SSCredentialsPresenter.swift */; };
+		E2281E22464C8079EE9253F1 /* CredentialsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B49036F589E177088EB2BE /* CredentialsPresenter.swift */; };
 		E38531F28AC78A1DDAA530B2 /* libPods-SecurePlace2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1584FA6551ABF93D2A41CE4A /* libPods-SecurePlace2Tests.a */; };
 		E7149A69DFEA6B5160626312 /* MasterPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F18C6C808FDD9C03CEDB23 /* MasterPasswordPresenter.swift */; };
 		EDFAFCE08E7E7EC13BE762AD /* SSCredentialServicesWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F65BFBA9B5994F9EC1C966D /* SSCredentialServicesWireFrame.swift */; };
@@ -459,11 +463,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		02660E6B46E8CAE6BE08D8FA /* SSCredentialsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSCredentialsViewController.swift; sourceTree = "<group>"; };
+		02660E6B46E8CAE6BE08D8FA /* CredentialsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CredentialsViewController.swift; sourceTree = "<group>"; };
 		0A362ADAEAE9D607C1EE8913 /* Pods-SecurePlace2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2Tests.debug.xcconfig"; path = "Target Support Files/Pods-SecurePlace2Tests/Pods-SecurePlace2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		0A59D1D970570823632684BE /* OneTimeCodeProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeProtocols.swift; sourceTree = "<group>"; };
 		0B50B9C9537AD964B32B77EE /* PINConfirmInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmInteractor.swift; sourceTree = "<group>"; };
-		0BA1A212A7CEDBD9F2345593 /* SSAddCredentialViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAddCredentialViewController.swift; sourceTree = "<group>"; };
+		0BA1A212A7CEDBD9F2345593 /* AddCredentialViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCredentialViewController.swift; sourceTree = "<group>"; };
 		0CB954AF77AF33802839BEF8 /* CardsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardsProtocols.swift; sourceTree = "<group>"; };
 		0CD9F64DBDB25F795868A900 /* PrivateKeyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivateKeyViewController.swift; sourceTree = "<group>"; };
 		1584FA6551ABF93D2A41CE4A /* libPods-SecurePlace2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SecurePlace2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -472,29 +476,29 @@
 		1D54B6378E057103AB173409 /* Pods-SecurePlace2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2.debug.xcconfig"; path = "Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2.debug.xcconfig"; sourceTree = "<group>"; };
 		1F20ADA71EB10D7F769790C6 /* OneTimeCodeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeViewController.swift; sourceTree = "<group>"; };
 		20CFE2B473FCD2B93D17573E /* SSPasswordGeneratorWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorWireFrame.swift; sourceTree = "<group>"; };
-		23C2ED070E24D9218FB655B9 /* SSAddCredential+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SSAddCredential+DIResolver.swift"; sourceTree = "<group>"; };
+		23C2ED070E24D9218FB655B9 /* AddCredential+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AddCredential+DIResolver.swift"; sourceTree = "<group>"; };
 		2728036313B452DEAECF9F28 /* Pods-SecurePlace2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2.release.xcconfig"; path = "Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2.release.xcconfig"; sourceTree = "<group>"; };
-		28B49036F589E177088EB2BE /* SSCredentialsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSCredentialsPresenter.swift; sourceTree = "<group>"; };
+		28B49036F589E177088EB2BE /* CredentialsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CredentialsPresenter.swift; sourceTree = "<group>"; };
 		298D36C1FE93007EAE9D1D91 /* SSPasswordGeneratorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorViewController.swift; sourceTree = "<group>"; };
 		2A1E31C478FB7540379FBBE7 /* GalleryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
-		2AF7DC9FF650C345FCF637C7 /* SSCredentialServices+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SSCredentialServices+DIResolver.swift"; sourceTree = "<group>"; };
+		2AF7DC9FF650C345FCF637C7 /* CredentialServices+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CredentialServices+DIResolver.swift"; sourceTree = "<group>"; };
 		2F8E9916448062006E64BC43 /* PrivateKeyInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivateKeyInteractor.swift; sourceTree = "<group>"; };
 		327BD399581F487BA0535DB0 /* MasterPasswordSetupPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordSetupPresenter.swift; sourceTree = "<group>"; };
-		33FAA921D8D0BE4839012C29 /* SSPasswordGenerator+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SSPasswordGenerator+DIResolver.swift"; sourceTree = "<group>"; };
+		33FAA921D8D0BE4839012C29 /* PasswordGenerator+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PasswordGenerator+DIResolver.swift"; sourceTree = "<group>"; };
 		3547C9E5EC87B50889A3BA91 /* OneTimeCodeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInteractor.swift; sourceTree = "<group>"; };
 		37689FDB60AF9D014A89836B /* MasterPasswordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordViewController.swift; sourceTree = "<group>"; };
 		3AF4C2E0594F7ACA2202A256 /* MasterPasswordSetupInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordSetupInteractor.swift; sourceTree = "<group>"; };
-		3B9516586F0C008807F6321A /* SSAddCredentialProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAddCredentialProtocols.swift; sourceTree = "<group>"; };
+		3B9516586F0C008807F6321A /* AddCredentialProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCredentialProtocols.swift; sourceTree = "<group>"; };
 		438B4B5FD8480FC235BEAB4F /* GalleryProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryProtocols.swift; sourceTree = "<group>"; };
 		43AD29252104E46E00CF4FAC /* MasterPasswordSetupViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordSetupViewController.swift; sourceTree = "<group>"; };
 		43C866F4C21ADFA9F23EF7DF /* AlbumsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumsProtocols.swift; sourceTree = "<group>"; };
 		446ECD42A5EBC80430DEDA7F /* MasterPassword+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MasterPassword+DIResolver.swift"; sourceTree = "<group>"; };
 		447C3549FADA6E1C80D4AF3B /* SSPasswordGeneratorInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorInteractor.swift; sourceTree = "<group>"; };
-		4895CDA83DE4718B2A96DA6F /* SSAddCredentialWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAddCredentialWireFrame.swift; sourceTree = "<group>"; };
+		4895CDA83DE4718B2A96DA6F /* AddCredentialWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCredentialWireFrame.swift; sourceTree = "<group>"; };
 		495C9C6F4A1F8E32CA440106 /* MasterPasswordSetupProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordSetupProtocols.swift; sourceTree = "<group>"; };
 		4A006CEDAB4514FBA0EF3C3B /* MasterPasswordSetup+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MasterPasswordSetup+DIResolver.swift"; sourceTree = "<group>"; };
 		4BB55F80B4A143D8A70C9B76 /* AddCardPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCardPresenter.swift; sourceTree = "<group>"; };
-		4BD5B27B9EC8D138B991620A /* SSAddCredentialInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAddCredentialInteractor.swift; sourceTree = "<group>"; };
+		4BD5B27B9EC8D138B991620A /* AddCredentialInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCredentialInteractor.swift; sourceTree = "<group>"; };
 		4C1646A2E56A109CDD6CFDFA /* OneTimeCodePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodePresenter.swift; sourceTree = "<group>"; };
 		4F65BFBA9B5994F9EC1C966D /* SSCredentialServicesWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSCredentialServicesWireFrame.swift; sourceTree = "<group>"; };
 		5989C7A8F4C19EFEF8572602 /* PINConfirmPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmPresenter.swift; sourceTree = "<group>"; };
@@ -687,6 +691,10 @@
 		B11ECD06225B520B00B2CC4E /* BaseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		B11ECD08225B520B00B2CC4E /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		B11ECD25225B53CE00B2CC4E /* DIResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIResolver.swift; sourceTree = "<group>"; };
+		B120156D24714087000A58DA /* CredentialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialCell.swift; sourceTree = "<group>"; };
+		B120156F247140B8000A58DA /* CredentialsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsDataSource.swift; sourceTree = "<group>"; };
+		B120157124716266000A58DA /* CredentialsRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsRealmModel.swift; sourceTree = "<group>"; };
+		B120157324716AC1000A58DA /* CredentialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialModel.swift; sourceTree = "<group>"; };
 		B12165652434CCAB009ABEBC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12165682434CCB2009ABEBC /* AssetsPickerViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AssetsPickerViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPlusButton.swift; sourceTree = "<group>"; };
@@ -811,7 +819,7 @@
 		BBE2028430FA676BF3EFD506 /* Pods-SecurePlace2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2Tests.release.xcconfig"; path = "Target Support Files/Pods-SecurePlace2Tests/Pods-SecurePlace2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BE93E2E7EEAFFB8CC1687A0E /* AlbumsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		BF4B251FDC0E79BF0B10B070 /* Authorisation+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Authorisation+DIResolver.swift"; sourceTree = "<group>"; };
-		C253706405BC8FEAB65E312C /* SSAddCredentialPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAddCredentialPresenter.swift; sourceTree = "<group>"; };
+		C253706405BC8FEAB65E312C /* AddCredentialPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCredentialPresenter.swift; sourceTree = "<group>"; };
 		C2ECC839DD630943C1980A4E /* SSCredentialsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSCredentialsInteractor.swift; sourceTree = "<group>"; };
 		C52B0209140E9BD3C1E594D0 /* PINSetupViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupViewController.swift; sourceTree = "<group>"; };
 		C917972192D2AD4D1CDC2B38 /* GalleryInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryInteractor.swift; sourceTree = "<group>"; };
@@ -819,7 +827,7 @@
 		CB0C696728D627CB0F449111 /* PrivateKeyWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivateKeyWireFrame.swift; sourceTree = "<group>"; };
 		CD835DDF2DB84D68714A2585 /* AddCard+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AddCard+DIResolver.swift"; sourceTree = "<group>"; };
 		CF052A4C1CC759F3CC3F7132 /* libPods-SecurePlace2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SecurePlace2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF3A67208F2B9BFCA2B3B399 /* SSCredentialsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSCredentialsProtocols.swift; sourceTree = "<group>"; };
+		CF3A67208F2B9BFCA2B3B399 /* CredentialsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CredentialsProtocols.swift; sourceTree = "<group>"; };
 		D837AC1A11F6C5921454E648 /* PINSetupInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupInteractor.swift; sourceTree = "<group>"; };
 		D88C3798F229E81F0D07EB45 /* SSAddCardWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAddCardWireFrame.swift; sourceTree = "<group>"; };
 		D97CC00F21A29894421BF8E1 /* StartScreenProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenProtocols.swift; sourceTree = "<group>"; };
@@ -884,7 +892,9 @@
 		04966FD7522BB84BCD81708D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				02660E6B46E8CAE6BE08D8FA /* SSCredentialsViewController.swift */,
+				02660E6B46E8CAE6BE08D8FA /* CredentialsViewController.swift */,
+				B120156F247140B8000A58DA /* CredentialsDataSource.swift */,
+				B120156D24714087000A58DA /* CredentialCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -905,7 +915,6 @@
 				D880FA604C45981B3EE34411 /* Interactor */,
 				4C09BAB53F0DFA50776E6EE4 /* Protocols */,
 				A4F1BD72AE4A0EB6F0E7F5B6 /* WireFrame */,
-				33FAA921D8D0BE4839012C29 /* SSPasswordGenerator+DIResolver.swift */,
 			);
 			path = PasswordGenerator;
 			sourceTree = "<group>";
@@ -953,7 +962,7 @@
 		145CBD669563FB3CC5F9B832 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				4BD5B27B9EC8D138B991620A /* SSAddCredentialInteractor.swift */,
+				4BD5B27B9EC8D138B991620A /* AddCredentialInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1111,7 +1120,6 @@
 				145CBD669563FB3CC5F9B832 /* Interactor */,
 				ECDAFB244C54A24F020F23E7 /* Protocols */,
 				88387FAB242EEB8CF45B05BB /* WireFrame */,
-				23C2ED070E24D9218FB655B9 /* SSAddCredential+DIResolver.swift */,
 			);
 			path = AddCredential;
 			sourceTree = "<group>";
@@ -1148,7 +1156,6 @@
 				59D3802B9B90ED2DDEF326F0 /* Interactor */,
 				67CEA86DE17CCF13B1914F03 /* Protocols */,
 				AA51AF03C8DB6ACD3F0A318B /* WireFrame */,
-				2AF7DC9FF650C345FCF637C7 /* SSCredentialServices+DIResolver.swift */,
 			);
 			path = CredentialServices;
 			sourceTree = "<group>";
@@ -1315,7 +1322,7 @@
 		88387FAB242EEB8CF45B05BB /* WireFrame */ = {
 			isa = PBXGroup;
 			children = (
-				4895CDA83DE4718B2A96DA6F /* SSAddCredentialWireFrame.swift */,
+				4895CDA83DE4718B2A96DA6F /* AddCredentialWireFrame.swift */,
 			);
 			path = WireFrame;
 			sourceTree = "<group>";
@@ -1339,7 +1346,7 @@
 		8C685C70517692B750506E1F /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				C253706405BC8FEAB65E312C /* SSAddCredentialPresenter.swift */,
+				C253706405BC8FEAB65E312C /* AddCredentialPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1451,10 +1458,10 @@
 		B10763AE246DA1E500DA492D /* Credentials */ = {
 			isa = PBXGroup;
 			children = (
-				061092DCC83A38CF80466EC8 /* PasswordGenerator */,
+				7216BACF710DE6338033C246 /* CredentialsList */,
 				42B91F0F132B9DE9EFE13F45 /* AddCredential */,
 				4F1DB187F1D74A7F1880C988 /* CredentialServices */,
-				7216BACF710DE6338033C246 /* CredentialsList */,
+				061092DCC83A38CF80466EC8 /* PasswordGenerator */,
 			);
 			path = Credentials;
 			sourceTree = "<group>";
@@ -2335,10 +2342,13 @@
 				446ECD42A5EBC80430DEDA7F /* MasterPassword+DIResolver.swift */,
 				A1A7860EB2D82DE00933DB5E /* Gallery+DIResolver.swift */,
 				881D60C8D3F3A7BD85424993 /* Cards+DIResolver.swift */,
-				AC260CED69AEF854A0BA777D /* Credentials+DIResolver.swift */,
 				CD835DDF2DB84D68714A2585 /* AddCard+DIResolver.swift */,
 				4A006CEDAB4514FBA0EF3C3B /* MasterPasswordSetup+DIResolver.swift */,
 				AE77B04CCB8E5E78710D002E /* PrivateKey+DIResolver.swift */,
+				AC260CED69AEF854A0BA777D /* Credentials+DIResolver.swift */,
+				2AF7DC9FF650C345FCF637C7 /* CredentialServices+DIResolver.swift */,
+				23C2ED070E24D9218FB655B9 /* AddCredential+DIResolver.swift */,
+				33FAA921D8D0BE4839012C29 /* PasswordGenerator+DIResolver.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -2689,6 +2699,7 @@
 		B1C6DB78245AF7860064742E /* Credentials */ = {
 			isa = PBXGroup;
 			children = (
+				B120157124716266000A58DA /* CredentialsRealmModel.swift */,
 			);
 			path = Credentials;
 			sourceTree = "<group>";
@@ -2704,6 +2715,7 @@
 		B1C6DB7A245AF7A30064742E /* Credentials */ = {
 			isa = PBXGroup;
 			children = (
+				B120157324716AC1000A58DA /* CredentialModel.swift */,
 			);
 			path = Credentials;
 			sourceTree = "<group>";
@@ -2857,7 +2869,7 @@
 		C672F0D84B19A0404F76BDD8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0BA1A212A7CEDBD9F2345593 /* SSAddCredentialViewController.swift */,
+				0BA1A212A7CEDBD9F2345593 /* AddCredentialViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2998,7 +3010,7 @@
 		E6849ABDF7A51A3ABB6F15EA /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CF3A67208F2B9BFCA2B3B399 /* SSCredentialsProtocols.swift */,
+				CF3A67208F2B9BFCA2B3B399 /* CredentialsProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -3014,7 +3026,7 @@
 		ECDAFB244C54A24F020F23E7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				3B9516586F0C008807F6321A /* SSAddCredentialProtocols.swift */,
+				3B9516586F0C008807F6321A /* AddCredentialProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -3059,7 +3071,7 @@
 		F5C6B70FC8C3D14ADFBE9701 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				28B49036F589E177088EB2BE /* SSCredentialsPresenter.swift */,
+				28B49036F589E177088EB2BE /* CredentialsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -3515,6 +3527,7 @@
 				B15A66D5244FA3BF001CEAD4 /* CardsDataSource.swift in Sources */,
 				B11ECCA0225B42E500B2CC4E /* AppDelegate.swift in Sources */,
 				B1555239243CFAE0000E8CD0 /* InsertableUIView.swift in Sources */,
+				B120156E24714087000A58DA /* CredentialCell.swift in Sources */,
 				B11ECD26225B53CF00B2CC4E /* DIResolver.swift in Sources */,
 				B11ECD1A225B520C00B2CC4E /* BaseViewController.swift in Sources */,
 				B1CFF724225DC4330076C44C /* MailInteractor.swift in Sources */,
@@ -3621,11 +3634,13 @@
 				B1555252243CFAE0000E8CD0 /* FMCropView.swift in Sources */,
 				B1116C7F24362C5A002FEE09 /* MediaGridViewController.swift in Sources */,
 				5F770B63EC9642DC509D1700 /* PINSetupProtocols.swift in Sources */,
+				B120157424716AC1000A58DA /* CredentialModel.swift in Sources */,
 				B155524D243CFAE0000E8CD0 /* FMPresenterEditMenuView.swift in Sources */,
 				32E9B2F781F2E13BA673662B /* PINSetupWireFrame.swift in Sources */,
 				B1116C8424362C5A002FEE09 /* MediaCaptionView.swift in Sources */,
 				B133176924559FDF00D36DAE /* AlbumLocalProvider.swift in Sources */,
 				B15A668B244F7DC5001CEAD4 /* MediaRealmModel.swift in Sources */,
+				B120157224716266000A58DA /* CredentialsRealmModel.swift in Sources */,
 				B1555232243CFAE0000E8CD0 /* UIView+FMPhotoView.swift in Sources */,
 				B1116C7E24362C5A002FEE09 /* Media.swift in Sources */,
 				E0012141066D17F4C7E9757F /* PINSetup+DIResolver.swift in Sources */,
@@ -3678,10 +3693,10 @@
 				B155523A243CFAE0000E8CD0 /* FMWarningView.swift in Sources */,
 				B1555237243CFAE0000E8CD0 /* Const.swift in Sources */,
 				B15A66BE244F8AC2001CEAD4 /* CardCell.swift in Sources */,
-				7792C2385F8FF7EF232F47ED /* SSCredentialsViewController.swift in Sources */,
-				E2281E22464C8079EE9253F1 /* SSCredentialsPresenter.swift in Sources */,
+				7792C2385F8FF7EF232F47ED /* CredentialsViewController.swift in Sources */,
+				E2281E22464C8079EE9253F1 /* CredentialsPresenter.swift in Sources */,
 				CF7947041A96B171BAE6FDFF /* SSCredentialsInteractor.swift in Sources */,
-				794DB59A15A4863CF6C93EA1 /* SSCredentialsProtocols.swift in Sources */,
+				794DB59A15A4863CF6C93EA1 /* CredentialsProtocols.swift in Sources */,
 				D3F34B6D1B970AA253E296FC /* SSCredentialsWireFrame.swift in Sources */,
 				D1EE9919D0B5EF25559C22BE /* Credentials+DIResolver.swift in Sources */,
 				22296AE411C19F80B300051D /* CardsViewController.swift in Sources */,
@@ -3697,25 +3712,26 @@
 				A5C016CF08E60C306265E487 /* AddCardProtocols.swift in Sources */,
 				C8C87AC9B5D2FD327C8DC926 /* SSAddCardWireFrame.swift in Sources */,
 				9FECA89632A6DD0854DB7B9D /* AddCard+DIResolver.swift in Sources */,
-				331A913950C9B39EE434DD25 /* SSAddCredentialViewController.swift in Sources */,
-				07B59C81407CABCC5DCE4DC0 /* SSAddCredentialPresenter.swift in Sources */,
-				DCA558C6B1D8327823C2ACB6 /* SSAddCredentialInteractor.swift in Sources */,
-				034C6A61BC13C2781EAAA047 /* SSAddCredentialProtocols.swift in Sources */,
-				DCD18211FE859384DD91E8CA /* SSAddCredentialWireFrame.swift in Sources */,
-				2CDEF08FFBB8D40C56FF0E1C /* SSAddCredential+DIResolver.swift in Sources */,
+				B1201570247140B8000A58DA /* CredentialsDataSource.swift in Sources */,
+				331A913950C9B39EE434DD25 /* AddCredentialViewController.swift in Sources */,
+				07B59C81407CABCC5DCE4DC0 /* AddCredentialPresenter.swift in Sources */,
+				DCA558C6B1D8327823C2ACB6 /* AddCredentialInteractor.swift in Sources */,
+				034C6A61BC13C2781EAAA047 /* AddCredentialProtocols.swift in Sources */,
+				DCD18211FE859384DD91E8CA /* AddCredentialWireFrame.swift in Sources */,
+				2CDEF08FFBB8D40C56FF0E1C /* AddCredential+DIResolver.swift in Sources */,
 				EF1A5FC1BBFC12B3B75425AA /* SSPasswordGeneratorViewController.swift in Sources */,
 				709BFFE6926E253E08234E7E /* SSPasswordGeneratorPresenter.swift in Sources */,
 				4880C5F4208783516CA81881 /* SSPasswordGeneratorInteractor.swift in Sources */,
 				B8FB1E3E771546F51C0479E1 /* SSPasswordGeneratorProtocols.swift in Sources */,
 				B13317672455997500D36DAE /* RealmWrapper.swift in Sources */,
 				256151780839C3022CBF308A /* SSPasswordGeneratorWireFrame.swift in Sources */,
-				AB9B9A33D61B24EC6558B47C /* SSPasswordGenerator+DIResolver.swift in Sources */,
+				AB9B9A33D61B24EC6558B47C /* PasswordGenerator+DIResolver.swift in Sources */,
 				2B0AB71EFD93395F9C55D2F8 /* SSCredentialServicesViewController.swift in Sources */,
 				7F455D0E66EC71AACD91B8A3 /* SSCredentialServicesPresenter.swift in Sources */,
 				59D94136DF5D440052482F0C /* SSCredentialServicesInteractor.swift in Sources */,
 				A6ADED1B5E08DC97EC98D6D6 /* SSCredentialServicesProtocols.swift in Sources */,
 				EDFAFCE08E7E7EC13BE762AD /* SSCredentialServicesWireFrame.swift in Sources */,
-				60B0514444840D9B98723854 /* SSCredentialServices+DIResolver.swift in Sources */,
+				60B0514444840D9B98723854 /* CredentialServices+DIResolver.swift in Sources */,
 				C94A735E33509F1DD3B252DE /* MasterPasswordSetupViewController.swift in Sources */,
 				9EAC84773F361082A45A5DED /* MasterPasswordSetupPresenter.swift in Sources */,
 				0B52885A90D30E435F663059 /* MasterPasswordSetupInteractor.swift in Sources */,
