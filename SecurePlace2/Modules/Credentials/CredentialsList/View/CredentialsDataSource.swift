@@ -15,7 +15,7 @@ protocol CredentialsDataSourceDelegate: class {
 
 class CredentialsDataSource {
 
-    private var credentials: [CredentialModel] = [CredentialModel(id: 1, serviceLogoImageTitle: "paypalLogo", serviceTitleLabel: "PayPal", usernameLabel: "bullstreak@gmail.com", password: "etyuuiij"), CredentialModel(id: 2, serviceLogoImageTitle: "googleLogo", serviceTitleLabel: "Google", usernameLabel: "test@gmail.com", password: "etyuuiij")]
+    private var credentials = [CredentialModel]()
 
     weak var delegate: CredentialsDataSourceDelegate?
 

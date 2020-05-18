@@ -116,6 +116,7 @@
 		B1201570247140B8000A58DA /* CredentialsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120156F247140B8000A58DA /* CredentialsDataSource.swift */; };
 		B120157224716266000A58DA /* CredentialsRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120157124716266000A58DA /* CredentialsRealmModel.swift */; };
 		B120157424716AC1000A58DA /* CredentialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120157324716AC1000A58DA /* CredentialModel.swift */; };
+		B1201576247209AE000A58DA /* CredentialLocalProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1201575247209AE000A58DA /* CredentialLocalProvider.swift */; };
 		B121656C2434CCD8009ABEBC /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B12A591F242F8A4A000A1F7C /* SSPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */; };
 		B13317672455997500D36DAE /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13317662455997500D36DAE /* RealmWrapper.swift */; };
@@ -249,7 +250,7 @@
 		CFD72FB33FEB3CF16A9C1DB8 /* StartScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97CC00F21A29894421BF8E1 /* StartScreenProtocols.swift */; };
 		CFF63F8BA1A4381F98EE6126 /* MasterPasswordSetupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495C9C6F4A1F8E32CA440106 /* MasterPasswordSetupProtocols.swift */; };
 		D1EE9919D0B5EF25559C22BE /* Credentials+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC260CED69AEF854A0BA777D /* Credentials+DIResolver.swift */; };
-		D3F34B6D1B970AA253E296FC /* SSCredentialsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05D2D36E88BA4F0D71F02C9 /* SSCredentialsWireFrame.swift */; };
+		D3F34B6D1B970AA253E296FC /* CredentialsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05D2D36E88BA4F0D71F02C9 /* CredentialsWireFrame.swift */; };
 		D4CDEDC3B937875E8A3F5CB7 /* MasterPasswordSetupWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17403C2CB2CE13E42D7EC86B /* MasterPasswordSetupWireFrame.swift */; };
 		D7B0D235949881E5D41CD1E4 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE93E2E7EEAFFB8CC1687A0E /* AlbumsViewController.swift */; };
 		DC3977C59179CA33C8140ADF /* CardsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB954AF77AF33802839BEF8 /* CardsProtocols.swift */; };
@@ -519,7 +520,7 @@
 		881D60C8D3F3A7BD85424993 /* Cards+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Cards+DIResolver.swift"; sourceTree = "<group>"; };
 		92C56700715980E2F16CA97C /* PINSetupWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupWireFrame.swift; sourceTree = "<group>"; };
 		93BB0C26FAB2196109DE00FE /* PINConfirmWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmWireFrame.swift; sourceTree = "<group>"; };
-		A05D2D36E88BA4F0D71F02C9 /* SSCredentialsWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSCredentialsWireFrame.swift; sourceTree = "<group>"; };
+		A05D2D36E88BA4F0D71F02C9 /* CredentialsWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CredentialsWireFrame.swift; sourceTree = "<group>"; };
 		A0E2CBF447EA9442D3B2E02E /* PINConfirm+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PINConfirm+DIResolver.swift"; sourceTree = "<group>"; };
 		A1A7860EB2D82DE00933DB5E /* Gallery+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Gallery+DIResolver.swift"; sourceTree = "<group>"; };
 		A7942C2D65C5B48F0C19A9A6 /* CardsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
@@ -695,6 +696,7 @@
 		B120156F247140B8000A58DA /* CredentialsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsDataSource.swift; sourceTree = "<group>"; };
 		B120157124716266000A58DA /* CredentialsRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsRealmModel.swift; sourceTree = "<group>"; };
 		B120157324716AC1000A58DA /* CredentialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialModel.swift; sourceTree = "<group>"; };
+		B1201575247209AE000A58DA /* CredentialLocalProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialLocalProvider.swift; sourceTree = "<group>"; };
 		B12165652434CCAB009ABEBC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12165682434CCB2009ABEBC /* AssetsPickerViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AssetsPickerViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPlusButton.swift; sourceTree = "<group>"; };
@@ -1135,7 +1137,7 @@
 		4B8B059500BF29B6E534031C /* WireFrame */ = {
 			isa = PBXGroup;
 			children = (
-				A05D2D36E88BA4F0D71F02C9 /* SSCredentialsWireFrame.swift */,
+				A05D2D36E88BA4F0D71F02C9 /* CredentialsWireFrame.swift */,
 			);
 			path = WireFrame;
 			sourceTree = "<group>";
@@ -2726,6 +2728,7 @@
 				B133176824559FDF00D36DAE /* AlbumLocalProvider.swift */,
 				B133177024562B9000D36DAE /* MediaLocalProvider.swift */,
 				B1C6DB7C245AF9A10064742E /* CardsDataProvider.swift */,
+				B1201575247209AE000A58DA /* CredentialLocalProvider.swift */,
 			);
 			path = LocalProviders;
 			sourceTree = "<group>";
@@ -3662,6 +3665,7 @@
 				BD5CE711D51135A2ACE0685F /* AlbumsProtocols.swift in Sources */,
 				B021A370F95BD675B2120C2B /* AlbumsWireFrame.swift in Sources */,
 				B1116C302436196D002FEE09 /* GalleryDataSource.swift in Sources */,
+				B1201576247209AE000A58DA /* CredentialLocalProvider.swift in Sources */,
 				B155525A243CFAE0000E8CD0 /* FMFilterCell.swift in Sources */,
 				B1555251243CFAE0000E8CD0 /* FMCropMenuView.swift in Sources */,
 				B12A591F242F8A4A000A1F7C /* SSPlusButton.swift in Sources */,
@@ -3697,7 +3701,7 @@
 				E2281E22464C8079EE9253F1 /* CredentialsPresenter.swift in Sources */,
 				CF7947041A96B171BAE6FDFF /* SSCredentialsInteractor.swift in Sources */,
 				794DB59A15A4863CF6C93EA1 /* CredentialsProtocols.swift in Sources */,
-				D3F34B6D1B970AA253E296FC /* SSCredentialsWireFrame.swift in Sources */,
+				D3F34B6D1B970AA253E296FC /* CredentialsWireFrame.swift in Sources */,
 				D1EE9919D0B5EF25559C22BE /* Credentials+DIResolver.swift in Sources */,
 				22296AE411C19F80B300051D /* CardsViewController.swift in Sources */,
 				8D068B941633919AE14520BA /* CardsPresenter.swift in Sources */,

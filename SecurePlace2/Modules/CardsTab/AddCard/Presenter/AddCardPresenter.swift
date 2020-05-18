@@ -16,7 +16,6 @@ class AddCardPresenter: BasePresenter {
     private var wireFrame: AddCardWireFrameProtocol
     private var interactor: AddCardInteractorProtocol
     private var provider = CardsDataProvider(realmWrapper: RealmWrapper())
-    private let keychain = Keychain(service: "com.secur.SecurInc")
     
     init(view: AddCardViewProtocol, wireFrame: AddCardWireFrameProtocol, interactor: AddCardInteractorProtocol) {
         self.view = view

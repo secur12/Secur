@@ -8,14 +8,21 @@
 
 import UIKit
 
-protocol CredentialsViewProtocol: class { }
+protocol CredentialsViewProtocol: class {
+    func insertCredentials(models: [CredentialModel])
+}
 
-protocol CredentialsWireFrameProtocol: class { }
+protocol CredentialsWireFrameProtocol: class {
+    func presentAddCredentialController(from view: CredentialsViewProtocol?)
+    func presentCredentialsDetails(from view: CredentialsViewProtocol?, model: CredentialModel)
+}
 
 protocol CredentialsPresenterProtocol: class {
 
     func didClickAddCredentialsButton()
     func deleteCredential(model: CredentialModel)
+    func showCredentialDetailsWith(model: CredentialModel)
+    func reloadData()
 }
 
 protocol CredentialsInteractorProtocol: class { }

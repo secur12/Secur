@@ -16,11 +16,12 @@ class CredentialRealmModel: Object {
     @objc dynamic var serviceTitleLabel: String = ""
     @objc dynamic var usernameLabel: String = ""
     @objc dynamic var password: String = ""
+    @objc dynamic var pathUrl: String = ""
 
     override static func primaryKey() -> String? { return #keyPath(CredentialRealmModel.id) }
 
     func getModel() -> CredentialModel {
-        let model = CredentialModel(id: self.id, serviceLogoImageTitle: self.serviceLogoImageTitle, serviceTitleLabel: self.serviceTitleLabel, usernameLabel: self.usernameLabel, password: self.password)
+        let model = CredentialModel(id: self.id, serviceLogoImageTitle: self.serviceLogoImageTitle, serviceTitleLabel: self.serviceTitleLabel, usernameLabel: self.usernameLabel, password: self.password, pathUrl: self.pathUrl)
         return model
     }
 
@@ -31,15 +32,14 @@ class CredentialRealmModel: Object {
         realmModel.serviceTitleLabel = model.serviceTitleLabel
         realmModel.usernameLabel = model.usernameLabel
         realmModel.password = model.password
+        realmModel.pathUrl = model.pathUrl
 
         return realmModel
     }
 
     func incrementID() -> Int {
-        let realm = try! Realm()
-        return (realm.objects(CredentialRealmModel.self).max(ofProperty: "id") as Int? ?? 0) + 1
+        let realmWrapper = RealmWrapper()
+        let realm = realmWrapper.getRealm()
+        return (realm?.objects(CredentialRealmModel.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
-
 }
-
-

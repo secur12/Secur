@@ -18,10 +18,16 @@ class CredentialsViewController: BaseViewController {
     private var emptyLabel: UILabel = UILabel()
 
     private var dataSource: CredentialsDataSource!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.createUI()
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.presenter.reloadData()
     }
 
     private func createUI() {
@@ -69,7 +75,7 @@ class CredentialsViewController: BaseViewController {
         }
 
         self.emptyLabel.font = UIFont.systemFont(ofSize: 25, weight: .regular)
-        self.emptyLabel.text = "Sorry, you haven't cards yet. \nAdd cards by clicking Add button."
+        self.emptyLabel.text = "Sorry, you haven't saved accounts yet. \n\nAdd first account by clicking Add button."
         self.emptyLabel.isHidden = true
         self.emptyLabel.numberOfLines = 0
         self.emptyLabel.snp.makeConstraints { (make) in
@@ -121,6 +127,11 @@ extension CredentialsViewController: UITableViewDelegate, UITableViewDataSource 
         return true
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let model = dataSource.getModelBy(index: indexPath.row) else { return }
+        self.presenter.showCredentialDetailsWith(model: model)
+    }
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             if let model = self.dataSource.getModelBy(index: indexPath.row) {
@@ -130,7 +141,11 @@ extension CredentialsViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-extension CredentialsViewController: CredentialsViewProtocol { }
+extension CredentialsViewController: CredentialsViewProtocol {
+    func insertCredentials(models: [CredentialModel]) {
+        self.dataSource.insertCredentials(models)
+    }
+}
 
 extension CredentialsViewController: CredentialsDataSourceDelegate {
 

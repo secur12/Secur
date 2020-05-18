@@ -11,6 +11,7 @@ class CredentialsPresenter: BasePresenter {
     weak var view: CredentialsViewProtocol?
     private var wireFrame: CredentialsWireFrameProtocol
     private var interactor: CredentialsInteractorProtocol
+    private var provider = CredentialLocalProvider(realmWrapper: RealmWrapper())
 
     init(view: CredentialsViewProtocol, wireFrame: CredentialsWireFrameProtocol, interactor: CredentialsInteractorProtocol) {
         self.view = view
@@ -20,13 +21,28 @@ class CredentialsPresenter: BasePresenter {
 }
 
 extension CredentialsPresenter: CredentialsPresenterProtocol {
+
+    func showCredentialDetailsWith(model: CredentialModel) {
+        self.wireFrame.presentCredentialsDetails(from: self.view, model: model)
+    }
+
     
     func deleteCredential(model: CredentialModel) {
-
+        provider.deleteCredential(model) { (credentials) in
+            if let credentials = credentials {
+                self.view?.insertCredentials(models: credentials)
+            }
+        }
     }
 
     func didClickAddCredentialsButton() {
+        self.wireFrame.presentAddCredentialController(from: self.view)
+    }
 
+    func reloadData() {
+        provider.getCredentials() { (models, error) in
+            self.view?.insertCredentials(models: models ?? [])
+        }
     }
 
 }

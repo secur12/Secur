@@ -46,8 +46,9 @@ class CardRealmModel: Object {
     }
 
     func incrementID() -> Int {
-        let realm = try! Realm()
-        return (realm.objects(CardRealmModel.self).max(ofProperty: "id") as Int? ?? 0) + 1
+        let realmWrapper = RealmWrapper()
+        let realm = realmWrapper.getRealm()
+        return (realm?.objects(CardRealmModel.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
 
 }

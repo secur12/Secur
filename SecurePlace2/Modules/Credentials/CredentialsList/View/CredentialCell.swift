@@ -17,6 +17,7 @@ class CredentialCell: UITableViewCell {
     private var topSeparator: UIView = UIView()
     private var copyButton: UIButton = UIButton()
 
+    private var password: String = ""
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -78,7 +79,7 @@ class CredentialCell: UITableViewCell {
     }
 
     @objc func copyButtonPressed() {
-
+        UIPasteboard.general.string = password
     }
 }
 
@@ -89,5 +90,6 @@ extension CredentialCell {
         self.serviceLogo.image = UIImage(named: model.serviceLogoImageTitle)
         self.serviceTitleLabel.text = model.serviceTitleLabel
         self.usernameLabel.text = model.usernameLabel
+        self.password = model.password
     }
 }
