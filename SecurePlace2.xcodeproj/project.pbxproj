@@ -15,9 +15,12 @@
 		0B52885A90D30E435F663059 /* MasterPasswordSetupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF4C2E0594F7ACA2202A256 /* MasterPasswordSetupInteractor.swift */; };
 		0CB63070DC40AA0296B2C71D /* PINConfirmWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BB0C26FAB2196109DE00FE /* PINConfirmWireFrame.swift */; };
 		14909CD1D44F6B3CB81AB800 /* Cards+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D60C8D3F3A7BD85424993 /* Cards+DIResolver.swift */; };
+		15077948B9D4B223FE252802 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01DD0813B9AEE5A6C7D4C1A /* PreferencesViewController.swift */; };
 		15E1008187E6DE7A7A6045AA /* Authorisation+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4B251FDC0E79BF0B10B070 /* Authorisation+DIResolver.swift */; };
 		1EB793936023570AE5E12C66 /* OneTimeCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F20ADA71EB10D7F769790C6 /* OneTimeCodeViewController.swift */; };
+		1F92BD490A3622C758D3ED20 /* SSEnableBiometricAuth+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A49E1A372E4D5EA807B556 /* SSEnableBiometricAuth+DIResolver.swift */; };
 		1FCC1AA437232EEEF49BE7D8 /* OneTimeCode+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2770DB8D38B57AC2E2EE568 /* OneTimeCode+DIResolver.swift */; };
+		20C9F738BBE2A9C3C46A63DB /* SSEnableBiometricAuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8226BBD8B20398A0045592 /* SSEnableBiometricAuthPresenter.swift */; };
 		22296AE411C19F80B300051D /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7942C2D65C5B48F0C19A9A6 /* CardsViewController.swift */; };
 		256151780839C3022CBF308A /* SSPasswordGeneratorWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CFE2B473FCD2B93D17573E /* SSPasswordGeneratorWireFrame.swift */; };
 		281E789C35C1B73B56091702 /* PINConfirmInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B50B9C9537AD964B32B77EE /* PINConfirmInteractor.swift */; };
@@ -32,14 +35,18 @@
 		476D6274619001A99BE3C8CB /* OneTimeCodeWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9EA79564F5F41566D6E92A /* OneTimeCodeWireFrame.swift */; };
 		4880C5F4208783516CA81881 /* SSPasswordGeneratorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C3549FADA6E1C80D4AF3B /* SSPasswordGeneratorInteractor.swift */; };
 		48B8B6D26D3AE607A5DA7040 /* MasterPassword+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446ECD42A5EBC80430DEDA7F /* MasterPassword+DIResolver.swift */; };
+		48C8B8ECF0C0031EBBBA0A81 /* SSEnableBiometricAuthProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1F6CF1585E2D1B732030DD /* SSEnableBiometricAuthProtocols.swift */; };
 		4F30A159482A60DD140ACB0F /* MasterPasswordProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E6BF7A932DAF814F2F5CA8 /* MasterPasswordProtocols.swift */; };
 		50DFC3EA375EDCD75D7EE36E /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACC5F99DA5B9550360309D4 /* StartScreenViewController.swift */; };
 		53AB7586C5C8FB4220810D1A /* PINConfirm+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E2CBF447EA9442D3B2E02E /* PINConfirm+DIResolver.swift */; };
+		56099EAFF0EFB421EB3FEEFF /* PreferencesWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350D25A3517938332E03562F /* PreferencesWireFrame.swift */; };
 		59D94136DF5D440052482F0C /* SSCredentialServicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BE932F640C55E9AD3D106D /* SSCredentialServicesInteractor.swift */; };
 		5D03A1F16638B5DBFE492F4D /* CardsWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620280662CA2DABFAB4D6D3A /* CardsWireFrame.swift */; };
+		5DFB456735665E5113213283 /* PreferencesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6F350DAF666304D364FF6 /* PreferencesInteractor.swift */; };
 		5F770B63EC9642DC509D1700 /* PINSetupProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4176573BE30F8A818A004A /* PINSetupProtocols.swift */; };
 		60B0514444840D9B98723854 /* CredentialServices+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF7DC9FF650C345FCF637C7 /* CredentialServices+DIResolver.swift */; };
 		640EC1295B1D6CF6EDB32667 /* libPods-SecurePlace2UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D35385E3809A08736DB6A1B /* libPods-SecurePlace2UITests.a */; };
+		6850305C4779B823F06657A5 /* SSEnableBiometricAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D134A488791C3889D6010D /* SSEnableBiometricAuthViewController.swift */; };
 		68B37E41E8D3B2E77BB9ED21 /* MasterPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0D4028B3F29B2CCE35030 /* MasterPasswordInteractor.swift */; };
 		6CF2B58EEA08A728686216B7 /* PINConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989C7A8F4C19EFEF8572602 /* PINConfirmPresenter.swift */; };
 		709BFFE6926E253E08234E7E /* SSPasswordGeneratorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA5455CE1D6B293320BA52 /* SSPasswordGeneratorPresenter.swift */; };
@@ -49,6 +56,7 @@
 		7792C2385F8FF7EF232F47ED /* CredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02660E6B46E8CAE6BE08D8FA /* CredentialsViewController.swift */; };
 		77B58BD6637B726D817689E0 /* OneTimeCodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3547C9E5EC87B50889A3BA91 /* OneTimeCodeInteractor.swift */; };
 		794DB59A15A4863CF6C93EA1 /* CredentialsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3A67208F2B9BFCA2B3B399 /* CredentialsProtocols.swift */; };
+		7C37146AEA102F2EA1B0AA72 /* Preferences+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DDA92F0A563778ACFE1F6 /* Preferences+DIResolver.swift */; };
 		7F1D8879248DEB456D43CB75 /* GalleryWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465C69D1F235097E49F6F1D /* GalleryWireFrame.swift */; };
 		7F455D0E66EC71AACD91B8A3 /* SSCredentialServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D00803CB050E5D6CC24299 /* SSCredentialServicesPresenter.swift */; };
 		86925EA765863C74E3675B56 /* StartScreenWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C9358D26852BE14F7579E /* StartScreenWireFrame.swift */; };
@@ -63,6 +71,7 @@
 		9EAC84773F361082A45A5DED /* MasterPasswordSetupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327BD399581F487BA0535DB0 /* MasterPasswordSetupPresenter.swift */; };
 		9FB7ACA5357449F43662EF3F /* OneTimeCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1646A2E56A109CDD6CFDFA /* OneTimeCodePresenter.swift */; };
 		9FECA89632A6DD0854DB7B9D /* AddCard+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD835DDF2DB84D68714A2585 /* AddCard+DIResolver.swift */; };
+		A00F12864C93399A2D106785 /* PreferencesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA3D0B39639020B9BE888B9 /* PreferencesProtocols.swift */; };
 		A5C016CF08E60C306265E487 /* AddCardProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F428F5F20A090657AC082F5F /* AddCardProtocols.swift */; };
 		A6ADED1B5E08DC97EC98D6D6 /* SSCredentialServicesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F63B2FC73B7A960644428 /* SSCredentialServicesProtocols.swift */; };
 		AA29C553823674DA93C24CD8 /* PrivateKey+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE77B04CCB8E5E78710D002E /* PrivateKey+DIResolver.swift */; };
@@ -117,6 +126,7 @@
 		B120157224716266000A58DA /* CredentialsRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120157124716266000A58DA /* CredentialsRealmModel.swift */; };
 		B120157424716AC1000A58DA /* CredentialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B120157324716AC1000A58DA /* CredentialModel.swift */; };
 		B1201576247209AE000A58DA /* CredentialLocalProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1201575247209AE000A58DA /* CredentialLocalProvider.swift */; };
+		B12015792472B56D000A58DA /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12015772472B563000A58DA /* LocalAuthentication.framework */; };
 		B121656C2434CCD8009ABEBC /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B12A591F242F8A4A000A1F7C /* SSPlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */; };
 		B13317672455997500D36DAE /* RealmWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13317662455997500D36DAE /* RealmWrapper.swift */; };
@@ -242,6 +252,8 @@
 		B8FB1E3E771546F51C0479E1 /* SSPasswordGeneratorProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B29CE259CA3FD6F94ECF70 /* SSPasswordGeneratorProtocols.swift */; };
 		BAC5F427D4E73DCD8A2815F0 /* PrivateKeyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D39360A4E2FC34BE3B5905B /* PrivateKeyPresenter.swift */; };
 		BD5CE711D51135A2ACE0685F /* AlbumsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C866F4C21ADFA9F23EF7DF /* AlbumsProtocols.swift */; };
+		BE49AB8366FE56A1F2A1DFD9 /* SSEnableBiometricAuthWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4495676D0A92E1E3CB2D1667 /* SSEnableBiometricAuthWireFrame.swift */; };
+		BED48B7B96138C74B2BAD4FE /* PreferencesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF4009CC9EE8078DD94DCA /* PreferencesPresenter.swift */; };
 		C69BBCF37F2713280ECE612C /* PINSetupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D837AC1A11F6C5921454E648 /* PINSetupInteractor.swift */; };
 		C8C87AC9B5D2FD327C8DC926 /* SSAddCardWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88C3798F229E81F0D07EB45 /* SSAddCardWireFrame.swift */; };
 		C94A735E33509F1DD3B252DE /* MasterPasswordSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AD29252104E46E00CF4FAC /* MasterPasswordSetupViewController.swift */; };
@@ -267,6 +279,7 @@
 		EF20FE5D9696FE99DCE91B40 /* SSCardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD202585219A541C086EE7 /* SSCardsInteractor.swift */; };
 		F70986B497554D69E9209450 /* PrivateKeyWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C696728D627CB0F449111 /* PrivateKeyWireFrame.swift */; };
 		F9688AA35E070258F54706AC /* PrivateKeyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E9916448062006E64BC43 /* PrivateKeyInteractor.swift */; };
+		FFA01EF8FF5B339A7BB30A2F /* SSEnableBiometricAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2C33DDFDFB26DC591CCE9E /* SSEnableBiometricAuthInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -483,9 +496,12 @@
 		298D36C1FE93007EAE9D1D91 /* SSPasswordGeneratorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorViewController.swift; sourceTree = "<group>"; };
 		2A1E31C478FB7540379FBBE7 /* GalleryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		2AF7DC9FF650C345FCF637C7 /* CredentialServices+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CredentialServices+DIResolver.swift"; sourceTree = "<group>"; };
+		2B8226BBD8B20398A0045592 /* SSEnableBiometricAuthPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSEnableBiometricAuthPresenter.swift; sourceTree = "<group>"; };
+		2BF6F350DAF666304D364FF6 /* PreferencesInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesInteractor.swift; sourceTree = "<group>"; };
 		2F8E9916448062006E64BC43 /* PrivateKeyInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivateKeyInteractor.swift; sourceTree = "<group>"; };
 		327BD399581F487BA0535DB0 /* MasterPasswordSetupPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordSetupPresenter.swift; sourceTree = "<group>"; };
 		33FAA921D8D0BE4839012C29 /* PasswordGenerator+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PasswordGenerator+DIResolver.swift"; sourceTree = "<group>"; };
+		350D25A3517938332E03562F /* PreferencesWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesWireFrame.swift; sourceTree = "<group>"; };
 		3547C9E5EC87B50889A3BA91 /* OneTimeCodeInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInteractor.swift; sourceTree = "<group>"; };
 		37689FDB60AF9D014A89836B /* MasterPasswordViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordViewController.swift; sourceTree = "<group>"; };
 		3AF4C2E0594F7ACA2202A256 /* MasterPasswordSetupInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordSetupInteractor.swift; sourceTree = "<group>"; };
@@ -495,15 +511,18 @@
 		43C866F4C21ADFA9F23EF7DF /* AlbumsProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumsProtocols.swift; sourceTree = "<group>"; };
 		446ECD42A5EBC80430DEDA7F /* MasterPassword+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MasterPassword+DIResolver.swift"; sourceTree = "<group>"; };
 		447C3549FADA6E1C80D4AF3B /* SSPasswordGeneratorInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorInteractor.swift; sourceTree = "<group>"; };
+		4495676D0A92E1E3CB2D1667 /* SSEnableBiometricAuthWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSEnableBiometricAuthWireFrame.swift; sourceTree = "<group>"; };
 		4895CDA83DE4718B2A96DA6F /* AddCredentialWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCredentialWireFrame.swift; sourceTree = "<group>"; };
 		495C9C6F4A1F8E32CA440106 /* MasterPasswordSetupProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordSetupProtocols.swift; sourceTree = "<group>"; };
 		4A006CEDAB4514FBA0EF3C3B /* MasterPasswordSetup+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "MasterPasswordSetup+DIResolver.swift"; sourceTree = "<group>"; };
 		4BB55F80B4A143D8A70C9B76 /* AddCardPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCardPresenter.swift; sourceTree = "<group>"; };
 		4BD5B27B9EC8D138B991620A /* AddCredentialInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCredentialInteractor.swift; sourceTree = "<group>"; };
 		4C1646A2E56A109CDD6CFDFA /* OneTimeCodePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodePresenter.swift; sourceTree = "<group>"; };
+		4F1F6CF1585E2D1B732030DD /* SSEnableBiometricAuthProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSEnableBiometricAuthProtocols.swift; sourceTree = "<group>"; };
 		4F65BFBA9B5994F9EC1C966D /* SSCredentialServicesWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSCredentialServicesWireFrame.swift; sourceTree = "<group>"; };
 		5989C7A8F4C19EFEF8572602 /* PINConfirmPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmPresenter.swift; sourceTree = "<group>"; };
 		620280662CA2DABFAB4D6D3A /* CardsWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardsWireFrame.swift; sourceTree = "<group>"; };
+		63D134A488791C3889D6010D /* SSEnableBiometricAuthViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSEnableBiometricAuthViewController.swift; sourceTree = "<group>"; };
 		64A45E515F4034EEC7E35495 /* AlbumsWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumsWireFrame.swift; sourceTree = "<group>"; };
 		64BE3F883BFDA66FDF3179FD /* StartScreenInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenInteractor.swift; sourceTree = "<group>"; };
 		68E3D86EE815630EBCEA1B2B /* Pods-SecurePlace2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2UITests.debug.xcconfig"; path = "Target Support Files/Pods-SecurePlace2UITests/Pods-SecurePlace2UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -520,6 +539,7 @@
 		881D60C8D3F3A7BD85424993 /* Cards+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Cards+DIResolver.swift"; sourceTree = "<group>"; };
 		92C56700715980E2F16CA97C /* PINSetupWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupWireFrame.swift; sourceTree = "<group>"; };
 		93BB0C26FAB2196109DE00FE /* PINConfirmWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmWireFrame.swift; sourceTree = "<group>"; };
+		98A49E1A372E4D5EA807B556 /* SSEnableBiometricAuth+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SSEnableBiometricAuth+DIResolver.swift"; sourceTree = "<group>"; };
 		A05D2D36E88BA4F0D71F02C9 /* CredentialsWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CredentialsWireFrame.swift; sourceTree = "<group>"; };
 		A0E2CBF447EA9442D3B2E02E /* PINConfirm+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PINConfirm+DIResolver.swift"; sourceTree = "<group>"; };
 		A1A7860EB2D82DE00933DB5E /* Gallery+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Gallery+DIResolver.swift"; sourceTree = "<group>"; };
@@ -527,6 +547,7 @@
 		AC260CED69AEF854A0BA777D /* Credentials+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Credentials+DIResolver.swift"; sourceTree = "<group>"; };
 		AD7A1955165F77E52006A391 /* MasterPasswordWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordWireFrame.swift; sourceTree = "<group>"; };
 		AE77B04CCB8E5E78710D002E /* PrivateKey+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PrivateKey+DIResolver.swift"; sourceTree = "<group>"; };
+		AE9DDA92F0A563778ACFE1F6 /* Preferences+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Preferences+DIResolver.swift"; sourceTree = "<group>"; };
 		AEE61D4D6413473FF9DE441E /* PrivateKeyProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivateKeyProtocols.swift; sourceTree = "<group>"; };
 		AF05D0BD56F5659D744E0C53 /* CardsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardsPresenter.swift; sourceTree = "<group>"; };
 		AFFA5455CE1D6B293320BA52 /* SSPasswordGeneratorPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorPresenter.swift; sourceTree = "<group>"; };
@@ -697,6 +718,7 @@
 		B120157124716266000A58DA /* CredentialsRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsRealmModel.swift; sourceTree = "<group>"; };
 		B120157324716AC1000A58DA /* CredentialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialModel.swift; sourceTree = "<group>"; };
 		B1201575247209AE000A58DA /* CredentialLocalProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialLocalProvider.swift; sourceTree = "<group>"; };
+		B12015772472B563000A58DA /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		B12165652434CCAB009ABEBC /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12165682434CCB2009ABEBC /* AssetsPickerViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AssetsPickerViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A591E242F8A4A000A1F7C /* SSPlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPlusButton.swift; sourceTree = "<group>"; };
@@ -819,6 +841,7 @@
 		B4D00803CB050E5D6CC24299 /* SSCredentialServicesPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSCredentialServicesPresenter.swift; sourceTree = "<group>"; };
 		BBC0D4028B3F29B2CCE35030 /* MasterPasswordInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordInteractor.swift; sourceTree = "<group>"; };
 		BBE2028430FA676BF3EFD506 /* Pods-SecurePlace2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2Tests.release.xcconfig"; path = "Target Support Files/Pods-SecurePlace2Tests/Pods-SecurePlace2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		BCA3D0B39639020B9BE888B9 /* PreferencesProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesProtocols.swift; sourceTree = "<group>"; };
 		BE93E2E7EEAFFB8CC1687A0E /* AlbumsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		BF4B251FDC0E79BF0B10B070 /* Authorisation+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Authorisation+DIResolver.swift"; sourceTree = "<group>"; };
 		C253706405BC8FEAB65E312C /* AddCredentialPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCredentialPresenter.swift; sourceTree = "<group>"; };
@@ -833,14 +856,17 @@
 		D837AC1A11F6C5921454E648 /* PINSetupInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINSetupInteractor.swift; sourceTree = "<group>"; };
 		D88C3798F229E81F0D07EB45 /* SSAddCardWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSAddCardWireFrame.swift; sourceTree = "<group>"; };
 		D97CC00F21A29894421BF8E1 /* StartScreenProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenProtocols.swift; sourceTree = "<group>"; };
+		DB2C33DDFDFB26DC591CCE9E /* SSEnableBiometricAuthInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSEnableBiometricAuthInteractor.swift; sourceTree = "<group>"; };
 		DDF5A9286D6D0B3587DB80FF /* AddCardViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		DF9EA79564F5F41566D6E92A /* OneTimeCodeWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OneTimeCodeWireFrame.swift; sourceTree = "<group>"; };
 		E1B233BB11A8E4D81AF96798 /* GalleryPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryPresenter.swift; sourceTree = "<group>"; };
 		E2B29CE259CA3FD6F94ECF70 /* SSPasswordGeneratorProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorProtocols.swift; sourceTree = "<group>"; };
 		E2BC0E359A4022EE849A3C44 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
+		E3BF4009CC9EE8078DD94DCA /* PreferencesPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesPresenter.swift; sourceTree = "<group>"; };
 		E465C69D1F235097E49F6F1D /* GalleryWireFrame.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryWireFrame.swift; sourceTree = "<group>"; };
 		E5F18C6C808FDD9C03CEDB23 /* MasterPasswordPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterPasswordPresenter.swift; sourceTree = "<group>"; };
 		EA97D81FD2EAEBAC33B7AF2B /* Albums+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Albums+DIResolver.swift"; sourceTree = "<group>"; };
+		F01DD0813B9AEE5A6C7D4C1A /* PreferencesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		F428F5F20A090657AC082F5F /* AddCardProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddCardProtocols.swift; sourceTree = "<group>"; };
 		F4C2930347EA014324ABF516 /* PINConfirmViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmViewController.swift; sourceTree = "<group>"; };
 		F73E2441FF0FC51C919A15ED /* AlbumsInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AlbumsInteractor.swift; sourceTree = "<group>"; };
@@ -852,6 +878,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12015792472B56D000A58DA /* LocalAuthentication.framework in Frameworks */,
 				45D1467ED0D5124E59183A67 /* libPods-SecurePlace2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1028,6 +1055,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		2B6F225445C71F4DC37451CF /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				350D25A3517938332E03562F /* PreferencesWireFrame.swift */,
+			);
+			path = WireFrame;
+			sourceTree = "<group>";
+		};
 		2D54A3A0874E7602DAE0E72C /* MasterPasswordSetup */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,6 +1113,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		34F90C1B939E2492ADE7DABA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E3BF4009CC9EE8078DD94DCA /* PreferencesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		36BD282080BE89D01CE43143 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1092,6 +1135,14 @@
 				298D36C1FE93007EAE9D1D91 /* SSPasswordGeneratorViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3B45C876BC0B08275C627708 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BCA3D0B39639020B9BE888B9 /* PreferencesProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		40CE7B4CF7F9AD9D20EFAD7A /* WireFrame */ = {
@@ -1160,6 +1211,14 @@
 				AA51AF03C8DB6ACD3F0A318B /* WireFrame */,
 			);
 			path = CredentialServices;
+			sourceTree = "<group>";
+		};
+		516A86497DD29EBEDA014B15 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2B8226BBD8B20398A0045592 /* SSEnableBiometricAuthPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		52FA730CAFD69C40EB694FDA /* Protocols */ = {
@@ -1242,6 +1301,19 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		708304771427E1ED8A103CFB /* EnableBiometricAuth */ = {
+			isa = PBXGroup;
+			children = (
+				B852613ED89FF544582D0AF8 /* View */,
+				516A86497DD29EBEDA014B15 /* Presenter */,
+				C1466D595911D8E1E051B0C4 /* Interactor */,
+				CB9F94D0237A38D176009C60 /* Protocols */,
+				87DBC7396077E1B568685099 /* WireFrame */,
+				98A49E1A372E4D5EA807B556 /* SSEnableBiometricAuth+DIResolver.swift */,
+			);
+			path = EnableBiometricAuth;
+			sourceTree = "<group>";
+		};
 		70A9314DF13DD61D483E1804 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -1311,6 +1383,14 @@
 				B15A66BD244F8AC2001CEAD4 /* CardCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		87DBC7396077E1B568685099 /* WireFrame */ = {
+			isa = PBXGroup;
+			children = (
+				4495676D0A92E1E3CB2D1667 /* SSEnableBiometricAuthWireFrame.swift */,
+			);
+			path = WireFrame;
 			sourceTree = "<group>";
 		};
 		8820FDDF486112BCA3A5EF9D /* Interactor */ = {
@@ -1401,12 +1481,28 @@
 			path = PINConfirm;
 			sourceTree = "<group>";
 		};
+		A40E7211C6F03D0F39AF3305 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F01DD0813B9AEE5A6C7D4C1A /* PreferencesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A4F1BD72AE4A0EB6F0E7F5B6 /* WireFrame */ = {
 			isa = PBXGroup;
 			children = (
 				20CFE2B473FCD2B93D17573E /* SSPasswordGeneratorWireFrame.swift */,
 			);
 			path = WireFrame;
+			sourceTree = "<group>";
+		};
+		A5A8E56A8C21611BB581BAEB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2BF6F350DAF666304D364FF6 /* PreferencesInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		AA51AF03C8DB6ACD3F0A318B /* WireFrame */ = {
@@ -1420,6 +1516,7 @@
 		AAA29B9C791425088122CDA5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B12015772472B563000A58DA /* LocalAuthentication.framework */,
 				B11D25282434E76B0091D0CA /* Pods */,
 				B176FB322434DD9F00B0F23E /* SnapKit.framework */,
 				B12165682434CCB2009ABEBC /* AssetsPickerViewController.framework */,
@@ -2243,6 +2340,7 @@
 				B11ECCAB225B42E700B2CC4E /* Info.plist */,
 				B181EBC92268EC5600DF8FE3 /* SecurePlace2-Bridging-Header.h */,
 				B15C13FC245CF81300D3987C /* Resources */,
+				708304771427E1ED8A103CFB /* EnableBiometricAuth */,
 			);
 			path = SecurePlace2;
 			sourceTree = "<group>";
@@ -2351,6 +2449,7 @@
 				2AF7DC9FF650C345FCF637C7 /* CredentialServices+DIResolver.swift */,
 				23C2ED070E24D9218FB655B9 /* AddCredential+DIResolver.swift */,
 				33FAA921D8D0BE4839012C29 /* PasswordGenerator+DIResolver.swift */,
+				AE9DDA92F0A563778ACFE1F6 /* Preferences+DIResolver.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -2802,6 +2901,7 @@
 				B1B9A756243569AA005C8957 /* AlbumsTab */,
 				B1C6DB82245C22AC0064742E /* CardsTab */,
 				B10763AE246DA1E500DA492D /* Credentials */,
+				FEC7DFEDA6F2F622D5F00127 /* Preferences */,
 				B1621AA5234D02B8008F6AC3 /* Authorisation.product */,
 			);
 			path = Modules;
@@ -2861,12 +2961,28 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		B852613ED89FF544582D0AF8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63D134A488791C3889D6010D /* SSEnableBiometricAuthViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BFC0ADA57C5870FCEC981753 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				0A59D1D970570823632684BE /* OneTimeCodeProtocols.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C1466D595911D8E1E051B0C4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				DB2C33DDFDFB26DC591CCE9E /* SSEnableBiometricAuthInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		C672F0D84B19A0404F76BDD8 /* View */ = {
@@ -2891,6 +3007,14 @@
 				BBC0D4028B3F29B2CCE35030 /* MasterPasswordInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CB9F94D0237A38D176009C60 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4F1F6CF1585E2D1B732030DD /* SSEnableBiometricAuthProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		CF3572BC62352A40F80EED4E /* Protocols */ = {
@@ -3097,6 +3221,18 @@
 				6FCD202585219A541C086EE7 /* SSCardsInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FEC7DFEDA6F2F622D5F00127 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				A40E7211C6F03D0F39AF3305 /* View */,
+				34F90C1B939E2492ADE7DABA /* Presenter */,
+				A5A8E56A8C21611BB581BAEB /* Interactor */,
+				3B45C876BC0B08275C627708 /* Protocols */,
+				2B6F225445C71F4DC37451CF /* WireFrame */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3748,6 +3884,18 @@
 				06F1479CE414FDA82B341207 /* PrivateKeyProtocols.swift in Sources */,
 				F70986B497554D69E9209450 /* PrivateKeyWireFrame.swift in Sources */,
 				AA29C553823674DA93C24CD8 /* PrivateKey+DIResolver.swift in Sources */,
+				15077948B9D4B223FE252802 /* PreferencesViewController.swift in Sources */,
+				BED48B7B96138C74B2BAD4FE /* PreferencesPresenter.swift in Sources */,
+				5DFB456735665E5113213283 /* PreferencesInteractor.swift in Sources */,
+				A00F12864C93399A2D106785 /* PreferencesProtocols.swift in Sources */,
+				56099EAFF0EFB421EB3FEEFF /* PreferencesWireFrame.swift in Sources */,
+				7C37146AEA102F2EA1B0AA72 /* Preferences+DIResolver.swift in Sources */,
+				6850305C4779B823F06657A5 /* SSEnableBiometricAuthViewController.swift in Sources */,
+				20C9F738BBE2A9C3C46A63DB /* SSEnableBiometricAuthPresenter.swift in Sources */,
+				FFA01EF8FF5B339A7BB30A2F /* SSEnableBiometricAuthInteractor.swift in Sources */,
+				48C8B8ECF0C0031EBBBA0A81 /* SSEnableBiometricAuthProtocols.swift in Sources */,
+				BE49AB8366FE56A1F2A1DFD9 /* SSEnableBiometricAuthWireFrame.swift in Sources */,
+				1F92BD490A3622C758D3ED20 /* SSEnableBiometricAuth+DIResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

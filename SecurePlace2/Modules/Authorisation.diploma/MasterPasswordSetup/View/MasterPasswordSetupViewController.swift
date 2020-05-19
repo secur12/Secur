@@ -86,6 +86,14 @@ class MasterPasswordSetupViewController: BaseScrollViewController, UITextFieldDe
     }
 }
 extension MasterPasswordSetupViewController: MasterPasswordSetupViewProtocol {
+    func setupChangeTypeOldMasterPassword() {
+        masterPasswordSetupDescription.text = "Type your current Master password"
+    }
+
+    func setupChangeTypeNewMasterPassword() {
+        masterPasswordSetupDescription.text = "Good, now type your new Master password. \n You will use it every time, when you open the app.\nYou must remember it!"
+    }
+
     func passwordNotComplex() {
         self.masterPasswordTextField.text = ""
         showOkAlertController(title: "Try gain", message: "Password is not too complex.\n Try password with length more than 7 characters")

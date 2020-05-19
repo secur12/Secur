@@ -55,6 +55,7 @@ extension PrivateKeyPresenter: PrivateKeyPresenterProtocol {
             keychain[data: "privateKeyDecryptedData"] = privateKeyDecryptedData
             let defaults = UserDefaults.standard
             defaults.set(true, forKey: "appSetupProcessFinished")
+            defaults.set(false, forKey: "biometricsAuthEnabled")
 
             self.wireFrame.switchToTabBar(from: self.view)
         } catch {

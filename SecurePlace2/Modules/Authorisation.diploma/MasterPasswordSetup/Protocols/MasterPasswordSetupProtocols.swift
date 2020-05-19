@@ -11,12 +11,15 @@ import UIKit
 protocol MasterPasswordSetupViewProtocol: class {
     func setupLaunchInputTexts()
     func setupSetupMasterTexts()
+    func setupChangeTypeNewMasterPassword()
+    func setupChangeTypeOldMasterPassword()
     func passwordNotComplex()
     func showOkAlertController(title: String?, message: String?, callback: (() -> Void)?)
 }
 
 protocol MasterPasswordSetupWireFrameProtocol: class {
     func switchToPrivateKey(from view: MasterPasswordSetupViewProtocol?, password: String)
+    func switchToTypeNewMasterPassword(from view: MasterPasswordSetupViewProtocol?, oldMasterPassword: String)
     func switchToTabBar(from view: MasterPasswordSetupViewProtocol?)
 }
 

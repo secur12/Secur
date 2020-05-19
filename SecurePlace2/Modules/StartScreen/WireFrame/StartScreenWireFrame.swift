@@ -16,7 +16,7 @@ class StartScreenWireFrame: BaseWireFrame, StartScreenWireFrameProtocol {
 //    }
     func presentMasterPassword(from view: StartScreenViewProtocol?) {
         guard let fromView = view as? UIViewController else { return }
-        let controller = self.resolver.presentMasterPasswordViewController(type: .setupMasterPass)
+        let controller = self.resolver.presentMasterPasswordViewController(type: .setupMasterPass, oldMasterPassword: nil)
         fromView.navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -71,9 +71,9 @@ class CardCell: UITableViewCell {
         container.addSubview(self.paymentSystemBackgroundLogo)
 
         container.snp.makeConstraints { (make) in
+            make.width.equalTo(341.withRatio())
             make.top.equalToSuperview()
-            make.left.equalToSuperview().offset(17.withRatio())
-            make.right.equalToSuperview().offset(-17.withRatio())
+            make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-17.withRatio())
         }
 
@@ -162,13 +162,13 @@ class CardCell: UITableViewCell {
         }
 
         cardHolderValue.textColor = UIColor.white
-        cardHolderValue.font = UIFont(name: "OCRAExtended", size: 23)
+        cardHolderValue.font = UIFont(name: "OCRAExtended", size: 18)
         cardHolderValue.snp.makeConstraints { (make) in
             make.top.equalTo(cardHolderLabel.snp.bottom).offset(4.withRatio())
+            make.right.equalTo(expiryDateValue.snp.right)
             make.left.equalTo((cardHolderLabel.snp.left))
             make.bottom.equalToSuperview().offset(-21.withRatio())
         }
-
     }
 
     private func makeShadow() {

@@ -62,5 +62,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>This app uses Face ID to aythenticate you, while logging into the app</string>
 </dict>
 </plist>

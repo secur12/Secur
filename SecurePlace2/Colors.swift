@@ -61,6 +61,10 @@ class Colors {
     static var plusButtonBorderBlue: UIColor {
         return UIColor.RGB(r: 56, g: 148, b: 247)
     }
+
+    static var lightBlurBackground: UIColor {
+         return UIColor.RGB(r: 239, g: 239, b: 244)
+    }
     
     static var deleteRedColor: UIColor {
         return UIColor.RGB(r: 255, g: 59, b: 48)

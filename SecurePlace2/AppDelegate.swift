@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             keychain[data: "privateKeyIV"] = nil
             keychain[data: "privateKeyDecryptedData"] = nil
             keychain[data: "realmKey"] = nil
+            defaults.set(nil, forKey: "biometricsAuthEnabled")
         } else {
             keychain[data: "realmKey"] = nil
             keychain[data: "privateKeyDecryptedData"] = nil
@@ -45,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(keychain[data: "privateKeyCrypted"] != nil &&
            keychain[data: "privateKeySalt"] != nil &&
            keychain[data: "privateKeyIV"] != nil) {
-            startController = resolver.presentMasterPasswordViewController(type: .launchInput)
+            startController = resolver.presentMasterPasswordViewController(type: .launchInput, oldMasterPassword: nil)
         } else {
             startController = UINavigationController( rootViewController: resolver.presentStartScreenViewController())//BaseTabBarController(resolver: resolver)
         }

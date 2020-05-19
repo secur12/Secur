@@ -60,7 +60,7 @@ extension BaseTabBarController {
         credentialsButton.tag = 3
         credentialsController.tabBarItem = credentialsButton
         
-        let settingsController = UINavigationController(rootViewController: UIViewController())
+        let settingsController = UINavigationController(rootViewController: resolver.presentPreferencesViewController())
         let settingsButton = UITabBarItem.init(title: "Settings", image: UIImage(systemName: "gear"), selectedImage: UIImage(systemName: "gear"))
         settingsButton.tag = 4
         settingsController.tabBarItem = settingsButton

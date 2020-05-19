@@ -29,4 +29,10 @@ extension MasterPasswordSetupWireFrame: MasterPasswordSetupWireFrameProtocol {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = startScreenController
     }
+
+    func switchToTypeNewMasterPassword(from view: MasterPasswordSetupViewProtocol?, oldMasterPassword: String) {
+        guard let fromView = view as? UIViewController else { return }
+        let viewController = self.resolver.presentMasterPasswordViewController(type: .changeTypeNewMasterPassword, oldMasterPassword: oldMasterPassword)
+        fromView.navigationController?.pushViewController(viewController, animated: true)
+    }
 }

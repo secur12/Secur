@@ -13,6 +13,7 @@ import Foundation
 class AddCredentialViewController: BaseViewController {
 
     var presenter: AddCredentialPresenterProtocol!
+    
     private var topSeparator: UIView = UIView()
 
     private var nameLabel: UILabel = UILabel()

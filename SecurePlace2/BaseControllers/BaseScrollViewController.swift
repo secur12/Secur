@@ -144,6 +144,10 @@ class BaseScrollViewController: BaseViewController {
             }
         }
     }
+
+    func addToScroll(_ view: UIView) {
+        formContainerStackView.addArrangedSubview(view)
+    }
     
 }
 
