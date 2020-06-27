@@ -13,12 +13,10 @@ protocol Randomizer {
     static func randomSalt() -> Data
     static func randomData(length: Int) -> Data
 }
-
 protocol Crypter {
     func encrypt(_ digest: Data) throws -> Data
     func decrypt(_ encrypted: Data) throws -> Data
 }
-
 struct AES256Crypter {
 
     private var key: Data
@@ -42,24 +40,36 @@ struct AES256Crypter {
         case badInputVectorLength
     }
 
-    private func crypt(input: Data, operation: CCOperation) throws -> Data {
+    private func perormCryptingOperation(input: Data, operation: CCOperation) throws -> Data {
         var outLength = Int(0)
         var outBytes = [UInt8](repeating: 0, count: input.count + kCCBlockSizeAES128)
         var status: CCCryptorStatus = CCCryptorStatus(kCCSuccess)
         input.withUnsafeBytes { (encryptedBytes: UnsafePointer<UInt8>!) -> Void in
             iv.withUnsafeBytes { (ivBytes: UnsafePointer<UInt8>!) in
                 key.withUnsafeBytes { (keyBytes: UnsafePointer<UInt8>!) -> Void in
-                    status = CCCrypt(operation,
-                                     CCAlgorithm(kCCAlgorithmAES128),            // algorithm
-                        CCOptions(kCCOptionPKCS7Padding),           // options
-                        keyBytes,                                   // key
-                        key.count,                                  // keylength
-                        ivBytes,                                    // iv
-                        encryptedBytes,                             // dataIn
-                        input.count,                                // dataInLength
-                        &outBytes,                                  // dataOut
-                        outBytes.count,                             // dataOutAvailable
-                        &outLength)                                 // dataOutMoved
+                    status = CCCrypt(
+                        operation,
+                        //[1] Defines the basic operation: Encrypt or Decrypt
+                        CCAlgorithm(kCCAlgorithmAES128),
+                        //[2] Defines the algorithm (now - AES with 128 bits block length)
+                        CCOptions(kCCOptionPKCS7Padding),
+                        //[3] Defines the padding to use
+                        keyBytes,
+                        //[4] Key data
+                        key.count,
+                        //[5] Key length
+                        ivBytes,
+                        //[6] Initialize vector data
+                        encryptedBytes,
+                        //[7] Data to process (encrypt/decrypt) 
+                        input.count,
+                        //[8] Length of data to process
+                        &outBytes,
+                        //[9] Data output memory location. Result is written here
+                        outBytes.count,
+                        //[10] The size of the data output buffer in bytes
+                        &outLength)
+                        //[11] On successful return, the number of bytes written to data output
                 }
             }
         }
@@ -70,20 +80,30 @@ struct AES256Crypter {
     }
 
     static func createKey(password: Data, salt: Data) throws -> Data {
-        let length = kCCKeySizeAES256
+        let length = kCCKeySizeAES256 // key length 256 bits
         var status = Int32(0)
         var derivedBytes = [UInt8](repeating: 0, count: length)
         password.withUnsafeBytes { (passwordBytes: UnsafePointer<Int8>!) in
             salt.withUnsafeBytes { (saltBytes: UnsafePointer<UInt8>!) in
-                status = CCKeyDerivationPBKDF(CCPBKDFAlgorithm(kCCPBKDF2),                  // algorithm
-                    passwordBytes,                                // password
-                    password.count,                               // passwordLen
-                    saltBytes,                                    // salt
-                    salt.count,                                   // saltLen
-                    CCPseudoRandomAlgorithm(kCCPRFHmacAlgSHA1),   // prf
-                    10000,                                        // rounds
-                    &derivedBytes,                                // derivedKey
-                    length)                                       // derivedKeyLen
+                status = CCKeyDerivationPBKDF(
+                    CCPBKDFAlgorithm(kCCPBKDF2),
+                    //[1] Defines key derivation algorithm (currently only PBKDF2 is available)
+                    passwordBytes,
+                    //[2] Text password
+                    password.count,
+                    //[3] The length of the text password in bytes
+                    saltBytes,
+                    //[4] Text salt
+                    salt.count,
+                    //[5] The length of the text salt in bytes
+                    CCPseudoRandomAlgorithm(kCCPRFHmacAlgSHA1),
+                    //[6] The Pseudo Random Algorithm to use for the derivation
+                    10000,
+                    //[7] Derivation rounds
+                    &derivedBytes,
+                    //[8] Final derived key memory location
+                    length)
+                    //[9] Derived output key length
             }
         }
         guard status == 0 else {
@@ -96,12 +116,12 @@ struct AES256Crypter {
 
 extension AES256Crypter: Crypter {
 
-    func encrypt(_ digest: Data) throws -> Data {
-        return try crypt(input: digest, operation: CCOperation(kCCEncrypt))
+    func encrypt(_ decrypted: Data) throws -> Data {
+        return try perormCryptingOperation(input: decrypted, operation: CCOperation(kCCEncrypt))
     }
 
     func decrypt(_ encrypted: Data) throws -> Data {
-        return try crypt(input: encrypted, operation: CCOperation(kCCDecrypt))
+        return try perormCryptingOperation(input: encrypted, operation: CCOperation(kCCDecrypt))
     }
 
 }
@@ -124,5 +144,4 @@ extension AES256Crypter: Randomizer {
         assert(status == Int32(0))
         return data
     }
-
 }

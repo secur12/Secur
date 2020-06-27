@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct CredentialModel {
+public struct CredentialModel: Equatable {
 
     let id: Int
     let serviceLogoImageTitle: String

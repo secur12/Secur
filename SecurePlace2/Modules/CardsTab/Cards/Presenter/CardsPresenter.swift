@@ -13,7 +13,7 @@ class CardsPresenter: BasePresenter {
     weak var view: CardsViewProtocol?
     private var wireFrame: CardsWireFrameProtocol
     private var interactor: CardsInteractorProtocol
-    private var provider = CardsDataProvider(realmWrapper: RealmWrapper())
+    private var provider = CardsLocalProvider(realmWrapper: RealmWrapper())
 
     init(view: CardsViewProtocol, wireFrame: CardsWireFrameProtocol, interactor: CardsInteractorProtocol) {
         self.view = view

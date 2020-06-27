@@ -32,3 +32,7 @@ protocol AlbumsInteractorProtocol: class {
     func deleteAlbum(_ album: AlbumModel, completion: (([AlbumModel]?) -> Void)?)
     func getAlbums(_ completion: (([AlbumModel]?, Error?) -> Void)?)
 }
+
+
+
+

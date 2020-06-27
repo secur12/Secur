@@ -18,4 +18,9 @@ class AddCredentialWireFrame: BaseWireFrame {
 
 extension AddCredentialWireFrame: AddCredentialWireFrameProtocol {
 
+    func presentPasswordGenerator(view: AddCredentialViewProtocol?) {
+        guard let fromView = view as? UIViewController else { return }
+        let viewController = self.resolver.presentPasswordGeneratorViewController()
+        fromView.navigationController?.pushViewController(viewController, animated: true)
+    }
 }

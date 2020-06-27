@@ -23,6 +23,11 @@ class AddCredentialPresenter: BasePresenter {
 
 extension AddCredentialPresenter: AddCredentialPresenterProtocol {
 
+    func didClickPasswordGeneratorButton() {
+        self.wireFrame.presentPasswordGenerator(view: self.view)
+    }
+
+
     func didClickEditButton(id: Int, name: String, serviceLogoTitle: String, service: String, username: String, password: String, urlPath: String) {
         let credentialModel = CredentialModel(id: id, serviceLogoImageTitle: serviceLogoTitle, serviceTitleLabel: name, usernameLabel: username, password: password, pathUrl: urlPath)
         provider.editCredential(credentialModel) { (isOk) in

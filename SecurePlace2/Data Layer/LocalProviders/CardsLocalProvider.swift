@@ -8,14 +8,15 @@
 
 import Foundation
 
-protocol CardsDataProviderProtocol {
+protocol CardsLocalProviderProtocol {
     func getCards(ofType: String, _ completion: (([CardModel]?, Error?) -> Void)?)
+    func getCard(id: Int, _ completion: ((CardModel?, Error?) -> Void)?)
     func deleteCard(_ card: CardModel, completion: (([CardModel]?) -> Void)?)
     func saveCard(_ card: CardModel, completion: ((CardModel?) -> Void)?)
     func editCard(_ card: CardModel, completion: ((Bool?) -> Void)?)
 }
 
-class CardsDataProvider {
+class CardsLocalProvider {
 
     private let realmWrapper: RealmWrapper
 
@@ -24,7 +25,7 @@ class CardsDataProvider {
     }
 }
 
-extension CardsDataProvider: CardsDataProviderProtocol {
+extension CardsLocalProvider: CardsLocalProviderProtocol {
 
     func getCards(ofType: String, _ completion: (([CardModel]?, Error?) -> Void)?) {
         self.realmWrapper.readOperationAsync { (realm) in
@@ -48,6 +49,13 @@ extension CardsDataProvider: CardsDataProviderProtocol {
         } else {
             completion?(nil, NSError())
         }
+        }
+    }
+
+    func getCard(id: Int, _ completion: ((CardModel?, Error?) -> Void)?) {
+        self.realmWrapper.readOperationAsync { (realm) in
+            let rlmObject = realm.object(ofType: CardRealmModel.self, forPrimaryKey: id)
+            completion?(rlmObject?.getModel(), nil)
         }
     }
 

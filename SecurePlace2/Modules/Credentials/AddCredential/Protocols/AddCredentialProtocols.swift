@@ -14,12 +14,15 @@ protocol AddCredentialViewProtocol: class {
     func popViewController()
 }
 
-protocol AddCredentialWireFrameProtocol: class { }
+protocol AddCredentialWireFrameProtocol: class {
+    func presentPasswordGenerator(view: AddCredentialViewProtocol?)
+}
 
 protocol AddCredentialPresenterProtocol: class {
     
     func didClickActionButton(name: String, serviceLogoTitle: String, service: String, username: String, password: String, urlPath: String)
     func didClickEditButton(id: Int, name: String, serviceLogoTitle: String, service: String, username: String, password: String, urlPath: String)
+    func didClickPasswordGeneratorButton()
 }
 
 protocol AddCredentialInteractorProtocol: class { }

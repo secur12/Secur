@@ -49,7 +49,7 @@
 		6850305C4779B823F06657A5 /* SSEnableBiometricAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D134A488791C3889D6010D /* SSEnableBiometricAuthViewController.swift */; };
 		68B37E41E8D3B2E77BB9ED21 /* MasterPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0D4028B3F29B2CCE35030 /* MasterPasswordInteractor.swift */; };
 		6CF2B58EEA08A728686216B7 /* PINConfirmPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5989C7A8F4C19EFEF8572602 /* PINConfirmPresenter.swift */; };
-		709BFFE6926E253E08234E7E /* SSPasswordGeneratorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA5455CE1D6B293320BA52 /* SSPasswordGeneratorPresenter.swift */; };
+		709BFFE6926E253E08234E7E /* PasswordGeneratorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFA5455CE1D6B293320BA52 /* PasswordGeneratorPresenter.swift */; };
 		74CA312BC2EC899B09A53366 /* MasterPasswordSetup+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A006CEDAB4514FBA0EF3C3B /* MasterPasswordSetup+DIResolver.swift */; };
 		75D9FECFE175B7D8EAE93E92 /* GalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C917972192D2AD4D1CDC2B38 /* GalleryInteractor.swift */; };
 		768652117A1344268A724508 /* GalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B233BB11A8E4D81AF96798 /* GalleryPresenter.swift */; };
@@ -220,6 +220,13 @@
 		B176FB362434DDE300B0F23E /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B181EBCD2268ED2000DF8FE3 /* AES256Crypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181EBCC2268ED2000DF8FE3 /* AES256Crypter.swift */; };
 		B181EBD022690E2000DF8FE3 /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181EBCF22690E2000DF8FE3 /* ReceiptManager.swift */; };
+		B18253CB2482D9910078D5FE /* MediaLocalProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18253C72482CFEA0078D5FE /* MediaLocalProviderTests.swift */; };
+		B18253CD2482E6540078D5FE /* AlbumsLocalProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18253CC2482E6540078D5FE /* AlbumsLocalProviderTests.swift */; };
+		B18253CF2482F2460078D5FE /* CredentialsLocalProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18253CE2482F2460078D5FE /* CredentialsLocalProviderTests.swift */; };
+		B18253D12482F7CB0078D5FE /* CardLocalProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18253D02482F7CB0078D5FE /* CardLocalProviderTests.swift */; };
+		B18253D3248310540078D5FE /* StrongPasswordGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18253D2248310540078D5FE /* StrongPasswordGeneratorTests.swift */; };
+		B18253D52483190B0078D5FE /* AES256CrypterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18253D42483190B0078D5FE /* AES256CrypterTests.swift */; };
+		B18253D724831CF90078D5FE /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18253D624831CF90078D5FE /* KeychainTests.swift */; };
 		B190682E233F8F6A0085BA59 /* SignInApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B190682D233F8F6A0085BA59 /* SignInApiRequest.swift */; };
 		B199857E23B6DCEA0064739D /* CheckOneTimeCodeApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B199857D23B6DCEA0064739D /* CheckOneTimeCodeApiResponseModel.swift */; };
 		B199858023B807CE0064739D /* NetworkProvider+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B199857F23B807CE0064739D /* NetworkProvider+Account.swift */; };
@@ -228,7 +235,7 @@
 		B1A253602341F39800593A2F /* SignUpPositiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A2535F2341F39800593A2F /* SignUpPositiveModel.swift */; };
 		B1AF91922265C52600FB22B8 /* GroceryListPendingTasksFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF91912265C52600FB22B8 /* GroceryListPendingTasksFactory.swift */; };
 		B1AF91942265C57700FB22B8 /* CreateGroceryListItemPendingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF91932265C57700FB22B8 /* CreateGroceryListItemPendingTask.swift */; };
-		B1C6DB7D245AF9A10064742E /* CardsDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6DB7C245AF9A10064742E /* CardsDataProvider.swift */; };
+		B1C6DB7D245AF9A10064742E /* CardsLocalProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C6DB7C245AF9A10064742E /* CardsLocalProvider.swift */; };
 		B1CFF71F225DC4330076C44C /* MailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFF715225DC4330076C44C /* MailPresenter.swift */; };
 		B1CFF720225DC4330076C44C /* MailWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFF717225DC4330076C44C /* MailWireFrame.swift */; };
 		B1CFF721225DC4330076C44C /* Mail+DIResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFF718225DC4330076C44C /* Mail+DIResolver.swift */; };
@@ -275,7 +282,7 @@
 		E38531F28AC78A1DDAA530B2 /* libPods-SecurePlace2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1584FA6551ABF93D2A41CE4A /* libPods-SecurePlace2Tests.a */; };
 		E7149A69DFEA6B5160626312 /* MasterPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F18C6C808FDD9C03CEDB23 /* MasterPasswordPresenter.swift */; };
 		EDFAFCE08E7E7EC13BE762AD /* SSCredentialServicesWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F65BFBA9B5994F9EC1C966D /* SSCredentialServicesWireFrame.swift */; };
-		EF1A5FC1BBFC12B3B75425AA /* SSPasswordGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D36C1FE93007EAE9D1D91 /* SSPasswordGeneratorViewController.swift */; };
+		EF1A5FC1BBFC12B3B75425AA /* PasswordGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298D36C1FE93007EAE9D1D91 /* PasswordGeneratorViewController.swift */; };
 		EF20FE5D9696FE99DCE91B40 /* SSCardsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FCD202585219A541C086EE7 /* SSCardsInteractor.swift */; };
 		F70986B497554D69E9209450 /* PrivateKeyWireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0C696728D627CB0F449111 /* PrivateKeyWireFrame.swift */; };
 		F9688AA35E070258F54706AC /* PrivateKeyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8E9916448062006E64BC43 /* PrivateKeyInteractor.swift */; };
@@ -493,7 +500,7 @@
 		23C2ED070E24D9218FB655B9 /* AddCredential+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AddCredential+DIResolver.swift"; sourceTree = "<group>"; };
 		2728036313B452DEAECF9F28 /* Pods-SecurePlace2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurePlace2.release.xcconfig"; path = "Target Support Files/Pods-SecurePlace2/Pods-SecurePlace2.release.xcconfig"; sourceTree = "<group>"; };
 		28B49036F589E177088EB2BE /* CredentialsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CredentialsPresenter.swift; sourceTree = "<group>"; };
-		298D36C1FE93007EAE9D1D91 /* SSPasswordGeneratorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorViewController.swift; sourceTree = "<group>"; };
+		298D36C1FE93007EAE9D1D91 /* PasswordGeneratorViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PasswordGeneratorViewController.swift; sourceTree = "<group>"; };
 		2A1E31C478FB7540379FBBE7 /* GalleryViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		2AF7DC9FF650C345FCF637C7 /* CredentialServices+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CredentialServices+DIResolver.swift"; sourceTree = "<group>"; };
 		2B8226BBD8B20398A0045592 /* SSEnableBiometricAuthPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSEnableBiometricAuthPresenter.swift; sourceTree = "<group>"; };
@@ -550,7 +557,7 @@
 		AE9DDA92F0A563778ACFE1F6 /* Preferences+DIResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Preferences+DIResolver.swift"; sourceTree = "<group>"; };
 		AEE61D4D6413473FF9DE441E /* PrivateKeyProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PrivateKeyProtocols.swift; sourceTree = "<group>"; };
 		AF05D0BD56F5659D744E0C53 /* CardsPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CardsPresenter.swift; sourceTree = "<group>"; };
-		AFFA5455CE1D6B293320BA52 /* SSPasswordGeneratorPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SSPasswordGeneratorPresenter.swift; sourceTree = "<group>"; };
+		AFFA5455CE1D6B293320BA52 /* PasswordGeneratorPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PasswordGeneratorPresenter.swift; sourceTree = "<group>"; };
 		B05FCAD1479C2C0B8F24C1CD /* PINConfirmProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PINConfirmProtocols.swift; sourceTree = "<group>"; };
 		B1116C2F2436196C002FEE09 /* GalleryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryDataSource.swift; sourceTree = "<group>"; };
 		B1116C4924362C5A002FEE09 /* README-KR.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "README-KR.md"; sourceTree = "<group>"; };
@@ -807,6 +814,13 @@
 		B181EBC92268EC5600DF8FE3 /* SecurePlace2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SecurePlace2-Bridging-Header.h"; sourceTree = "<group>"; };
 		B181EBCC2268ED2000DF8FE3 /* AES256Crypter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES256Crypter.swift; sourceTree = "<group>"; };
 		B181EBCF22690E2000DF8FE3 /* ReceiptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptManager.swift; sourceTree = "<group>"; };
+		B18253C72482CFEA0078D5FE /* MediaLocalProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLocalProviderTests.swift; sourceTree = "<group>"; };
+		B18253CC2482E6540078D5FE /* AlbumsLocalProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsLocalProviderTests.swift; sourceTree = "<group>"; };
+		B18253CE2482F2460078D5FE /* CredentialsLocalProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsLocalProviderTests.swift; sourceTree = "<group>"; };
+		B18253D02482F7CB0078D5FE /* CardLocalProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLocalProviderTests.swift; sourceTree = "<group>"; };
+		B18253D2248310540078D5FE /* StrongPasswordGeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrongPasswordGeneratorTests.swift; sourceTree = "<group>"; };
+		B18253D42483190B0078D5FE /* AES256CrypterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES256CrypterTests.swift; sourceTree = "<group>"; };
+		B18253D624831CF90078D5FE /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
 		B188999F2434C772006DD8C5 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B190682D233F8F6A0085BA59 /* SignInApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInApiRequest.swift; sourceTree = "<group>"; };
 		B199857D23B6DCEA0064739D /* CheckOneTimeCodeApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOneTimeCodeApiResponseModel.swift; sourceTree = "<group>"; };
@@ -816,7 +830,7 @@
 		B1A2535F2341F39800593A2F /* SignUpPositiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPositiveModel.swift; sourceTree = "<group>"; };
 		B1AF91912265C52600FB22B8 /* GroceryListPendingTasksFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListPendingTasksFactory.swift; sourceTree = "<group>"; };
 		B1AF91932265C57700FB22B8 /* CreateGroceryListItemPendingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroceryListItemPendingTask.swift; sourceTree = "<group>"; };
-		B1C6DB7C245AF9A10064742E /* CardsDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDataProvider.swift; sourceTree = "<group>"; };
+		B1C6DB7C245AF9A10064742E /* CardsLocalProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsLocalProvider.swift; sourceTree = "<group>"; };
 		B1CFF715225DC4330076C44C /* MailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailPresenter.swift; sourceTree = "<group>"; };
 		B1CFF717225DC4330076C44C /* MailWireFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailWireFrame.swift; sourceTree = "<group>"; };
 		B1CFF718225DC4330076C44C /* Mail+DIResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Mail+DIResolver.swift"; sourceTree = "<group>"; };
@@ -1132,7 +1146,7 @@
 		3A591C9F7C3BE41AAFFAAD7A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				298D36C1FE93007EAE9D1D91 /* SSPasswordGeneratorViewController.swift */,
+				298D36C1FE93007EAE9D1D91 /* PasswordGeneratorViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1420,7 +1434,7 @@
 		8BBE9C9E1DF902F942DA8453 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				AFFA5455CE1D6B293320BA52 /* SSPasswordGeneratorPresenter.swift */,
+				AFFA5455CE1D6B293320BA52 /* PasswordGeneratorPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -2348,6 +2362,13 @@
 		B11ECCB3225B42E700B2CC4E /* SecurePlace2Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B18253D624831CF90078D5FE /* KeychainTests.swift */,
+				B18253D42483190B0078D5FE /* AES256CrypterTests.swift */,
+				B18253D2248310540078D5FE /* StrongPasswordGeneratorTests.swift */,
+				B18253D02482F7CB0078D5FE /* CardLocalProviderTests.swift */,
+				B18253CE2482F2460078D5FE /* CredentialsLocalProviderTests.swift */,
+				B18253CC2482E6540078D5FE /* AlbumsLocalProviderTests.swift */,
+				B18253C72482CFEA0078D5FE /* MediaLocalProviderTests.swift */,
 				B11ECCB4225B42E700B2CC4E /* SecurePlace2Tests.swift */,
 				B11ECCB6225B42E700B2CC4E /* Info.plist */,
 			);
@@ -2738,6 +2759,7 @@
 			children = (
 				B190682D233F8F6A0085BA59 /* SignInApiRequest.swift */,
 				B1FBF20F233EB86E00B7F069 /* SignUpApiRequest.swift */,
+				B1FBF202233E82CC00B7F069 /* NetworkProvider+Auth.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -2826,7 +2848,7 @@
 			children = (
 				B133176824559FDF00D36DAE /* AlbumLocalProvider.swift */,
 				B133177024562B9000D36DAE /* MediaLocalProvider.swift */,
-				B1C6DB7C245AF9A10064742E /* CardsDataProvider.swift */,
+				B1C6DB7C245AF9A10064742E /* CardsLocalProvider.swift */,
 				B1201575247209AE000A58DA /* CredentialLocalProvider.swift */,
 			);
 			path = LocalProviders;
@@ -2929,7 +2951,6 @@
 		B1FBF206233EB33A00B7F069 /* NetworkRequestProviders */ = {
 			isa = PBXGroup;
 			children = (
-				B1FBF202233E82CC00B7F069 /* NetworkProvider+Auth.swift */,
 				B199857F23B807CE0064739D /* NetworkProvider+Account.swift */,
 			);
 			path = NetworkRequestProviders;
@@ -3733,7 +3754,7 @@
 				B155523F243CFAE0000E8CD0 /* FMPhotoPickerImageCollectionViewLayout.swift in Sources */,
 				B1127ED8225C95F20023D0AE /* NetworkTarget.swift in Sources */,
 				B155525C243CFAE0000E8CD0 /* FMPhotoAsset.swift in Sources */,
-				B1C6DB7D245AF9A10064742E /* CardsDataProvider.swift in Sources */,
+				B1C6DB7D245AF9A10064742E /* CardsLocalProvider.swift in Sources */,
 				B1127EDE225C97080023D0AE /* NetworkRequestProvider.swift in Sources */,
 				B11ECD19225B520C00B2CC4E /* BaseNavigationControllerInteractor.swift in Sources */,
 				B1555244243CFAE0000E8CD0 /* FMScalingImageView.swift in Sources */,
@@ -3859,8 +3880,8 @@
 				034C6A61BC13C2781EAAA047 /* AddCredentialProtocols.swift in Sources */,
 				DCD18211FE859384DD91E8CA /* AddCredentialWireFrame.swift in Sources */,
 				2CDEF08FFBB8D40C56FF0E1C /* AddCredential+DIResolver.swift in Sources */,
-				EF1A5FC1BBFC12B3B75425AA /* SSPasswordGeneratorViewController.swift in Sources */,
-				709BFFE6926E253E08234E7E /* SSPasswordGeneratorPresenter.swift in Sources */,
+				EF1A5FC1BBFC12B3B75425AA /* PasswordGeneratorViewController.swift in Sources */,
+				709BFFE6926E253E08234E7E /* PasswordGeneratorPresenter.swift in Sources */,
 				4880C5F4208783516CA81881 /* SSPasswordGeneratorInteractor.swift in Sources */,
 				B8FB1E3E771546F51C0479E1 /* SSPasswordGeneratorProtocols.swift in Sources */,
 				B13317672455997500D36DAE /* RealmWrapper.swift in Sources */,
@@ -3904,6 +3925,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B11ECCB5225B42E700B2CC4E /* SecurePlace2Tests.swift in Sources */,
+				B18253D52483190B0078D5FE /* AES256CrypterTests.swift in Sources */,
+				B18253D3248310540078D5FE /* StrongPasswordGeneratorTests.swift in Sources */,
+				B18253CF2482F2460078D5FE /* CredentialsLocalProviderTests.swift in Sources */,
+				B18253CB2482D9910078D5FE /* MediaLocalProviderTests.swift in Sources */,
+				B18253D724831CF90078D5FE /* KeychainTests.swift in Sources */,
+				B18253CD2482E6540078D5FE /* AlbumsLocalProviderTests.swift in Sources */,
+				B18253D12482F7CB0078D5FE /* CardLocalProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

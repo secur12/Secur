@@ -149,6 +149,7 @@ class AddCredentialViewController: BaseViewController {
         passwordGeneratorButton.clipsToBounds = true
         self.passwordGeneratorButton.setTitle("Strong password generator", for: .normal)
         passwordGeneratorButton.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        passwordGeneratorButton.addTarget(self, action: #selector(didClickPasswordGeneratorButton), for: .touchUpInside)
         passwordGeneratorButton.backgroundColor = Colors.brandBlue
         passwordGeneratorButton.snp.makeConstraints { (make) in
             make.left.equalTo(passwordTextField.snp.left)
@@ -184,6 +185,11 @@ class AddCredentialViewController: BaseViewController {
     func popViewController() {
         self.navigationController?.popViewController(animated: true)
     }
+
+    @objc func didClickPasswordGeneratorButton() {
+        self.presenter.didClickPasswordGeneratorButton()
+    }
+
 }
 
 extension AddCredentialViewController: AddCredentialViewProtocol {

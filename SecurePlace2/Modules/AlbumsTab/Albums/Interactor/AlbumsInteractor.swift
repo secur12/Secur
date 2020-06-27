@@ -13,6 +13,7 @@ class AlbumsInteractor: BaseInteractor {
 }
 
 extension AlbumsInteractor: AlbumsInteractorProtocol {
+
     func saveAlbum(_ album: AlbumModel, completion: ((AlbumModel?) -> Void)?) {
         self.dataProvider.saveAlbum(album, completion: completion)
     }
@@ -24,6 +25,6 @@ extension AlbumsInteractor: AlbumsInteractorProtocol {
     func getAlbums(_ completion: (([AlbumModel]?, Error?) -> Void)?) {
         self.dataProvider.getAlbums(completion)
     }
-
-
 }
+
+

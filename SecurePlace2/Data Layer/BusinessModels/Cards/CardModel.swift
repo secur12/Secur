@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public struct CardModel: Codable {
+public struct CardModel: Equatable {
 
     let id: Int
     let cardNumber: String

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public struct AlbumModel {
+public struct AlbumModel: Equatable {
     
     let id: Int
     let albumTitle: String
@@ -28,4 +28,3 @@ public struct AlbumModel {
         self.password = password
     }
 }
-

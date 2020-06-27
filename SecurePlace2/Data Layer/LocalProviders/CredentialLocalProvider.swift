@@ -9,6 +9,7 @@
 import Foundation
 
 protocol CredentialLocalProviderProtocol {
+    func getCredential(_ id: Int, completion: ((CredentialModel?, Error?) -> Void)?)
     func getCredentials(_ completion: (([CredentialModel]?, Error?) -> Void)?)
     func deleteCredential(_ credential: CredentialModel, completion: (([CredentialModel]?) -> Void)?)
     func saveCredential(_ credential: CredentialModel, completion: ((CredentialModel?) -> Void)?)
@@ -25,6 +26,13 @@ class CredentialLocalProvider {
 }
 
 extension CredentialLocalProvider: CredentialLocalProviderProtocol {
+
+    func getCredential(_ id: Int, completion: ((CredentialModel?, Error?) -> Void)?) {
+        self.realmWrapper.readOperationAsync { (realm) in
+            let rlmObject = realm.object(ofType: CredentialRealmModel.self, forPrimaryKey: id)
+            completion?(rlmObject?.getModel(), nil)
+        }
+    }
 
     func getCredentials(_ completion: (([CredentialModel]?, Error?) -> Void)?) {
         self.realmWrapper.readOperationAsync { (realm) in

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct MediaModel {
+struct MediaModel: Equatable {
 
     let id: Int
     let type: String
